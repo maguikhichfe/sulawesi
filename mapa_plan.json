@@ -3096,6 +3096,183 @@
       "estado": "implementado",
       "nota_completado": "Eliminados new_faults e hikmy_structs del panel S6 y SECTION_KEYS. Renombrado vel_s1 a Velocidades de placas y movido a S6. Movido canon_labels (Etiquetas) a S6. Renombrado tect_sub a Subducciones y tect_key a Fallas, ambos movidos a S6. Removidos de BASE_ALWAYS (ahora BASE_ALWAYS=[satellite,gebco_color]). SECTION_KEYS[1] eliminado. SECTION_KEYS[6]=[vel_s1,tect_key,tect_sub,canon_labels,palu_basin]. S7 activa solo ref_baillie.",
       "fecha_completado": "2026-06-08"
+    },
+    "fe_open_topo_src": {
+      "id": "fe_open_topo_src",
+      "desc": "Agregar boton de bibliografia (icono i) a la capa base OpenTopoMap + DB entry con fuentes OpenTopoMap, OSM y SRTM",
+      "estado": "implementado",
+      "nota_completado": "Agregado span ⓘ al toggle HTML (L276). Insertado DB['open_topo_src'] con papers: OpenTopoMap CC BY-SA, OSM ODbL, NASA SRTM. openPanel('open_topo_src') funciona via DB lookup estandar.",
+      "fecha_completado": "2026-06-11"
+    },
+    "fe_modularize_index": {
+      "id": "fe_modularize_index",
+      "desc": "Modularizar index.html (6238 lineas): separar <style> a css/styles.css y <script> a 5 archivos js/partN.js, sin reordenar codigo, para reducir tamano de archivo y facilitar lectura/edicion",
+      "estado": "implementado",
+      "nota_completado": "Split mecanico por orden (codigo original intercalado DATA/HELPERS/LAYERS/PANELS, sin separacion logica limpia posible sin reordenar con riesgo). Extraido: css/styles.css (199 lineas, L22-220 originales), js/part1-data-layers.js (1148L), js/part2-map-style.js (1165L, incluye creacion de map), js/part3-panels.js (1145L, panel functions + CANONICAL_DEBATES), js/part4-tools-init.js (1159L, DOMContentLoaded + SECTION_KEYS + draw tools), js/part5-tools-final.js (1174L, BIB_STATIC + drafts + keyboard handlers). Verificado: concatenacion byte-identica al original, node --check OK en las 5 partes, servido HTTP 200 con content-type correcto (text/css, text/javascript) via StaticFiles ya montado en backend/main.py. index.html bajo de 6238 a 246 lineas. Cortes elegidos en limites seguros de statement top-level.",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_s7_ofiolitas_toggle": {
+      "id": "fe_s7_ofiolitas_toggle",
+      "desc": "Agregar toggle dedicado \"Ofiolitas\" en S7 para canon_eso (East Sulawesi Ophiolite). Actualmente sin entrada en CANON_HOST_LAYER, cae a basinLayerVisible (flag de cuencas sedimentarias) en vez de tener control propio.",
+      "estado": "implementado",
+      "nota": "Requiere: (1) nuevo key en layerObjs ej. ofiolitas, (2) fila HTML en panel S7, (3) entrada canon_eso:'ofiolitas' en CANON_HOST_LAYER, (4) verificar CANON_LT_SECTION ophiolite ya apunta a [7] (correcto).",
+      "nota_completado": "Toggle Ofiolitas wireado: flag _ofiolitasVis + layerObjs.ofiolitas (js/part1-data-layers.js, js/part3-panels.js), CANON_HOST_LAYER[canon_eso]=ofiolitas, fila HTML en S7, SECTION_KEYS[7] incluye ofiolitas. Agregada entrada CANONICAL_DEBATES[canon_eso] (adopta + 1 debate sobre origen geoquimico). canon_eso en NULL pendiente de que el usuario defina merged_geom via fe_15.",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_s7_core_complex_toggle": {
+      "id": "fe_s7_core_complex_toggle",
+      "desc": "Agregar toggle dedicado \"Complejos metamorficos\" en S7 para canon_pmc (Palu Metamorphic Complex) y canon_csmb (Central Sulawesi Metamorphic Belt) -- las unicas dos que existen realmente en canonical_structures con layer_type=metamorphic_complex (verificado en sulawesi.db). canon_mmc/canon_mekongga_rumbia/canon_bantimala de la tabla vieja de CLAUDE.md NO existen en la DB real, se excluyen hasta que haya paper del corpus que las respalde.",
+      "estado": "implementado",
+      "nota": "Ambas ya tienen merged_geom definido por el usuario (verificado). Requiere: (1) nuevo key en layerObjs core_complexes, (2) fila HTML en panel S7, (3) entradas canon_pmc:'core_complexes', canon_csmb:'core_complexes' en CANON_HOST_LAYER, (4) remapear CANON_LT_SECTION metamorphic_complex de [8] a [7].",
+      "nota_completado": "Toggle Complejos metamorficos wireado: flag _coreComplexVis + layerObjs.core_complexes, CANON_HOST_LAYER para canon_pmc/canon_csmb/canon_mmc, fila HTML en S7, SECTION_KEYS[7] incluye core_complexes. CANON_LT_SECTION metamorphic_complex remapeado de [8] a [7] (huerfano, S8 no existe). Agregadas entradas CANONICAL_DEBATES para canon_pmc (incluye debate Baillie vs Satyana IAGI sobre timing), canon_csmb, canon_mmc. Los 3 canonicals en NULL pendientes de que el usuario defina merged_geom via fe_15.",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_nst_coupling_content": {
+      "id": "fe_nst_coupling_content",
+      "desc": "Agregar dato de acoplamiento sismico interseismic (coupling/locking) del NST al panel de canon_364, citando Greenfield et al. (2021). No es toggle nuevo, es contenido agregado al panel existente (DB/CANONICAL_DEBATES de canon_364) que explica el mecanismo detras del seismic gap ya visible en el mapa.",
+      "estado": "pendiente",
+      "nota": "Requiere extraer del PDF de Greenfield 2021 el valor/rango de coupling reportado para el NST antes de escribir el texto del panel (no inventar numero)."
+    },
+    "fe_ghost_merged_geom_cleanup": {
+      "id": "fe_ghost_merged_geom_cleanup",
+      "desc": "Auditoria de merged_geom sin respaldo: cruzar canonical_structures.merged_geom IS NOT NULL contra COUNT(geo_features) por canonical. Encontrado y corregido: canon_1929 (Sorong Fault System - Ramal Sur) tenia merged_geom + host_layer tect_key + kinematica CANON_KIN, pero 0 geo_features y 0 entradas en CANONICAL_DEBATES/DB -- violaba regla de cita obligatoria.",
+      "estado": "implementado",
+      "nota_completado": "UPDATE canonical_structures SET merged_geom=NULL WHERE id='canon_1929'. Verificado: era el unico caso en las 51 canonicals con merged_geom (los otros 50 tienen >=1 geo_feature de respaldo). canon_1929 deja de renderizarse en mergedGeomLayer hasta que un paper del corpus aporte una traza digitalizada del ramal sur de Sorong.",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_godang_cleanup": {
+      "id": "fe_godang_cleanup",
+      "desc": "Limpieza de residuos huerfanos del source godang2025_adang_makassar (paper de geoquimica descartado del corpus, pero nunca se completo la limpieza: quedaron 3 geo_features en sulawesi.db, el geojson en fuentes/, y canon_basin_mak dependia de su unica feature).",
+      "estado": "implementado",
+      "nota_completado": "DELETE FROM geo_features WHERE source='godang2025_adang_makassar' (3 filas: Adang Volcanic Complex sin canonical, Makassar Strait Basin -> canon_basin_mak, drill core point sin canonical). UPDATE canonical_structures SET merged_geom=NULL WHERE id='canon_basin_mak' (se queda sin fuente citable, reincorporado despues con cita real de Baillie 2022 (ver fe_makassar_strait_digitize)). Borrado fuentes/godang2025_adang_makassar.geojson. Removida entrada canon_basin_mak de CANON_NOMBRE_ES en js/part3-panels.js (no tenia host_layer ni debate panel, quedaba huerfana). Bahias queda en 2 canonicals: canon_basin_bone + canon_basin_gorontalo.",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_makassar_strait_digitize": {
+      "id": "fe_makassar_strait_digitize",
+      "desc": "Digitalizar Estrecho de Makassar como basin citable, reemplazando la cita borrada de Godang (descartada por geoquimica). Fuente real: Baillie & Decker (2022) p.6 y p.20, describen el Estrecho como rift continental fallido del Eoceno Temprano, comprimido en el Plioceno.",
+      "estado": "implementado",
+      "nota_completado": "Insertado geo_feature id=393 (source=baillie_2022_sulawesi, layer_type=basin, Point [118.2094,1.5339], canonical_id=canon_basin_mak). Coordenada leida sobre la etiqueta 'NORTH MAKASSAR BASIN' en Fig.2 calibrada (ref_baillie, bbox georef_extents.json), transformacion lineal pixel->lonlat, coord_quality=approximate. project_state.json baillie_2022.features_en_db 26->27. Restaurada entrada canon_basin_mak en CANON_NOMBRE_ES (js/part3-panels.js) = 'Estrecho de Makassar'. Pendiente: usuario debe resolver merged_geom via fe_15 ahora que existe 1 feature candidata (antes 0).",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_restore_deleted_ui_panels": {
+      "id": "fe_restore_deleted_ui_panels",
+      "desc": "Restaurar 100 lineas de HTML borradas por error en commit 78dbbe1 (2026-06-08, edicion manual via GitHub, sin tocar JS): georef-hud, modo edicion, mgdraw-modal+mgdraw-controls (fe_15), profile-draw-panel+profile-add-panel, profile-label-editor, crop-modal. El JS de las 5 herramientas seguia intacto en js/part4-tools-init.js y js/part5-tools-final.js, apuntando a IDs inexistentes en el HTML.",
+      "estado": "implementado",
+      "nota_completado": "Recuperado el bloque exacto desde git show 6c77684:mapa/index.html (ultima version con el HTML presente) e insertado en index.html actual, antes de los <script src> (logica idéntica, solo cambia la posicion relativa a los scripts ahora externos tras la modularizacion). Ademas se encontro que el boton real para abrir mgdraw-modal (id=mgdraw-btn) NUNCA existio en el HTML en ningun commit del historial -- solo su CSS y el JS que le cambia la clase active. Se agrego el boton nuevo dentro de #lp (panel de capas), al final, con onclick=openMgDrawModal(). Verificado: index.html sirve 200, contiene mgdraw-btn y mgdraw-modal. PENDIENTE: profile-draw-panel y crop-modal tampoco tienen un boton de apertura confirmado en ningun commit -- requieren la misma investigacion/fix que mgdraw-btn si se necesitan usar.",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_ghost_geom_eso_pmc_reset": {
+      "id": "fe_ghost_geom_eso_pmc_reset",
+      "desc": "Nulificar merged_geom de canon_eso y canon_pmc (geometria vieja nunca verificada visualmente por bug basinLayerVisible) para forzar redefinicion real via fe_15 antes de cablear los toggles Ofiolitas/Complejos metamorficos. canon_csmb no se toca (1 sola feature candidata, sin ambiguedad).",
+      "estado": "implementado",
+      "nota_completado": "UPDATE canonical_structures SET merged_geom=NULL WHERE id IN (canon_eso, canon_pmc). Verificado: ambos en NULL, canon_csmb intacto. Apareceran en el panel mgdraw (boton Definir geometrias canonicas) para que el usuario las redefina contra las figuras candidatas (Baillie 2022, Faturrakhman 2024, Husein 2014, Surono 2012 para ESO; Baillie 2022, Satyana IAGI 2011 para PMC).",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_satyana_iagi_ref_fix": {
+      "id": "fe_satyana_iagi_ref_fix",
+      "desc": "SOURCE_TO_REFS (js/part5-tools-final.js) mapeaba satyana_2011_iagi_evolution a ref_satyana_ipa -- figura calibrada de un paper distinto (IPA en vez de IAGI). Detectado por el usuario al ver la candidata de PMC en el panel mgdraw: mostraba la figura equivocada.",
+      "estado": "implementado",
+      "nota_completado": "satyana_2011_iagi_evolution -> [] (sin ref hasta calibrar su propia figura, en vez de mostrar la de otro paper). Verificado node --check OK. Afecta candidatas de canon_pmc, canon_nsarc, canon_wsip, canon_basin_bone, canon_basin_gorontalo en el panel mgdraw -- ya no muestran figura incorrecta, ahora no muestran ninguna hasta calibrar.",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_satyana_iagi_calibration_setup": {
+      "id": "fe_satyana_iagi_calibration_setup",
+      "desc": "Habilitar calibracion real de la figura de Satyana et al. (2011) IAGI (en vez de reusar la de IPA). Extraer figura propia, crear capa de referencia, dejarla accesible desde el boton Calibrar del panel mgdraw.",
+      "estado": "parcial",
+      "nota_completado": "Extraida Fig.2 (Surface geology/structural/tectonic elements/basins/hydrocarbon de E.Kalimantan y Sulawesi, Seapex 2007) via PyMuPDF a data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig2_map.png. Agregado ref_satyana_iagi en _REF_DEFAULTS (extent placeholder [113,-7,131,5], js/part1-data-layers.js), refSatyanaIagiLayer via makeRefLayer, layerObjs, REF_LAYERS_DATA y REF_LABELS (js/part3-panels.js, js/part5-tools-final.js). SOURCE_TO_REFS[satyana_2011_iagi_evolution] ahora apunta a [ref_satyana_iagi] (antes reusaba incorrectamente ref_satyana_ipa). Sin checkbox HTML propio (mismo patron que ~24 de los 25 ref layers existentes) -- se activa via boton Calibrar del panel mgdraw al seleccionar canon_pmc (candidata feature 323). Verificado node --check OK y figura serving 200. PENDIENTE: el usuario debe ajustar el extent real via georef-hud y guardar.",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_georef_deactivate_bug": {
+      "id": "fe_georef_deactivate_bug",
+      "desc": "deactivateGeoref() (boton X del HUD de calibracion) solo ocultaba el HUD, nunca apagaba la capa raster del mapa (layerObjs[key].setVisible(false)). Activar una ref nueva tampoco apagaba la anterior -- se acumulaban superpuestas en el mismo zIndex, tapandose entre si. Reportado por el usuario al intentar calibrar ref_satyana_iagi: no se via la imagen nueva ni pudo apagar la anterior.",
+      "estado": "implementado",
+      "nota_completado": "js/part4-tools-init.js: activateGeoref(key) ahora apaga la capa+checkbox del activeRefKey previo antes de activar la nueva. deactivateGeoref() ahora apaga la capa+checkbox del activeRefKey actual antes de limpiar el estado, en vez de solo ocultar el HUD. Verificado node --check OK.",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_core_complex_geom_wipe": {
+      "id": "fe_core_complex_geom_wipe",
+      "desc": "Usuario reporta que el flujo de calibracion actual no funciona bien. Borrar merged_geom de todos los core complex (canon_pmc, canon_csmb) -- canon_eso ya estaba en NULL de antes -- para no confiar en geometria nunca verificada mientras se rediseña la herramienta de calibracion.",
+      "estado": "implementado",
+      "nota_completado": "UPDATE canonical_structures SET merged_geom=NULL WHERE id IN (canon_pmc, canon_csmb). Verificado: los 3 (pmc, csmb, eso) en NULL.",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_mmc_create_mekongga_reject": {
+      "id": "fe_mmc_create_mekongga_reject",
+      "desc": "Crear canon_mmc (Malino Metamorphic Complex) -- canonical row faltante, ya existia geo_feature id=17 (Baillie 2022) con canonical_id=canon_mmc apuntando a un canonical inexistente. Evaluar Mekongga-Rumbia/ESMC desde fuente no registrada nugraha_hall_2022_se_sulawesi_provenance.",
+      "estado": "implementado",
+      "nota_completado": "Creado canon_mmc (metamorphic_complex), vinculado a feature 17 preexistente (sin duplicar). PMC ya existia (canon_pmc). Pompangeo Schist/Mountains ya cubierto dentro de canon_csmb (feature 16 de Baillie 2022 los menciona directamente, sin necesidad de canonical nuevo). Mekongga-Rumbia/ESMC: existia feature 215 sin canonical, de fuente nugraha_hall_2022_se_sulawesi_provenance sin PDF en papers/ ni registro en project_state.json -- usuario indico borrar. Eliminada feature 215. Quedan sin resolver del mismo source no registrado: feature 214 (ESO emplacement timing) y 216 (Kendari Basin), ambas sin canonical_id, pendientes de la misma decision.",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_core_complex_geom_resolved": {
+      "id": "fe_core_complex_geom_resolved",
+      "desc": "Usuario define merged_geom para canon_eso, canon_pmc, canon_mmc y canon_csmb via fe_15, tras el reset de geometrias fantasma de esta sesion.",
+      "estado": "implementado",
+      "nota_completado": "Verificado: 0 canonicals con merged_geom NULL en sulawesi.db. Los 4 (Ofiolitas + Complejos metamorficos) ya renderizan via sus toggles correspondientes en S7.",
+      "fecha_completado": "2026-06-16"
+    },
+    "fe_point_canon_render_fix": {
+      "id": "fe_point_canon_render_fix",
+      "desc": "canon_eso/pmc/csmb/mmc definidos como Point por el usuario no se veian en el mapa pese a tener merged_geom y toggles wireados. Dos bugs en cascada.",
+      "estado": "implementado",
+      "nota_completado": "Bug 1 (js/part4-tools-init.js:887, loadMergedGeoms): pointSymbolTypes solo incluia [volcano,geophysical_point,igneous_body] -- cualquier otro layer_type con geometria Point (ophiolite, metamorphic_complex, terrane, volcanic_arc, basin) se desviaba a canonLabelSource (solo texto, controlado por toggle Etiquetas de S6) en vez de mergedGeomSource. Ampliada la lista para incluir esos 5 tipos -- tambien destraba a futuro Bahias/Terrenos/Arcos volcanicos. Bug 2 (js/part1-data-layers.js mergedGeomStyleFn): linea if(gt===Point) return null cortaba CUALQUIER geometria punto antes de chequear canonHostVisible/seccion -- nunca llegaba a tener estilo. Movido el check de Point a despues de la visibilidad/seccion, y reemplazado return null por un estilo real: circulo color PETROTECT_COLORS[layer_type] + label de texto, igual patron que estructuras existentes.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_core_complex_why_justification": {
+      "id": "fe_core_complex_why_justification",
+      "desc": "Agregar al panel de cada core complex (canon_pmc, canon_csmb, canon_mmc) el por que causal explicito de su exhumacion -- no solo describir la estructura sino justificar el regimen de esfuerzo que la genera.",
+      "estado": "implementado",
+      "nota_completado": "Enriquecidas las 3 entradas CANONICAL_DEBATES (js/part3-panels.js) con mecanismo causal explicito: CSMB y MMC -> rollback de la losa del Mar de Celebes (subduccion iniciada ~8 Ma, Hall 2011) genera extension de retroarco por contrastes de energia potencial gravitatoria, sincronica con subsidencia de Gorontalo Bay (Pholbud 2012, Pezzati 2014, citados via Baillie & Decker 2022 -- no como refs propias, solo mencion inline siguiendo protocolo de citacion). PMC -> mismo principio extensional pero motor local doble: transtension PKF + rollback NST. Agregada fila de data Causa (por que) en los 3. canon_eso no se toco -- es ofiolita obducida, no core complex, mecanismo compresivo no extensional.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_rename_supendi_toggle": {
+      "id": "fe_rename_supendi_toggle",
+      "desc": "Renombrar toggle Tomo. Supendi a Tomografias Sismicas en panel S3.",
+      "estado": "implementado",
+      "nota_completado": "index.html linea 97: <span>Tomo. Supendi</span> -> <span>Tomografias Sismicas</span>. Solo el label del toggle, no se tocaron citas/referencias a Supendi et al. (2024) en paneles ni bibliografia.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_lamasi_bantimala_create": {
+      "id": "fe_lamasi_bantimala_create",
+      "desc": "Crear canon_lamasi y canon_bantimala_barru, separados de canon_eso -- Baillie & Decker (2022) describe 3 ocurrencias ofioliticas distintas en Sulawesi con mecanismos de emplazamiento diferentes, conflacionadas previamente en una sola entrada.",
+      "estado": "descartado",
+      "nota_completado": "Corregida feature 15 (canon_eso): se habia mezclado la obduccion NW-directed del ESO (colision Sula Spur, p.6) con la obduccion N-S del Complejo Lamasi (p.16, Monnier 1995) -- separadas correctamente. Creados canon_lamasi (ophiolite, obduccion N-S margen euroasiatico) y canon_bantimala_barru (ophiolite, suprasubduccion + cierre cuencas retroarco, brazo sur) con geo_features propias citando Baillie & Decker 2022. Ambos wireados al toggle Ofiolitas existente (CANON_HOST_LAYER, CANON_NOMBRE_ES, CANONICAL_DEBATES con adopta + refs). Nota: bantimala_barru es distinto del Bantimala UHP (119 Ma) de CLAUDE.md, que no tiene paper propio en el corpus. Ambos en merged_geom NULL pendientes de definicion por el usuario via fe_15.",
+      "fecha_completado": "2026-06-17",
+      "nota": "Usuario decidio simplificar: solo queda canon_eso. Razon: Husein (2014), Surono (2012) y Faturrakhman (2024) tratan el ESO como un cinturon unico y continuo (Golfo de Gorontalo -> brazo este -> brazo SE), sin usar los nombres Lamasi/Bantimala/Barru -- esos nombres son exclusivos de Baillie & Decker (2022). Ademas las 3 fuentes no coinciden entre si sobre timing/direccion de obduccion del ESO (Baillie: Mioceno Temprano NW/Sula Spur; Husein: Plioceno Tardio S/Banggai-Sula; Surono: Oligoceno-Mioceno Medio sobre terrenos australianos) -- debate no resuelto, pendiente de decidir si se agrega al panel de canon_eso."
+    },
+    "fe_lamasi_bantimala_delete": {
+      "id": "fe_lamasi_bantimala_delete",
+      "desc": "Revertir fe_lamasi_bantimala_create: borrar canon_lamasi y canon_bantimala_barru, dejar solo canon_eso, resetear su merged_geom para redibujo.",
+      "estado": "implementado",
+      "nota_completado": "DELETE de geo_features y canonical_structures para ambos IDs. canon_eso merged_geom -> NULL. Removidas entradas CANON_NOMBRE_ES, CANON_HOST_LAYER y CANONICAL_DEBATES de ambos en js/part1-data-layers.js y js/part3-panels.js. Verificado: 0 referencias residuales en todos los js/part*.js. Toggle Ofiolitas ahora solo controla canon_eso.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_eso_geom_selfintersect_fix": {
+      "id": "fe_eso_geom_selfintersect_fix",
+      "desc": "Usuario reporta merged_geom de canon_eso guardado mal tras redibujar.",
+      "estado": "implementado",
+      "nota_completado": "Verificado con shapely: poligono guardado era invalido, self-intersection en (122.885, -0.712) -- forma tipo moño, probablemente vertice cruzado durante el dibujo/edicion. Usuario eligio resetear en vez de reparar automaticamente (riesgo de distorsionar la forma real). UPDATE canonical_structures SET merged_geom=NULL WHERE id=canon_eso. Pendiente: usuario redibuja desde fe_15. Redibujado por el usuario: nuevo poligono valido y simple, bounds (120.82-123.46E, -0.56 a -3.61S).",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_yuan_fig11_12_fix": {
+      "id": "fe_yuan_fig11_12_fix",
+      "desc": "Usuario pidio agregar Fig.13 de Yuan a la galeria 3D -- Yuan et al. (2024) no tiene Fig.13 (llega hasta Fig.12). Investigando se encontro que la imagen ya cargada como Fig.12 en tomo3d_yuan en realidad correspondia a la Fig.11 del paper.",
+      "estado": "implementado",
+      "nota_completado": "Renombrado yuan_2024_fig12_mantle_flow_cartoon.png -> yuan_2024_fig11_3d_fvp_views.png (era la Fig.11 real: vistas 3D multi-panel de FVPs con Features A-E). Extraida y recortada la Fig.12 real (esquema simplificado trench-normal flow / slab roll-back / extrusion mantelica) -> yuan_2024_fig12_schematic_flow.png. Actualizada entrada tomo3d_yuan en js/part2-map-style.js: imgs ahora tiene ambas figuras con captions correctos. Verificado node --check OK y ambos archivos serving 200.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_hide_edit_panels_presentation": {
+      "id": "fe_hide_edit_panels_presentation",
+      "desc": "Ocultar todos los puntos de entrada visibles a herramientas que ejecutan cambios en la DB (definicion de geometrias, modo edicion) de cara a la presentacion -- la audiencia no debe poder modificar datos.",
+      "estado": "implementado",
+      "nota_completado": "index.html: agregado display:none a #mgdraw-btn (boton Definir geometrias canonicas en panel S7) y al contenedor de Modo edicion (#edit-mode-btn/#edit-save-btn/#edit-cancel-btn/#edit-count). Resto de herramientas de edicion (mgdraw-modal, mgdraw-controls, georef-hud, profile-draw-panel, crop-modal) ya eran display:none por defecto y solo se abrian desde estos botones -- quedan inalcanzables sin tocar el HTML. NO se borro el markup, solo se oculto via display:none -- quitar esa propiedad reactiva todo para uso propio post-presentacion. Trazar perfil de hipocentros y Galeria modelos 3D quedan visibles -- son herramientas de analisis/visualizacion, no modifican la DB.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_backend_no_cache_headers": {
+      "id": "fe_backend_no_cache_headers",
+      "desc": "Agregar Cache-Control no-cache a HTML/CSS/JS servidos por el backend -- el navegador cacheaba agresivamente css/styles.css y js/part*.js, causando que varios fixes de esta sesion no se vieran sin Ctrl+F5.",
+      "estado": "implementado",
+      "nota_completado": "backend/main.py: agregado middleware no_cache_static que pone Cache-Control: no-cache, no-store, must-revalidate en respuestas de /, .html, .css, .js. Tuvo que matarse manualmente un proceso uvicorn viejo (PID 2044) que seguia ocupando el puerto 8000 sin el middleware -- pkill por patron de comando no lo detecto. Verificado: header presente, index/api funcionando.",
+      "fecha_completado": "2026-06-17"
     }
   }
 }
