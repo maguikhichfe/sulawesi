@@ -84,7 +84,7 @@
       <div class="lcat">S2 — Sismicidad</div>
       <div class="lr" data-t="seismicity"><div class="lchk" id="chk-seismicity"></div><span>Sismicidad GCMT</span><label class="bb-toggle" title="Mostrar beachballs GCMT" onclick="event.stopPropagation()"><input type="checkbox" id="toggle-bb"><span class="bb-sw"></span>⊕ BB</label></div>
       <div class="lr" data-t="gaps"><div class="lchk" id="chk-gaps"></div><span>Gaps sísmicos</span></div>
-      <div class="lr" data-t="clusters"><div class="lchk" id="chk-clusters"></div><span>Regímenes Jibran</span></div>
+      <div class="lr" data-t="clusters"><div class="lchk" id="chk-clusters"></div><span>Regímenes de esfuerzo</span></div>
       <button id="hypo-profile-btn" onclick="startHypoProfileDraw()" style="width:100%;margin:3px 0 6px;background:var(--bg3);border:1px solid var(--border);color:var(--dim);padding:3px 0;border-radius:3px;font-family:monospace;font-size:.6rem;cursor:pointer;text-transform:uppercase">⏥ Trazar perfil de hipocentros</button>
       <div class="lsep"></div>
       <!-- S3 -->
@@ -139,7 +139,9 @@
       <!-- S7 -->
       <div class="lcat">S7 — Petrotectónica y Metamorfismo</div>
       <div class="lr" data-t="ofiolitas"><div class="lchk" id="chk-ofiolitas"></div><span>Ofiolitas</span></div>
-      <div class="lr" data-t="core_complexes"><div class="lchk" id="chk-core_complexes"></div><span>Complejos metamórficos</span></div>
+      <div class="lr" data-t="core_complexes"><div class="lchk" id="chk-core_complexes"></div><span>Complejos metamórficos de núcleo (MCC)</span></div>
+      <div class="lr" data-t="frentes_colision"><div class="lchk" id="chk-frentes_colision"></div><span>Frentes de colisión</span></div>
+      <div class="lr" data-t="fpc"><div class="lchk" id="chk-fpc"></div><span>Fajas plegadas y corridas (FPC)</span></div>
       <div class="lr" data-t="ref_baillie"><div class="lchk" id="chk-ref_baillie"></div><span>Baillie 2022 — mapa geológico</span><input type="range" min="0" max="100" value="55" class="op-slider" onclick="event.stopPropagation()" oninput="refBaillieLayer.setOpacity(this.value/100)"></div>
       <div id="verif-body" style="display:none"></div>
       <div class="lsep"></div>

@@ -478,6 +478,8 @@ const _REF_DEFAULTS = {
   ref_walpersdorf:  [118.0,    -2.0,    128.0,     4.0   ],
   ref_satyana_ipa:  [117.0,    -7.0,    131.0,     5.0   ],
   ref_satyana_iagi: [113.0,    -7.0,    131.0,     5.0   ],
+  ref_baillie_fig7: [117.5,    -5.0,    120.0,     0.5   ],
+  ref_baillie_fig9: [120.0,    -0.3,    122.8,     1.6   ],
   ref_surono:       [119.0,    -5.0,    130.0,     3.0   ],
   // S2
   ref_serhalawan:   [117.4558, -7.3561, 130.4442,  9.4561],
@@ -530,6 +532,8 @@ const refSocquetLayer     = makeRefLayer('data/sections/socquet_2006_gps_kinemat
 const refWalpersdorfLayer = makeRefLayer('data/sections/walpersdorf_1998_n_sulawesi_gps/walpersdorf_1998_n_sulawesi_gps_fig1_map.png', D.ref_walpersdorf);
 const refSatyanaIpaLayer  = makeRefLayer('data/sections/satyana_2011_ipa_collision/satyana_2011_ipa_collision_fig1_map.png',  D.ref_satyana_ipa);
 const refSatyanaIagiLayer = makeRefLayer('data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig2_map.png', D.ref_satyana_iagi);
+const refBaillieFig7Layer = makeRefLayer('data/sections/baillie_2022_sulawesi/baillie_2022_fig7_wsfb_bathy.png',  D.ref_baillie_fig7);
+const refBaillieFig9Layer = makeRefLayer('data/sections/baillie_2022_sulawesi/baillie_2022_fig9_nsftb_bathy.png', D.ref_baillie_fig9);
 const refSuronoLayer      = makeRefLayer('data/sections/surono_2012_tectonoestratigrafia/surono_2012_tectonoestratigrafia_fig1_map.png', D.ref_surono);
 // S2
 const refSerhalawanLayer  = makeRefLayer('data/sections/serhalawan_chen_2024/serhalawan_2024_fig1b_sulawesi.png',             D.ref_serhalawan);
@@ -963,10 +967,10 @@ const mergedGeomSource=new ol.source.Vector();
 const CANON_HOST_LAYER={
   // Faults → tect_key
   canon_5:'tect_key',canon_19:'tect_key',canon_100:'tect_key',
-  canon_116:'tect_key',canon_205:'tect_key',canon_286:'tect_key',canon_287:'tect_key',
+  canon_116:'tect_key',canon_286:'tect_key',canon_287:'tect_key',
   canon_288:'tect_key',canon_289:'tect_key',canon_789:'tect_key',
   canon_1010:'tect_key',canon_1921:'tect_key',canon_1929:'tect_key',
-  canon_1927:'tect_key',canon_1928:'tect_key',canon_1933:'tect_key',
+  canon_1927:'tect_key',canon_1933:'tect_key',
   // Subduction → tect_sub
   canon_364:'tect_sub',canon_369:'tect_sub',canon_805:'tect_sub',
   canon_1919:'tect_sub',canon_1934:'tect_sub',
@@ -985,6 +989,10 @@ const CANON_HOST_LAYER={
   canon_eso:'ofiolitas',
   // Complejos metamórficos → toggle propio S7
   canon_pmc:'core_complexes',canon_csmb:'core_complexes',canon_mmc:'core_complexes',
+  // Frentes de colisión (suturas de microcontinentes) → toggle propio S7
+  canon_205:'frentes_colision',canon_1928:'frentes_colision',
+  // Fajas plegadas y corridas (FPC) → toggle propio S7
+  canon_wsfb:'fpc',canon_nsftb:'fpc',
 };
 
 function canonHostVisible(canonId){
@@ -1126,6 +1134,8 @@ let basinLayerVisible=false; // flag para toggle cuencas (basins sin host layer 
 let _paluBasinVis=false;   // Cuenca Pull-Apart de Palu — S6
 let _ofiolitasVis=false;   // Ofiolitas — S7
 let _coreComplexVis=false; // Complejos metamórficos — S7
+let _frentesColisionVis=false; // Frentes de colisión (Batui, Buton) — S7
+let _fpcVis=false;             // Fajas plegadas y corridas (WSFB, NSFTB) — S7
 
 // Etiquetas de canonicals con merged_geom tipo Point (bahías, cuencas, unidades geológicas)
 const canonLabelSource=new ol.source.Vector();

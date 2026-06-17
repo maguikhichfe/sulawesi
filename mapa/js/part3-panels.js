@@ -237,6 +237,8 @@ const CANON_NOMBRE_ES={
   canon_pmc:  'Complejo Metamórfico de Palu (PMC)',
   canon_csmb: 'Cinturón Metamórfico de Sulawesi Central (CSMB)',
   canon_mmc:  'Complejo Metamórfico de Malino (MMC)',
+  canon_wsfb: 'Faja Plegada y Corrida de Sulawesi Oeste (WSFB)',
+  canon_nsftb:'Faja Plegada y Corrida de Sulawesi Norte (NSFTB)',
   canon_basin_gorontalo:'Golfo de Gorontalo (Tomini)',
   canon_basin_mak:'Estrecho de Makassar',
   canon_basin_bone:'Golfo de Bone',
@@ -347,6 +349,7 @@ const CANONICAL_DEBATES={
       refs:[
         {ref:'Husein et al. (2014)',title:'Geological structures and tectonic reconstruction of Luwuk, East Sulawesi',journal:'Proc. IPA, 38th Conv. IPA 14-G-137',find:'Batui/Salodik Thrust: thin-skinned NW-vergente en Anticlinorio Salodik. ESO actúa como bloque rígido. Deformación polifásica: inversión Mioceno Tardío (Balantak Fault) + compresión Plioceno Tardío (Sorong Fault).'},
         {ref:'Hikmy & Isbram (2025)',title:'Analisis geomorfologi tektonik segmen timur Sulawesi',journal:'Jurnal Geologi Indonesia [2025]',find:'Batui Thrust Belt — geomorfología tectónica confirma actividad neotectónica. Índices IAT clase 1-2 en el frente de thrust.'},
+        {ref:'Satyana, A. H., & Purwaningsih, M. E. M. (2011)',title:'Sulawesi collision tectonics: evolution and overview',journal:'Proc. JCM Makassar 2011, 36th HAGI / 40th IAGI Annual Convention',find:'Fig. 14: sección sísmica W-E en la Cuenca de Banggai mostrando el frente de colisión Banggai-Sula. Fold-and-thrust belt deforma la plataforma carbonática en el borde de avance del terreno Banggai, formando la trampa petrolera de Tiaka. Sedimentos molásicos depositados post-colisión (Satyana, 2006).'},
       ]
     },
     debate:[
@@ -629,6 +632,12 @@ const CANONICAL_DEBATES={
           {ref:'Satyana & Purwaningsih (2011)',title:'Tectonic evolution of Sulawesi — IPA paper',journal:'Proc. IPA, 35th Conv. IPA11-G-219',find:'Colisión Buton-Tukang Besi: inicio ~Mioceno-Plioceno. Cronología del thrust frontal requiere dataciones de campo adicionales.'},
         ]
       },
+      {
+        desc:'Configuración misma de la colisión en debate: Davidson (1991) propone que Tukang Besi colisionó con Buton (secciones esquemáticas Eoceno-Oligoceno → Mioceno → Plioceno/Pleistoceno, con fold-and-thrust belt activo en el frente). Satyana & Purwaningsih (2011, paper IAGI) reinterpretan que Tukang Besi NO colisionó con Buton — cuestionando la premisa misma del modelo de Davidson, no solo su cronología.',
+        refs:[
+          {ref:'Satyana, A. H., & Purwaningsih, M. E. M. (2011)',title:'Sulawesi collision tectonics: evolution and overview',journal:'Proc. JCM Makassar 2011, 36th HAGI / 40th IAGI Annual Convention',find:'Fig. 15: secciones esquemáticas de la colisión Buton-Tukang Besi con SE Sulawesi (Davidson, 1991). Satyana & Purwaningsih (2011) reinterpretan que Tukang Besi no colisionó con Buton.'},
+        ]
+      },
     ]
   },
 
@@ -701,6 +710,8 @@ const CANONICAL_DEBATES={
     adopta:{
       desc:'Ofiolita tectónicamente desmembrada con suite completa de litologías — peridotita residual de manto y cumulados máfico-ultramáficos en la base, gabro estratificado a isotrópico en el medio, doleritas en lámina y volcánicas basálticas de composición MORB en el tope. Intercalada con sedimentos pelágicos cretácicos/mesozoicos. Emplazada por obducción dirigida al noroeste durante la colisión del Sula Spur (promontorio del bloque Banggai-Sula, afinidad australiana) con el North Arm, en el Mioceno Temprano.',
       data:[
+        {lbl:'Perfil ofiolítico',val:'Sedimentos pelágicos → pillow lavas → diques → gabros → peridotita (manto)'},
+        {lbl:'Residuo mantélico',val:'Peridotita + cumulados ultramáficos — indica el grado de empobrecimiento del manto en la dorsal de origen'},
         {lbl:'Edad protolito',val:'~100 Ma'},
         {lbl:'Edad emplazamiento',val:'~28 Ma (Oligoceno medio-tardío)'},
         {lbl:'Extensión',val:'Una de las 3 ofiolitas más grandes del mundo — Sulawesi Central a Buton/Muna'},
@@ -745,9 +756,9 @@ const CANONICAL_DEBATES={
 
   'canon_csmb':{
     adopta:{
-      desc:'Cinturón metamórfico de alta presión confinado a la parte central del brazo este, que incluye el Pompangeo Schist Complex y un complejo de mélange asociado. Resultado de la colisión entre fragmentos de origen Gondwana y el margen asiático activo en el Oligoceno tardío o Mioceno temprano — complejo de acreción formado durante el Cretácico y Paleógeno, sutura entre las partes occidental y oriental de Sulawesi. Los afloramientos forman masifs corrugados tipo core complex (Pompangeo Mountains y Tokorondo Mountains, ~2000 km², hasta 2.5 km de elevación) — footwalls desnudos de fallas de detachment extensional, visibles en SRTM. Por qué: el brazo norte se deforma por contrastes de energía potencial gravitatoria; el rollback hacia el norte de la losa del Mar de Célebes (subducción iniciada ~8 Ma) genera extensión de retroarco, con exhumación rápida de estos metamórficos sincrónica a la subsidencia rápida del Golfo de Gorontalo — proceso activo hoy, confirmado por GPS.',
+      desc:'Cinturón metamórfico de bajo grado (facies esquisto verde — mármol, filita, esquisto cuarzo-micáceo, meta-conglomerado) confinado a la parte central del brazo este, que incluye el Pompangeo Schist Complex y un complejo de mélange asociado. Resultado de la colisión entre fragmentos de origen Gondwana y el margen asiático activo en el Oligoceno tardío o Mioceno temprano — complejo de acreción formado durante el Cretácico y Paleógeno, sutura entre las partes occidental y oriental de Sulawesi. Los afloramientos forman masifs corrugados tipo core complex (Pompangeo Mountains y Tokorondo Mountains, ~2000 km², hasta 2.5 km de elevación) — footwalls desnudos de fallas de detachment extensional, visibles en SRTM. Por qué: el brazo norte se deforma por contrastes de energía potencial gravitatoria; el rollback hacia el norte de la losa del Mar de Célebes (subducción iniciada ~8 Ma) genera extensión de retroarco, con exhumación rápida de estos metamórficos sincrónica a la subsidencia rápida del Golfo de Gorontalo — proceso activo hoy, confirmado por GPS.',
       data:[
-        {lbl:'Grado metamórfico',val:'Alta presión (HP)'},
+        {lbl:'Grado metamórfico',val:'Esquisto verde (bajo grado)'},
         {lbl:'Edad emplazamiento',val:'~28 Ma'},
         {lbl:'Mecanismo',val:'Extensión Neógena (no colisión) — detachment extensional'},
         {lbl:'Litología',val:'Mármol, filita, esquisto cuarzo-micáceo, meta-conglomerado'},
@@ -772,6 +783,34 @@ const CANONICAL_DEBATES={
       ],
       refs:[
         {ref:'Baillie, P., & Decker, J. (2022)',title:'Enigmatic Sulawesi: The Tectonic Collage',journal:'Berita Sedimentologi, 48(1), 1–30. doi:10.51835/bsed.2022.48.1.388',find:'MMC: esquisto/gneis cuarzo-feldespático con selvage de esquistos verdes. Core complex con extensión litosférica Mioceno Temprano-Medio (23-11 Ma), segunda fase de uplift extensional Mioceno Tardío-Plioceno — misma extensión de retroarco por rollback del Mar de Célebes que afecta al CSMB. Protolitos de corteza continental antigua, probable derivación australiana (Advokaat et al. 2017).'},
+      ]
+    }
+  },
+
+  'canon_wsfb':{
+    adopta:{
+      desc:'Cinturón de pliegues y corrimientos offshore al oeste de Sulawesi, en el Estrecho de Makassar. Tres provincias estructurales: Southern Structural Province (SSP, thin-skinned, vergencia oeste), Central Structural Province (CSP, menos deformada), Northern Structural Province (NSP, fuertemente deformada). Deformación activa, sin-deposicional en la Formación Pasangkayu. Resultado de transpresión ligada a movimientos de la PKF, con un componente colisional adicional cuando el Sulu Spur colisionó con el SE de Sundaland en el Plioceno. Contiene un paleo-cañón del sistema del Río Palu.',
+      data:[
+        {lbl:'Provincias',val:'SSP (thin-skinned, vergencia W) · CSP · NSP (muy deformada)'},
+        {lbl:'Mecanismo',val:'Transpresión PKF + colisión Sulu Spur–SE Sundaland (Plioceno)'},
+        {lbl:'Actividad',val:'Activa — folding sin-deposicional en Fm. Pasangkayu'},
+      ],
+      refs:[
+        {ref:'Baillie, P., & Decker, J. (2022)',title:'Enigmatic Sulawesi: The Tectonic Collage',journal:'Berita Sedimentologi, 48(1), 1–30. doi:10.51835/bsed.2022.48.1.388',find:'WSFB: cinturón offshore en el Estrecho de Makassar, 3 provincias estructurales (SSP/CSP/NSP). Deformación sin-deposicional activa en Fm. Pasangkayu. Originado por transpresión PKF; colisión del Sulu Spur con SE Sundaland en el Plioceno comprimió el régimen extensional original del Estrecho de Makassar, formando el WSFB.'},
+      ]
+    }
+  },
+
+  'canon_nsftb':{
+    adopta:{
+      desc:'Cinturón de pliegues y corrimientos offshore al norte del North Arm, en la parte sur del Mar de Célebes. Límite norte: North Sulawesi Trench. Deformación relacionada con movimientos de la zona de Falla Palu-Koro y la subducción del Mar de Célebes bajo el North Arm. Geometrías fold-and-thrust belt clásicas visibles en batimetría. Contiene cuencas ovoidales extensionales o transtensionales al norte del North Arm, relacionadas con el rollback del slab.',
+      data:[
+        {lbl:'Ubicación',val:'Offshore N del North Arm, S del Mar de Célebes'},
+        {lbl:'Límite norte',val:'North Sulawesi Trench'},
+        {lbl:'Mecanismo',val:'PKF + subducción del Mar de Célebes bajo el North Arm'},
+      ],
+      refs:[
+        {ref:'Baillie, P., & Decker, J. (2022)',title:'Enigmatic Sulawesi: The Tectonic Collage',journal:'Berita Sedimentologi, 48(1), 1–30. doi:10.51835/bsed.2022.48.1.388',find:'NSFTB: cinturón offshore al N del North Arm, S del Mar de Célebes, límite norte = NST. Geometrías fold-and-thrust clásicas en batimetría. Cuencas ovoidales extensionales/transtensionales relacionadas con rollback del slab del Mar de Célebes.'},
       ]
     }
   },
@@ -1043,9 +1082,12 @@ const layerObjs={
   palu_basin:{getVisible(){return _paluBasinVis;},setVisible(v){_paluBasinVis=v;mergedGeomLayer.changed();}},
   ofiolitas:{getVisible(){return _ofiolitasVis;},setVisible(v){_ofiolitasVis=v;mergedGeomLayer.changed();}},
   core_complexes:{getVisible(){return _coreComplexVis;},setVisible(v){_coreComplexVis=v;mergedGeomLayer.changed();}},
+  frentes_colision:{getVisible(){return _frentesColisionVis;},setVisible(v){_frentesColisionVis=v;mergedGeomLayer.changed();}},
+  fpc:{getVisible(){return _fpcVis;},setVisible(v){_fpcVis=v;mergedGeomLayer.changed();}},
   // Verificación S1
   ref_baillie:refBaillieLayer, ref_socquet:refSocquetLayer, ref_walpersdorf:refWalpersdorfLayer,
   ref_satyana_ipa:refSatyanaIpaLayer, ref_satyana_iagi:refSatyanaIagiLayer, ref_surono:refSuronoLayer,
+  ref_baillie_fig7:refBaillieFig7Layer, ref_baillie_fig9:refBaillieFig9Layer,
   // Verificación S2
   ref_serhalawan:refSerhalawanLayer, ref_cipta:refCiptaLayer, ref_jibran:refJibranLayer,
   ref_nataw:refNatawLayer, ref_nataw_inland:refNatawInlandLayer, ref_nataw2020:refNataw2020Layer,
@@ -1161,6 +1203,8 @@ const REF_LAYERS_DATA = {
   ref_walpersdorf:  {url:'data/sections/walpersdorf_1998_n_sulawesi_gps/walpersdorf_1998_n_sulawesi_gps_fig1_map.png', ext:[...D.ref_walpersdorf], label:'Walpersdorf 1998'},
   ref_satyana_ipa:  {url:'data/sections/satyana_2011_ipa_collision/satyana_2011_ipa_collision_fig1_map.png', ext:[...D.ref_satyana_ipa], label:'Satyana 2011 IPA'},
   ref_satyana_iagi: {url:'data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig2_map.png', ext:[...D.ref_satyana_iagi], label:'Satyana 2011 IAGI'},
+  ref_baillie_fig7: {url:'data/sections/baillie_2022_sulawesi/baillie_2022_fig7_wsfb_bathy.png',  ext:[...D.ref_baillie_fig7], label:'Baillie 2022 Fig.7 (WSFB)'},
+  ref_baillie_fig9: {url:'data/sections/baillie_2022_sulawesi/baillie_2022_fig9_nsftb_bathy.png', ext:[...D.ref_baillie_fig9], label:'Baillie 2022 Fig.9 (NSFTB)'},
   ref_surono:       {url:'data/sections/surono_2012_tectonoestratigrafia/surono_2012_tectonoestratigrafia_fig1_map.png', ext:[...D.ref_surono], label:'Surono 2012'},
   ref_serhalawan:   {url:'data/sections/serhalawan_chen_2024/serhalawan_2024_fig1b_sulawesi.png',           ext:[...D.ref_serhalawan],   label:'Serhalawan 2024'},
   ref_cipta:        {url:'data/sections/cipta_2016_sulawesi_psha/cipta_2016_sulawesi_psha_fig1_map.png',    ext:[...D.ref_cipta],        label:'Cipta 2016'},
