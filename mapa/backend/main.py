@@ -18,6 +18,14 @@ def startup():
     init_db()
 
 
+@app.middleware("http")
+async def no_cache_static(request, call_next):
+    response = await call_next(request)
+    if request.url.path == "/" or request.url.path.split(".")[-1] in ("html", "css", "js"):
+        response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return response
+
+
 # ── API routes ─────────────────────────────────────────────────────────────
 app.include_router(earthquakes.router,    prefix="/api", tags=["Sismicidad"])
 app.include_router(annotations.router,    prefix="/api", tags=["Anotaciones"])
