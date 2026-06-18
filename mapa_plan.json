@@ -3357,6 +3357,41 @@
       "estado": "implementado",
       "nota_completado": "Opcion 3: merged_geom de canon_wsfb y canon_nsftb adoptado de sus features 7/8 (poligonos digitalizados de Baillie Fig.7/Fig.9) por instruccion explicita del usuario -> FPC ahora renderiza. Opcion 2: extraidas Baillie Fig.7 (WSFB, p10, batimetria offshore W) y Fig.9 (NSFTB, p13, batimetria NW North Arm) a data/sections/baillie_2022_sulawesi/. Cableadas como ref layers ref_baillie_fig7/ref_baillie_fig9 (extents placeholder, makeRefLayer, layerObjs, REF_LAYERS_DATA, REF_LABELS, SOURCE_TO_REFS baillie). Sin grilla lat/lon en las figuras -> calibracion futura por ajuste de esquinas contra basemap/GEBCO. Frentes de colision (Batui/Buton) ya tenian merged_geom, no requerian nada.",
       "fecha_completado": "2026-06-17"
+    },
+    "fe_fpc_ref_satyana": {
+      "id": "fe_fpc_ref_satyana",
+      "desc": "Cambiar la imagen de referencia para definir las FPC (WSFB/NSFTB): de Baillie Fig.7/9 (batimetria, vista de corte/local, mal elegida) a Satyana 2011 IAGI Fig.2 (mapa estructural en planta).",
+      "estado": "implementado",
+      "nota_completado": "Eliminado cableado y PNG de ref_baillie_fig7/fig9. Re-apuntado ref_satyana_iagi al recorte limpio satyana_2011_iagi_evolution_fig2_structural_map.png. Re-fuenteadas features 7 (WSFB) y 8 (NSFTB) de baillie_2022_sulawesi a satyana_2011_iagi_evolution con source_apa Satyana -> al definir en mgdraw aparece la ref Satyana Fig.2. Paneles canon_wsfb/nsftb actualizados liderando con cita Satyana (Offshore West Sulawesi Foldbelt 3 provincias p8; North Sulawesi Foldbelt p24). merged_geom de ambas en NULL, pendientes de trazado por usuario sobre Fig.2.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_nombres_es_mcc": {
+      "id": "fe_nombres_es_mcc",
+      "desc": "Nombres en espanol: toggle MCC, 23 canonicals sin nombre ES, Free-air -> Aire libre. Reactivar herramientas de edicion.",
+      "estado": "implementado",
+      "nota_completado": "Toggle \"Complejos metamorficos de nucleo (MCC)\" -> \"Complejos metamorficos (MCC)\" (de nucleo era traduccion forzada; el resumen usa el termino en ingles). Agregados 23 nombres ES en CANON_NOMBRE_ES (4 fallas, polo Euler, 10 clusters Jibran, Sassak, 7 volcanes) manteniendo terminos tecnicos en ingles. Toggle Free-air -> Aire libre. Reactivados mgdraw-btn, modo edicion y georef-hud (quitado display:none).",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_satyana_iagi_layer_missing": {
+      "id": "fe_satyana_iagi_layer_missing",
+      "desc": "Bug: la imagen de Satyana IAGI no aparecia al calibrar (FPC y antes PMC). Causa raiz: refSatyanaIagiLayer se creo en layerObjs/REF_LAYERS_DATA pero nunca se agrego al array layers del ol.Map -> setVisible(true) no renderizaba nada.",
+      "estado": "implementado",
+      "nota_completado": "Agregado refSatyanaIagiLayer al array de capas del map en part2-map-style.js (junto a refSatyanaIpaLayer). Cross-check confirmado: todas las ref layers de layerObjs estan ahora en el mapa. Resuelve tambien el problema previo de calibracion Satyana IAGI para PMC.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_fpc_baja": {
+      "id": "fe_fpc_baja",
+      "desc": "Dar de baja FPC (WSFB/NSFTB) por decision del usuario.",
+      "estado": "implementado",
+      "nota_completado": "Borrados canon_wsfb, canon_nsftb y features 7/8 de la DB. Eliminado todo el cableado: flag _fpcVis, layerObjs.fpc, CANON_HOST_LAYER, toggle HTML, SECTION_KEYS[7], CANON_NOMBRE_ES, entradas CANONICAL_DEBATES, conclusion S6 sobre FPC. Sin residuos.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_orogenos_colisionales": {
+      "id": "fe_orogenos_colisionales",
+      "desc": "Crear toggle Orogenos colisionales (Banggai-Sula, Buton-Tukang Besi) como poligonos con descripcion + secciones estructurales de Satyana en el panel, separado de Frentes de colision.",
+      "estado": "implementado",
+      "nota_completado": "Agregado soporte de imagenes (adopta.imgs) al panel canonico (openCanonicalPanel) + funcion openImgZoom (lightbox). Creados canon_orogen_bsm y canon_orogen_btb (layer_type structure) con poligonos candidatos aproximados fuenteados de satyana_2011_iagi_evolution (merged_geom NULL, usuario define sobre Satyana Fig.2). Toggle nuevo Orogenos colisionales: flag _orogenosColisVis, layerObjs, CANON_HOST_LAYER, HTML S7, SECTION_KEYS[7], CANON_NOMBRE_ES. Paneles: canon_orogen_bsm con Satyana Fig.14 (sismica Banggai) + Fig.16 (esquematica Banggai-Sula); canon_orogen_btb con Fig.15 (Buton-TB) + debate Davidson 1991 (Tukang Besi colisiono con Buton) vs Satyana 2011 (NO colisiono), marcado VERIFICAR para chequeo del usuario. Relacionados a los frentes Batui (canon_205) y Buton (canon_1928) que siguen en su propio toggle.",
+      "fecha_completado": "2026-06-17"
     }
   }
 }

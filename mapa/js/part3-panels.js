@@ -234,11 +234,11 @@ const CANON_NOMBRE_ES={
   canon_wsip: 'Provincia Ígnea del Oeste de Sulawesi (WSIP)',
   canon_terrane_bsm:'Microcontinente Banggai-Sula',
   canon_terrane_btb:'Microcontinente Buton-Tukang Besi',
+  canon_orogen_bsm:'Orógeno colisional Banggai-Sula',
+  canon_orogen_btb:'Orógeno colisional Buton-Tukang Besi',
   canon_pmc:  'Complejo Metamórfico de Palu (PMC)',
   canon_csmb: 'Cinturón Metamórfico de Sulawesi Central (CSMB)',
   canon_mmc:  'Complejo Metamórfico de Malino (MMC)',
-  canon_wsfb: 'Faja Plegada y Corrida de Sulawesi Oeste (WSFB)',
-  canon_nsftb:'Faja Plegada y Corrida de Sulawesi Norte (NSFTB)',
   canon_basin_gorontalo:'Golfo de Gorontalo (Tomini)',
   canon_basin_mak:'Estrecho de Makassar',
   canon_basin_bone:'Golfo de Bone',
@@ -246,6 +246,29 @@ const CANON_NOMBRE_ES={
   canon_1910: 'Sistema de Falla Sorong',
   canon_1919: 'Subducción de Cotabato',
   canon_1933: 'Zona de Falla Balantak',
+  canon_100:  'Falla Lawanopo',
+  canon_116:  'Falla Kolaka — strike-slip con componente normal',
+  canon_789:  'Falla Gorontalo',
+  canon_1010: 'Cabalgamiento Tolo — vergencia oeste',
+  canon_1831: 'Polo de Euler — Brazo Norte (Bloque Sula), rotación horaria (GPS)',
+  canon_jib_01:'Clúster Jibran 01 — Régimen compresional NST oeste',
+  canon_jib_02:'Clúster Jibran 02 — Régimen compresional NST este',
+  canon_jib_03:'Clúster Jibran 03 — Régimen transformante PKF',
+  canon_jib_04:'Clúster Jibran 04 — Régimen extensional Lalanga-Togian',
+  canon_jib_05:'Clúster Jibran 05 — Régimen compresional (thrust N-vergente)',
+  canon_jib_06:'Clúster Jibran 06 — Régimen transformante Matano',
+  canon_jib_07:'Clúster Jibran 07 — Régimen compresional Sangihe oeste',
+  canon_jib_08:'Clúster Jibran 08 — Régimen compresional Mar de Molucas (mayor)',
+  canon_jib_09:'Clúster Jibran 09 — Régimen compresional Mar de Molucas norte',
+  canon_jib_10:'Clúster Jibran 10 — Régimen compresional retroarco Nusa Tenggara',
+  canon_sassak:'Pórfido de Cu-Au Sassak',
+  canon_vol_ambang:'Volcán Ambang',
+  canon_vol_awu:'Volcán Awu',
+  canon_vol_lahendong:'Campo geotérmico Lahendong',
+  canon_vol_lokon:'Volcanes Lokon-Empung',
+  canon_vol_ruang:'Volcán Ruang',
+  canon_vol_tondano:'Caldera de Tondano',
+  canon_vol_unauna:'Volcán Una-Una',
 };
 
 // Debate científico por canonical — {adopta:{desc,data,refs[]}, debate:[{desc,refs[]}]}
@@ -787,34 +810,51 @@ const CANONICAL_DEBATES={
     }
   },
 
-  'canon_wsfb':{
+  'canon_orogen_bsm':{
     adopta:{
-      desc:'Cinturón de pliegues y corrimientos offshore al oeste de Sulawesi, en el Estrecho de Makassar. Tres provincias estructurales: Southern Structural Province (SSP, thin-skinned, vergencia oeste), Central Structural Province (CSP, menos deformada), Northern Structural Province (NSP, fuertemente deformada). Deformación activa, sin-deposicional en la Formación Pasangkayu. Resultado de transpresión ligada a movimientos de la PKF, con un componente colisional adicional cuando el Sulu Spur colisionó con el SE de Sundaland en el Plioceno. Contiene un paleo-cañón del sistema del Río Palu.',
+      desc:'Orógeno colisional generado por la colisión del microcontinente Banggai-Sula (afinidad gondwánica/australiana) con el brazo este de Sulawesi en el Plioceno (~5–6 Ma). Es la colisión más reciente del ensamblaje de Sulawesi y la que cierra el brazo este. En la zona de colisión se desarrolla un fold-and-thrust belt que deforma la plataforma carbonática en el borde de avance del terreno Banggai (formando trampas petroleras como el campo Tiaka); el East Sulawesi Ophiolite fue obducido sobre el microcontinente y sedimentos molásicos se depositaron tras la colisión. El frente activo de este orógeno es el Cabalgamiento Batui.',
       data:[
-        {lbl:'Provincias',val:'SSP (thin-skinned, vergencia W) · CSP · NSP (muy deformada)'},
-        {lbl:'Mecanismo',val:'Transpresión PKF + colisión Sulu Spur–SE Sundaland (Plioceno)'},
-        {lbl:'Actividad',val:'Activa — folding sin-deposicional en Fm. Pasangkayu'},
+        {lbl:'Microcontinente',val:'Banggai-Sula (afinidad australiana/gondwánica)'},
+        {lbl:'Edad colisión',val:'Plioceno (~5–6 Ma)'},
+        {lbl:'Frente activo',val:'Cabalgamiento Batui'},
+        {lbl:'Expresión',val:'Fold-thrust belt + obducción ESO + molasa post-colisión'},
+      ],
+      imgs:[
+        {url:'data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig14_banggai_seismic.png',cap:'Satyana et al. (2011) Fig.14 — sección sísmica W-E en la Cuenca de Banggai: frente de colisión Banggai-Sula, fold-and-thrust belt deformando la plataforma carbonática (trampa tipo Tiaka), molasa post-colisión.'},
+        {url:'data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig16_banggai_sula.png',cap:'Satyana et al. (2011) Fig.16 — secciones esquemáticas de la colisión del microcontinente Banggai-Sula con Sulawesi Este (fases pre y post-colisión continental; Garrard et al. 1988).'},
       ],
       refs:[
-        {ref:'Baillie, P., & Decker, J. (2022)',title:'Enigmatic Sulawesi: The Tectonic Collage',journal:'Berita Sedimentologi, 48(1), 1–30. doi:10.51835/bsed.2022.48.1.388',find:'WSFB: cinturón offshore en el Estrecho de Makassar, 3 provincias estructurales (SSP/CSP/NSP). Deformación sin-deposicional activa en Fm. Pasangkayu. Originado por transpresión PKF; colisión del Sulu Spur con SE Sundaland en el Plioceno comprimió el régimen extensional original del Estrecho de Makassar, formando el WSFB.'},
+        {ref:'Satyana, A. H., & Purwaningsih, M. E. M. (2011)',title:'Sulawesi collision tectonics: evolution and overview',journal:'Proc. JCM Makassar 2011, 36th HAGI / 40th IAGI Annual Convention',find:'Colisión Banggai-Sula con Sulawesi Este. Fold-and-thrust belt en la zona de colisión deforma la plataforma carbonática del borde de avance del terreno Banggai; molasa post-colisión sella las rocas madre maduras (Satyana, 2006). Secciones en Fig.14 y Fig.16.'},
+        {ref:'Husein et al. (2014)',title:'Geological structures and tectonic reconstruction of Luwuk, East Sulawesi',journal:'Proc. IPA, 38th Conv. IPA 14-G-137',find:'Frente de colisión Banggai-Sula en el área de Luwuk; Batui Thrust como frente activo. ESO obducido hacia el sur sobre Banggai-Sula en el Neógeno tardío.'},
       ]
     }
   },
 
-  'canon_nsftb':{
+  'canon_orogen_btb':{
     adopta:{
-      desc:'Cinturón de pliegues y corrimientos offshore al norte del North Arm, en la parte sur del Mar de Célebes. Límite norte: North Sulawesi Trench. Deformación relacionada con movimientos de la zona de Falla Palu-Koro y la subducción del Mar de Célebes bajo el North Arm. Geometrías fold-and-thrust belt clásicas visibles en batimetría. Contiene cuencas ovoidales extensionales o transtensionales al norte del North Arm, relacionadas con el rollback del slab.',
+      desc:'Orógeno colisional generado por la interacción del microcontinente Buton-Tukang Besi (afinidad gondwánica/australiana) con el brazo sureste de Sulawesi. El frente compresivo es el Cabalgamiento Buton. La configuración exacta de esta colisión está en debate (ver abajo).',
       data:[
-        {lbl:'Ubicación',val:'Offshore N del North Arm, S del Mar de Célebes'},
-        {lbl:'Límite norte',val:'North Sulawesi Trench'},
-        {lbl:'Mecanismo',val:'PKF + subducción del Mar de Célebes bajo el North Arm'},
+        {lbl:'Microcontinente',val:'Buton-Tukang Besi (afinidad australiana/gondwánica)'},
+        {lbl:'Frente compresivo',val:'Cabalgamiento Buton'},
+        {lbl:'Edad',val:'Mioceno–Plioceno (mal constrenida)'},
+      ],
+      imgs:[
+        {url:'data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig15_buton_tukangbesi.png',cap:'Satyana et al. (2011) Fig.15 — secciones esquemáticas de la colisión Buton-Tukang Besi con SE Sulawesi (Eoceno-Oligoceno → Mioceno → Plioceno/Pleistoceno; Davidson 1991). Nota: Satyana & Purwaningsih (2011) reinterpretan que Tukang Besi NO colisionó con Buton.'},
       ],
       refs:[
-        {ref:'Baillie, P., & Decker, J. (2022)',title:'Enigmatic Sulawesi: The Tectonic Collage',journal:'Berita Sedimentologi, 48(1), 1–30. doi:10.51835/bsed.2022.48.1.388',find:'NSFTB: cinturón offshore al N del North Arm, S del Mar de Célebes, límite norte = NST. Geometrías fold-and-thrust clásicas en batimetría. Cuencas ovoidales extensionales/transtensionales relacionadas con rollback del slab del Mar de Célebes.'},
+        {ref:'Satyana, A. H., & Purwaningsih, M. E. M. (2011)',title:'Sulawesi collision tectonics: evolution and overview',journal:'Proc. JCM Makassar 2011, 36th HAGI / 40th IAGI Annual Convention',find:'Colisión Buton-Tukang Besi con el brazo SE. Fig.15 muestra las secciones esquemáticas de Davidson (1991), reinterpretadas por los autores.'},
+        {ref:'Baillie, P., & Decker, J. (2022)',title:'Enigmatic Sulawesi: The Tectonic Collage',journal:'Berita Sedimentologi, 48(1), 1–30. doi:10.51835/bsed.2022.48.1.388',find:'Buton-Tukang Besi: microcontinente gondwánico en acreción al brazo SE; el Buton Thrust es el frente activo, con afinidad australiana documentada por fauna fósil y litologías carbonáticas de plataforma.'},
       ]
-    }
+    },
+    debate:[
+      {
+        desc:'⚠ VERIFICAR. Configuración de la colisión en debate: Davidson (1991) propone que Tukang Besi colisionó con Buton (secuencia Eoceno-Oligoceno → Mioceno → Plioceno/Pleistoceno, con fold-and-thrust belt activo en el frente). Satyana & Purwaningsih (2011) reinterpretan que Tukang Besi NO colisionó con Buton — cuestionando la premisa misma del modelo de Davidson, no solo su cronología.',
+        refs:[
+          {ref:'Satyana, A. H., & Purwaningsih, M. E. M. (2011)',title:'Sulawesi collision tectonics: evolution and overview',journal:'Proc. JCM Makassar 2011, 36th HAGI / 40th IAGI Annual Convention',find:'Fig.15: secciones esquemáticas de la colisión Buton-Tukang Besi con SE Sulawesi (Davidson, 1991). Satyana & Purwaningsih (2011) reinterpretan que Tukang Besi no colisionó con Buton.'},
+        ]
+      },
+    ]
   },
-
 
   'canon_1919':{
     adopta:{
@@ -866,6 +906,21 @@ const CANONICAL_DEBATES={
 
 };
 
+function openImgZoom(url, cap){
+  let ov=document.getElementById('img-zoom-ov');
+  if(!ov){
+    ov=document.createElement('div');
+    ov.id='img-zoom-ov';
+    ov.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:1200;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:zoom-out;padding:24px';
+    ov.onclick=()=>{ov.style.display='none';};
+    ov.innerHTML='<img id="img-zoom-img" style="max-width:96vw;max-height:88vh;object-fit:contain;border:1px solid var(--border);border-radius:4px"><div id="img-zoom-cap" style="color:var(--text);font-family:monospace;font-size:.6rem;margin-top:10px;max-width:80vw;text-align:center;line-height:1.5"></div>';
+    document.body.appendChild(ov);
+  }
+  document.getElementById('img-zoom-img').src=url;
+  document.getElementById('img-zoom-cap').textContent=cap||'';
+  ov.style.display='flex';
+}
+
 async function openCanonicalPanel(featId, fallbackFn){
   const canonId=FEAT_TO_CANONICAL[featId]||featId;
   if(!canonId||!canonId.startsWith('canon_')){if(fallbackFn)fallbackFn();return;}
@@ -908,6 +963,16 @@ async function openCanonicalPanel(featId, fallbackFn){
             <div style="font-size:.59rem;color:var(--text);font-weight:bold">${d.val}</div>`;
         });
         html+=`</div>`;
+      }
+
+      if(debate.adopta.imgs?.length){
+        html+=`<div class="psec">Secciones estructurales</div>`;
+        debate.adopta.imgs.forEach(im=>{
+          html+=`<figure style="margin:4px 0 10px">
+            <img src="${im.url}" alt="${(im.cap||'').replace(/"/g,'&quot;')}" style="width:100%;border:1px solid var(--border);border-radius:4px;cursor:zoom-in;display:block" onclick="openImgZoom('${im.url}','${(im.cap||'').replace(/'/g,'\\u0027').replace(/"/g,'&quot;')}')">
+            ${im.cap?`<figcaption style="font-size:.55rem;color:var(--dim);line-height:1.5;margin-top:3px">${im.cap}</figcaption>`:''}
+          </figure>`;
+        });
       }
 
       if(debate.adopta.refs?.length){
@@ -1083,11 +1148,10 @@ const layerObjs={
   ofiolitas:{getVisible(){return _ofiolitasVis;},setVisible(v){_ofiolitasVis=v;mergedGeomLayer.changed();}},
   core_complexes:{getVisible(){return _coreComplexVis;},setVisible(v){_coreComplexVis=v;mergedGeomLayer.changed();}},
   frentes_colision:{getVisible(){return _frentesColisionVis;},setVisible(v){_frentesColisionVis=v;mergedGeomLayer.changed();}},
-  fpc:{getVisible(){return _fpcVis;},setVisible(v){_fpcVis=v;mergedGeomLayer.changed();}},
+  orogenos_colisionales:{getVisible(){return _orogenosColisVis;},setVisible(v){_orogenosColisVis=v;mergedGeomLayer.changed();}},
   // Verificación S1
   ref_baillie:refBaillieLayer, ref_socquet:refSocquetLayer, ref_walpersdorf:refWalpersdorfLayer,
   ref_satyana_ipa:refSatyanaIpaLayer, ref_satyana_iagi:refSatyanaIagiLayer, ref_surono:refSuronoLayer,
-  ref_baillie_fig7:refBaillieFig7Layer, ref_baillie_fig9:refBaillieFig9Layer,
   // Verificación S2
   ref_serhalawan:refSerhalawanLayer, ref_cipta:refCiptaLayer, ref_jibran:refJibranLayer,
   ref_nataw:refNatawLayer, ref_nataw_inland:refNatawInlandLayer, ref_nataw2020:refNataw2020Layer,
@@ -1202,9 +1266,7 @@ const REF_LAYERS_DATA = {
   ref_socquet:      {url:'data/sections/socquet_2006_gps_kinematics/socquet_2006_fig1_tectonic.png',       ext:[...D.ref_socquet],      label:'Socquet 2006'},
   ref_walpersdorf:  {url:'data/sections/walpersdorf_1998_n_sulawesi_gps/walpersdorf_1998_n_sulawesi_gps_fig1_map.png', ext:[...D.ref_walpersdorf], label:'Walpersdorf 1998'},
   ref_satyana_ipa:  {url:'data/sections/satyana_2011_ipa_collision/satyana_2011_ipa_collision_fig1_map.png', ext:[...D.ref_satyana_ipa], label:'Satyana 2011 IPA'},
-  ref_satyana_iagi: {url:'data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig2_map.png', ext:[...D.ref_satyana_iagi], label:'Satyana 2011 IAGI'},
-  ref_baillie_fig7: {url:'data/sections/baillie_2022_sulawesi/baillie_2022_fig7_wsfb_bathy.png',  ext:[...D.ref_baillie_fig7], label:'Baillie 2022 Fig.7 (WSFB)'},
-  ref_baillie_fig9: {url:'data/sections/baillie_2022_sulawesi/baillie_2022_fig9_nsftb_bathy.png', ext:[...D.ref_baillie_fig9], label:'Baillie 2022 Fig.9 (NSFTB)'},
+  ref_satyana_iagi: {url:'data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig2_structural_map.png', ext:[...D.ref_satyana_iagi], label:'Satyana 2011 IAGI Fig.2 (mapa estructural)'},
   ref_surono:       {url:'data/sections/surono_2012_tectonoestratigrafia/surono_2012_tectonoestratigrafia_fig1_map.png', ext:[...D.ref_surono], label:'Surono 2012'},
   ref_serhalawan:   {url:'data/sections/serhalawan_chen_2024/serhalawan_2024_fig1b_sulawesi.png',           ext:[...D.ref_serhalawan],   label:'Serhalawan 2024'},
   ref_cipta:        {url:'data/sections/cipta_2016_sulawesi_psha/cipta_2016_sulawesi_psha_fig1_map.png',    ext:[...D.ref_cipta],        label:'Cipta 2016'},

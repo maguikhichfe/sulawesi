@@ -374,7 +374,6 @@ const CONCLUSIONS={
   '6':[
     {text:'El campo de velocidades GPS muestra partición de la deformación (strain partition) en bloques discretos: el brazo norte se desplaza hacia el SE mientras el sistema PKF-Matano absorbe la componente sinestral de la convergencia oblicua.',ref:'Socquet et al. (2006); Walpersdorf et al. (1998)'},
     {text:'La PKF exhibe una segmentación geomorfológica en cuatro sectores (Tanimbaya, Donggala, Palu, Saluki), con la ruptura de 2018 documentando que múltiples segmentos pueden activarse en un único evento supershear.',ref:'Natawidjaja, D. H. et al. (2021)'},
-    {text:'El West Sulawesi Fold Belt (WSFB) y el North Sulawesi Fold-Thrust Belt (NSFTB) son fajas plegadas y corridas (FPC) generadas por partición de la deformación: la transpresión ligada a la PKF transfiere la componente compresiva a estos frentes, sobre la plataforma de Sunda al oeste y al norte respectivamente.',ref:'Serhalawan & Chen (2024); Baillie & Decker (2022)'},
   ],
   '7':[
     {text:'El East Sulawesi Ophiolite (ESO) es litosfera oceánica del Cretácico Temprano obductada sobre el microcontinente Banggai-Sula durante el Neógeno tardío. Su presencia define el brazo este como un terreno fundamentalmente oceánico.',ref:'Husein et al. (2014); Faturrakhman et al. (2024)'},
@@ -542,7 +541,7 @@ const LINE_TYPES=['fault','subduction_zone','fold_thrust_belt'];
 
 // source DB → ref layer keys calibradas
 const SOURCE_TO_REFS={
-  'baillie_2022_sulawesi':                         ['ref_baillie','ref_baillie_fig7','ref_baillie_fig9'],
+  'baillie_2022_sulawesi':                         ['ref_baillie'],
   'socquet_2006_gps_kinematics':                   ['ref_socquet'],
   'walpersdorf_1998_n_sulawesi_gps':               ['ref_walpersdorf'],
   'satyana_2011_ipa_collision':                    ['ref_satyana_ipa'],
@@ -576,7 +575,6 @@ let _mgRefActive=[];
 const REF_LABELS={
   ref_baillie:'Baillie 2022',ref_socquet:'Socquet 2006',ref_walpersdorf:'Walpersdorf 1998',
   ref_satyana_ipa:'Satyana 2011 IPA',ref_satyana_iagi:'Satyana 2011 IAGI',ref_surono:'Surono 2012',ref_serhalawan:'Serhalawan 2024',
-  ref_baillie_fig7:'Baillie 2022 Fig.7 (WSFB)',ref_baillie_fig9:'Baillie 2022 Fig.9 (NSFTB)',
   ref_cipta:'Cipta 2016',ref_jibran:'Jibran 2025',ref_nataw:'Nataw 2021 Fig.3',
   ref_nataw_inland:'Nataw 2021 Fig.6',ref_nataw2020:'Nataw 2020',ref_greenfield:'Greenfield 2021',
   ref_jayadi:'Jayadi 2023',ref_lukman:'Lukman 2016',

@@ -198,5 +198,3 @@ body{font-family:monospace;background:var(--bg);color:var(--text)}
 #welcome-box .wb-btn:hover{filter:brightness(1.1)}
 #welcome-box .wb-skip{font-size:.6rem;color:var(--dim);margin-top:10px;cursor:pointer;text-decoration:underline;display:block}
 
-/* Oculto para presentación — bloquea georef-hud por cualquier camino (ej. checkbox ref_baillie dispara activateGeoref directo) */
-#georef-hud{display:none!important}

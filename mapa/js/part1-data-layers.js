@@ -478,8 +478,6 @@ const _REF_DEFAULTS = {
   ref_walpersdorf:  [118.0,    -2.0,    128.0,     4.0   ],
   ref_satyana_ipa:  [117.0,    -7.0,    131.0,     5.0   ],
   ref_satyana_iagi: [113.0,    -7.0,    131.0,     5.0   ],
-  ref_baillie_fig7: [117.5,    -5.0,    120.0,     0.5   ],
-  ref_baillie_fig9: [120.0,    -0.3,    122.8,     1.6   ],
   ref_surono:       [119.0,    -5.0,    130.0,     3.0   ],
   // S2
   ref_serhalawan:   [117.4558, -7.3561, 130.4442,  9.4561],
@@ -531,9 +529,7 @@ const refBaillieLayer     = makeRefLayer('data/sections/baillie_2022_sulawesi/ba
 const refSocquetLayer     = makeRefLayer('data/sections/socquet_2006_gps_kinematics/socquet_2006_fig1_tectonic.png',          D.ref_socquet);
 const refWalpersdorfLayer = makeRefLayer('data/sections/walpersdorf_1998_n_sulawesi_gps/walpersdorf_1998_n_sulawesi_gps_fig1_map.png', D.ref_walpersdorf);
 const refSatyanaIpaLayer  = makeRefLayer('data/sections/satyana_2011_ipa_collision/satyana_2011_ipa_collision_fig1_map.png',  D.ref_satyana_ipa);
-const refSatyanaIagiLayer = makeRefLayer('data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig2_map.png', D.ref_satyana_iagi);
-const refBaillieFig7Layer = makeRefLayer('data/sections/baillie_2022_sulawesi/baillie_2022_fig7_wsfb_bathy.png',  D.ref_baillie_fig7);
-const refBaillieFig9Layer = makeRefLayer('data/sections/baillie_2022_sulawesi/baillie_2022_fig9_nsftb_bathy.png', D.ref_baillie_fig9);
+const refSatyanaIagiLayer = makeRefLayer('data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig2_structural_map.png', D.ref_satyana_iagi);
 const refSuronoLayer      = makeRefLayer('data/sections/surono_2012_tectonoestratigrafia/surono_2012_tectonoestratigrafia_fig1_map.png', D.ref_surono);
 // S2
 const refSerhalawanLayer  = makeRefLayer('data/sections/serhalawan_chen_2024/serhalawan_2024_fig1b_sulawesi.png',             D.ref_serhalawan);
@@ -991,8 +987,8 @@ const CANON_HOST_LAYER={
   canon_pmc:'core_complexes',canon_csmb:'core_complexes',canon_mmc:'core_complexes',
   // Frentes de colisión (suturas de microcontinentes) → toggle propio S7
   canon_205:'frentes_colision',canon_1928:'frentes_colision',
-  // Fajas plegadas y corridas (FPC) → toggle propio S7
-  canon_wsfb:'fpc',canon_nsftb:'fpc',
+  // Orógenos colisionales (zona de colisión de microcontinentes) → toggle propio S7
+  canon_orogen_bsm:'orogenos_colisionales',canon_orogen_btb:'orogenos_colisionales',
 };
 
 function canonHostVisible(canonId){
@@ -1135,7 +1131,7 @@ let _paluBasinVis=false;   // Cuenca Pull-Apart de Palu — S6
 let _ofiolitasVis=false;   // Ofiolitas — S7
 let _coreComplexVis=false; // Complejos metamórficos — S7
 let _frentesColisionVis=false; // Frentes de colisión (Batui, Buton) — S7
-let _fpcVis=false;             // Fajas plegadas y corridas (WSFB, NSFTB) — S7
+let _orogenosColisVis=false;   // Orógenos colisionales (Banggai-Sula, Buton-Tukang Besi) — S7
 
 // Etiquetas de canonicals con merged_geom tipo Point (bahías, cuencas, unidades geológicas)
 const canonLabelSource=new ol.source.Vector();
