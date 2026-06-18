@@ -883,6 +883,8 @@ async function loadMergedGeoms(){
     allFeats.filter(f=>f.getGeometry()!=null).forEach(f=>{
       const gt=f.getGeometry().getType();
       const lt=f.get('layer_type')||'';
+      // Nombre en español para tooltip/etiqueta del canonical (CANON_NOMBRE_ES); cae al nombre de DB si no hay
+      if(typeof CANON_NOMBRE_ES!=='undefined' && CANON_NOMBRE_ES[f.get('id')]) f.set('name', CANON_NOMBRE_ES[f.get('id')]);
       const pointSymbolTypes=['volcano','geophysical_point','igneous_body','ophiolite','metamorphic_complex','terrane','volcanic_arc','basin'];
       if(gt==='Point' && !pointSymbolTypes.includes(lt)){
         f.set('canon_name', f.get('name')||f.get('id')||'');
