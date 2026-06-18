@@ -72,7 +72,7 @@
       <div class="lcat">Fondo</div>
       <div class="lr" data-t="satellite" id="lr-sentinel"><div class="lchk on" id="chk-satellite">✓</div><span>Sentinel-2</span><span id="sentinel-lock" style="font-size:.55rem;color:var(--dim);margin-left:4px" title="Activá GEBCO para poder apagar Sentinel">🔒</span><span onclick="event.stopPropagation();openPanel('sentinel_src')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span></div>
       <div class="lr" data-t="gebco_color"><div class="lchk" id="chk-gebco_color"></div><span>GEBCO Batimetría</span><span onclick="event.stopPropagation();openPanel('gebco_src')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span></div>
-      <div class="lr" data-t="esri_hybrid"><div class="lchk" id="chk-esri_hybrid"></div><span>ESRI Hybrid</span><span onclick="event.stopPropagation();openPanel('esri_hybrid_src')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span></div>
+      <div class="lr" data-t="esri_hybrid"><div class="lchk" id="chk-esri_hybrid"></div><span>ESRI Híbrido</span><span onclick="event.stopPropagation();openPanel('esri_hybrid_src')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span></div>
       <div class="lr" data-t="open_topo"><div class="lchk" id="chk-open_topo"></div><span>OpenTopoMap</span><span onclick="event.stopPropagation();openPanel('open_topo_src')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span></div>
       <div class="lsep"></div>
       <!-- S1 -->
@@ -140,7 +140,7 @@
       <div class="lcat">S7 — Petrotectónica y Metamorfismo</div>
       <div class="lr" data-t="ofiolitas"><div class="lchk" id="chk-ofiolitas"></div><span>Ofiolitas</span></div>
       <div class="lr" data-t="core_complexes"><div class="lchk" id="chk-core_complexes"></div><span>Complejos metamórficos (MCC)</span></div>
-      <div class="lr" data-t="frentes_colision"><div class="lchk" id="chk-frentes_colision"></div><span>Frentes de colisión</span></div>
+      <div class="lr" data-t="frentes_colision"><div class="lchk on" id="chk-frentes_colision">✓</div><span>Frentes de colisión</span></div>
       <div class="lr" data-t="orogenos_colisionales"><div class="lchk" id="chk-orogenos_colisionales"></div><span>Orógenos colisionales</span></div>
       <div class="lr" data-t="ref_baillie"><div class="lchk" id="chk-ref_baillie"></div><span>Baillie 2022 — mapa geológico</span><input type="range" min="0" max="100" value="55" class="op-slider" onclick="event.stopPropagation()" oninput="refBaillieLayer.setOpacity(this.value/100)"></div>
       <div id="verif-body" style="display:none"></div>

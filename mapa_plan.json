@@ -3392,6 +3392,13 @@
       "estado": "implementado",
       "nota_completado": "Agregado soporte de imagenes (adopta.imgs) al panel canonico (openCanonicalPanel) + funcion openImgZoom (lightbox). Creados canon_orogen_bsm y canon_orogen_btb (layer_type structure) con poligonos candidatos aproximados fuenteados de satyana_2011_iagi_evolution (merged_geom NULL, usuario define sobre Satyana Fig.2). Toggle nuevo Orogenos colisionales: flag _orogenosColisVis, layerObjs, CANON_HOST_LAYER, HTML S7, SECTION_KEYS[7], CANON_NOMBRE_ES. Paneles: canon_orogen_bsm con Satyana Fig.14 (sismica Banggai) + Fig.16 (esquematica Banggai-Sula); canon_orogen_btb con Fig.15 (Buton-TB) + debate Davidson 1991 (Tukang Besi colisiono con Buton) vs Satyana 2011 (NO colisiono), marcado VERIFICAR para chequeo del usuario. Relacionados a los frentes Batui (canon_205) y Buton (canon_1928) que siguen en su propio toggle.",
       "fecha_completado": "2026-06-17"
+    },
+    "fe_auditoria_lenguaje": {
+      "id": "fe_auditoria_lenguaje",
+      "desc": "Auditoria de lenguaje: todo el texto visible a espanol (criterio: resumen de la materia), excepto metamorphic core complex, rollback, pull-apart y titulos/revistas de papers (citas).",
+      "estado": "parcial",
+      "nota": "HECHO: subtitulo ingles del panel canonico eliminado; conclusiones (Sintesis) 100% espanol; etiquetas de datos (lbl/val) de paneles; descripciones/hallazgos (desc/find) de CANONICAL_DEBATES 100% espanol con concordancia corregida (slab->losa con genero, thrust->cabalgamiento, dipping->buzante, trench->trinchera, offshore->costa afuera, fold-and-thrust belt->faja plegada y corrida, megathrust->megacabalgamiento, supershear->supercizalla, gap->brecha sismica, Sula Spur->Promontorio de Sula, nombres propios Cabalgamiento Batui/Buton/Tolo, Falla Hamilton, Fosa de Filipinas/Norte de Sulawesi); labels de toggle (ESRI Hibrido, Aire libre); nombres ES (Falla Kolaka transcurrente, Sistema de Falla Sorong). CPD/Curie Point Depth se mantiene en ingles (decision usuario). PENDIENTE: entradas DB[] de part1 (paneles de fuente e info, features individuales), part5 (DB[] + BIB_STATIC), y descripciones/nombres en sqlite geo_features.",
+      "fecha": "2026-06-17"
     }
   }
 }
