@@ -58,8 +58,8 @@ const seismicGapLayer = new ol.layer.Vector({
 // ── YUAN 2024 — fuentes/ inlined ─────────────────────────────────────────────
 
 const YUAN_2024 = {type:"FeatureCollection",features:[
-  {type:"Feature",geometry:{type:"Point",coordinates:[125.0,1.5]},properties:{id:"aniso_yuan_2024_featureA",feat_type:"yuan_point",feat_name:"Flujo Sangihe — trench-normal",azimuth:90}},
-  {type:"Feature",geometry:{type:"LineString",coordinates:[[129.0,-4.5],[127.5,-2.5],[126.5,-1.0],[125.5,0.5]]},properties:{id:"aniso_yuan_2024_featureB",feat_type:"yuan_flow",feat_name:"Flujo NW — extrusión Banda arc",azimuth:315}},
+  {type:"Feature",geometry:{type:"Point",coordinates:[125.0,1.5]},properties:{id:"aniso_yuan_2024_featureA",feat_type:"yuan_point",feat_name:"Flujo Sangihe — normal a la trinchera",azimuth:90}},
+  {type:"Feature",geometry:{type:"LineString",coordinates:[[129.0,-4.5],[127.5,-2.5],[126.5,-1.0],[125.5,0.5]]},properties:{id:"aniso_yuan_2024_featureB",feat_type:"yuan_flow",feat_name:"Flujo NW — extrusión arco de Banda",azimuth:315}},
   {type:"Feature",geometry:{type:"LineString",coordinates:[[130.5,-3.5],[129.0,-2.5],[127.5,-1.5],[126.0,-0.5],[124.5,0.5]]},properties:{id:"aniso_yuan_2024_featureC",feat_type:"yuan_flow",feat_name:"Flujo E-W — Seram-Buru-Sulawesi",azimuth:90}},
   {type:"Feature",geometry:{type:"Point",coordinates:[121.0,-1.5]},properties:{id:"aniso_yuan_2024_featureD",feat_type:"yuan_point",feat_name:"Convección BMW — Java → Sangihe",azimuth:0}},
   {type:"Feature",geometry:{type:"Point",coordinates:[128.5,1.0]},properties:{id:"aniso_yuan_2024_featureE",feat_type:"yuan_point",feat_name:"Flujo toroidal — losa Halmahera",azimuth:270}},
@@ -160,8 +160,8 @@ const yuanPointLayer = new ol.layer.Vector({
 
 // ── DI LEO 2012 — SKS splitting stations ─────────────────────────────────────
 const DI_LEO_2012 = {type:"FeatureCollection",features:[
-  {type:"Feature",geometry:{type:"Point",coordinates:[120.27,-4.44]},properties:{id:"dileo_2012_kapi",feat_type:"dileo_sks",station_name:"KAPI",fast_axis_deg:90,delay_time_s:1.13,flow_style:"corner_flow",feat_name:"KAPI — corner flow SW Sulawesi (dt=1.13 s)"}},
-  {type:"Feature",geometry:{type:"Point",coordinates:[122.52,-3.97]},properties:{id:"dileo_2012_kdi",feat_type:"dileo_sks",station_name:"KDI",fast_axis_deg:45,delay_time_s:1.35,flow_style:"corner_flow",feat_name:"KDI — corner flow SE Sulawesi (dt=1.35 s)"}},
+  {type:"Feature",geometry:{type:"Point",coordinates:[120.27,-4.44]},properties:{id:"dileo_2012_kapi",feat_type:"dileo_sks",station_name:"KAPI",fast_axis_deg:90,delay_time_s:1.13,flow_style:"corner_flow",feat_name:"KAPI — flujo de esquina SO Sulawesi (dt=1.13 s)"}},
+  {type:"Feature",geometry:{type:"Point",coordinates:[122.52,-3.97]},properties:{id:"dileo_2012_kdi",feat_type:"dileo_sks",station_name:"KDI",fast_axis_deg:45,delay_time_s:1.35,flow_style:"corner_flow",feat_name:"KDI — flujo de esquina SE Sulawesi (dt=1.35 s)"}},
   {type:"Feature",geometry:{type:"Point",coordinates:[120.79,1.12]},properties:{id:"dileo_2012_toli",feat_type:"dileo_sks",station_name:"TOLI",fast_axis_deg:null,delay_time_s:1.25,flow_style:"lateral_extrusion",feat_name:"TOLI — extrusión lateral Molucas N Sulawesi (dt=1.25 s)"}},
   {type:"Feature",geometry:{type:"Point",coordinates:[122.79,-0.93]},properties:{id:"dileo_2012_luwi",feat_type:"dileo_sks",station_name:"LUWI",fast_axis_deg:null,delay_time_s:1.30,flow_style:"lateral_extrusion",feat_name:"LUWI — extrusión lateral Molucas brazo E (dt=1.30 s)"}},
   {type:"Feature",geometry:{type:"Point",coordinates:[119.85,-0.52]},properties:{id:"dileo_2012_pci",feat_type:"dileo_sks",station_name:"PCI",fast_axis_deg:null,delay_time_s:0.98,flow_style:"toroidal_slab_edge",feat_name:"PCI — toroidal borde SE losa Célebes (dt=0.98 s)"}}
@@ -342,36 +342,36 @@ function deleteTomoDraft(draftId){
 
 // ── JIBRAN 2025 + HUA 2023 + HALL 2015 + FATURRAKHMAN 2025 + BIRD 2003 ──
 const JIBRAN_2025={features:[
-  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[119.5,1.0],[121.5,1.0],[121.5,2.5],[119.5,2.5],[119.5,1.0]]]},properties:{id:"structure_jibran_2025_cluster01",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster01",feat_name:"Cluster 01 — Compresional NST Oeste",tectonic_regime:"compressional",n_events:49}},
-  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[121.5,1.0],[124.0,1.0],[124.0,2.5],[121.5,2.5],[121.5,1.0]]]},properties:{id:"structure_jibran_2025_cluster02",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster02",feat_name:"Cluster 02 — Compresional NST Este",tectonic_regime:"compressional",n_events:81}},
-  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[119.0,-1.5],[120.5,-1.5],[120.5,0.5],[119.0,0.5],[119.0,-1.5]]]},properties:{id:"structure_jibran_2025_cluster03",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster03",feat_name:"Cluster 03 — Transformante PKF",tectonic_regime:"transform",n_events:62}},
-  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[121.0,-1.5],[123.0,-1.5],[123.0,0.0],[121.0,0.0],[121.0,-1.5]]]},properties:{id:"structure_jibran_2025_cluster04",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster04",feat_name:"Cluster 04 — Extensional Lalanga-Tongian",tectonic_regime:"extensional",n_events:16}},
-  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[122.0,-0.8],[123.5,-0.8],[123.5,0.3],[122.0,0.3],[122.0,-0.8]]]},properties:{id:"structure_jibran_2025_cluster05",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster05",feat_name:"Cluster 05 — Compresional North-Vergent Thrust",tectonic_regime:"compressional",n_events:24}},
-  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[121.0,-3.5],[122.5,-3.5],[122.5,-2.0],[121.0,-2.0],[121.0,-3.5]]]},properties:{id:"structure_jibran_2025_cluster06",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster06",feat_name:"Cluster 06 — Transformante Falla Matano",tectonic_regime:"transform",n_events:19}},
-  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[124.0,2.5],[126.5,2.5],[126.5,4.5],[124.0,4.5],[124.0,2.5]]]},properties:{id:"structure_jibran_2025_cluster07",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster07",feat_name:"Cluster 07 — Compresional West Sangihe Trench",tectonic_regime:"compressional",n_events:18}},
-  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[126.0,-1.5],[129.0,-1.5],[129.0,2.0],[126.0,2.0],[126.0,-1.5]]]},properties:{id:"structure_jibran_2025_cluster08",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster08",feat_name:"Cluster 08 — Compresional Molucca Sea (742 ev.)",tectonic_regime:"compressional",n_events:742}},
-  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[127.0,0.5],[130.0,0.5],[130.0,2.5],[127.0,2.5],[127.0,0.5]]]},properties:{id:"structure_jibran_2025_cluster09",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster09",feat_name:"Cluster 09 — Compresional Molucca Sea Norte",tectonic_regime:"compressional",n_events:30}},
-  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[119.0,-7.5],[122.0,-7.5],[122.0,-5.5],[119.0,-5.5],[119.0,-7.5]]]},properties:{id:"structure_jibran_2025_cluster10",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster10",feat_name:"Cluster 10 — Compresional Nusa Tenggara Back Arc",tectonic_regime:"compressional",n_events:33}}
+  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[119.5,1.0],[121.5,1.0],[121.5,2.5],[119.5,2.5],[119.5,1.0]]]},properties:{id:"structure_jibran_2025_cluster01",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster01",feat_name:"Clúster 01 — Compresional NST Oeste",tectonic_regime:"compressional",n_events:49}},
+  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[121.5,1.0],[124.0,1.0],[124.0,2.5],[121.5,2.5],[121.5,1.0]]]},properties:{id:"structure_jibran_2025_cluster02",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster02",feat_name:"Clúster 02 — Compresional NST Este",tectonic_regime:"compressional",n_events:81}},
+  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[119.0,-1.5],[120.5,-1.5],[120.5,0.5],[119.0,0.5],[119.0,-1.5]]]},properties:{id:"structure_jibran_2025_cluster03",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster03",feat_name:"Clúster 03 — Transformante PKF",tectonic_regime:"transform",n_events:62}},
+  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[121.0,-1.5],[123.0,-1.5],[123.0,0.0],[121.0,0.0],[121.0,-1.5]]]},properties:{id:"structure_jibran_2025_cluster04",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster04",feat_name:"Clúster 04 — Extensional Lalanga-Tongian",tectonic_regime:"extensional",n_events:16}},
+  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[122.0,-0.8],[123.5,-0.8],[123.5,0.3],[122.0,0.3],[122.0,-0.8]]]},properties:{id:"structure_jibran_2025_cluster05",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster05",feat_name:"Clúster 05 — Compresional Cabalgamiento N-vergente",tectonic_regime:"compressional",n_events:24}},
+  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[121.0,-3.5],[122.5,-3.5],[122.5,-2.0],[121.0,-2.0],[121.0,-3.5]]]},properties:{id:"structure_jibran_2025_cluster06",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster06",feat_name:"Clúster 06 — Transformante Falla Matano",tectonic_regime:"transform",n_events:19}},
+  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[124.0,2.5],[126.5,2.5],[126.5,4.5],[124.0,4.5],[124.0,2.5]]]},properties:{id:"structure_jibran_2025_cluster07",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster07",feat_name:"Clúster 07 — Compresional Fosa Sangihe Oeste",tectonic_regime:"compressional",n_events:18}},
+  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[126.0,-1.5],[129.0,-1.5],[129.0,2.0],[126.0,2.0],[126.0,-1.5]]]},properties:{id:"structure_jibran_2025_cluster08",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster08",feat_name:"Clúster 08 — Compresional Mar de Molucas (742 ev.)",tectonic_regime:"compressional",n_events:742}},
+  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[127.0,0.5],[130.0,0.5],[130.0,2.5],[127.0,2.5],[127.0,0.5]]]},properties:{id:"structure_jibran_2025_cluster09",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster09",feat_name:"Clúster 09 — Compresional Mar de Molucas Norte",tectonic_regime:"compressional",n_events:30}},
+  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[119.0,-7.5],[122.0,-7.5],[122.0,-5.5],[119.0,-5.5],[119.0,-7.5]]]},properties:{id:"structure_jibran_2025_cluster10",feat_type:"jibran_cluster",feat_id:"structure_jibran_2025_cluster10",feat_name:"Clúster 10 — Compresional Retroarco Nusa Tenggara",tectonic_regime:"compressional",n_events:33}}
 ]};
 
 const HUA_2023={features:[
-  {type:"Feature",geometry:{type:"LineString",coordinates:[[108.5,-7.5],[112.0,-9.0],[114.5,-9.5],[118.0,-10.0],[120.5,-10.2],[122.5,-10.0],[124.5,-10.5],[126.5,-10.8],[128.5,-9.5],[130.0,-6.5],[131.5,-4.0],[132.0,-2.5]]},properties:{id:"subduction_zone_hua2023_01",feat_type:"hua_feature",feat_id:"subduction_zone_hua2023_01",feat_name:"Banda Slab — curvatura 180°",category:"subduction_zone"}},
-  {type:"Feature",geometry:{type:"LineString",coordinates:[[124.0,4.0],[124.5,2.5],[125.0,1.0],[125.2,0.0],[125.5,-1.0],[126.0,-2.0]]},properties:{id:"subduction_zone_hua2023_02",feat_type:"hua_feature",feat_id:"subduction_zone_hua2023_02",feat_name:"Sangihe Trench — hasta MTZ",category:"subduction_zone"}},
-  {type:"Feature",geometry:{type:"LineString",coordinates:[[128.5,2.0],[128.8,0.5],[129.0,-0.5],[129.5,-2.0]]},properties:{id:"subduction_zone_hua2023_03",feat_type:"hua_feature",feat_id:"subduction_zone_hua2023_03",feat_name:"Halmahera Trench — losa ~275 km",category:"subduction_zone"}},
+  {type:"Feature",geometry:{type:"LineString",coordinates:[[108.5,-7.5],[112.0,-9.0],[114.5,-9.5],[118.0,-10.0],[120.5,-10.2],[122.5,-10.0],[124.5,-10.5],[126.5,-10.8],[128.5,-9.5],[130.0,-6.5],[131.5,-4.0],[132.0,-2.5]]},properties:{id:"subduction_zone_hua2023_01",feat_type:"hua_feature",feat_id:"subduction_zone_hua2023_01",feat_name:"Losa de Banda — curvatura 180°",category:"subduction_zone"}},
+  {type:"Feature",geometry:{type:"LineString",coordinates:[[124.0,4.0],[124.5,2.5],[125.0,1.0],[125.2,0.0],[125.5,-1.0],[126.0,-2.0]]},properties:{id:"subduction_zone_hua2023_02",feat_type:"hua_feature",feat_id:"subduction_zone_hua2023_02",feat_name:"Fosa de Sangihe — hasta MTZ",category:"subduction_zone"}},
+  {type:"Feature",geometry:{type:"LineString",coordinates:[[128.5,2.0],[128.8,0.5],[129.0,-0.5],[129.5,-2.0]]},properties:{id:"subduction_zone_hua2023_03",feat_type:"hua_feature",feat_id:"subduction_zone_hua2023_03",feat_name:"Fosa de Halmahera — losa ~275 km",category:"subduction_zone"}},
   {type:"Feature",geometry:{type:"LineString",coordinates:[[123.0,1.5],[131.0,1.5]]},properties:{id:"cross_section_hua2023_01",feat_type:"hua_feature",feat_id:"cross_section_hua2023_01",feat_name:"Perfil A-A' — doble subducción Molucas",category:"cross_section",section_img_url:"data/sections/hua2023_banda_sulawesi/hua_2023_fig3_seccion_AA.png"}},
   {type:"Feature",geometry:{type:"LineString",coordinates:[[128.5,0.5],[128.5,-11.0]]},properties:{id:"cross_section_hua2023_02",feat_type:"hua_feature",feat_id:"cross_section_hua2023_02",feat_name:"Perfil B-B' — Banda spoon shape",category:"cross_section",section_img_url:"data/sections/hua2023_banda_sulawesi/hua_2023_fig3_seccion_BB.png"}},
-  {type:"Feature",geometry:{type:"Point",coordinates:[127.5,-5.5]},properties:{id:"anisotropy_hua2023_01",feat_type:"hua_feature",feat_id:"anisotropy_hua2023_01",feat_name:"Flujo trench-parallel — cuña Banda",category:"anisotropy"}},
+  {type:"Feature",geometry:{type:"Point",coordinates:[127.5,-5.5]},properties:{id:"anisotropy_hua2023_01",feat_type:"hua_feature",feat_id:"anisotropy_hua2023_01",feat_name:"Flujo paralelo a la trinchera — cuña Banda",category:"anisotropy"}},
   {type:"Feature",geometry:{type:"Point",coordinates:[130.5,-0.5]},properties:{id:"anisotropy_hua2023_02",feat_type:"hua_feature",feat_id:"anisotropy_hua2023_02",feat_name:"Flujo semi-toroidal — borde norte losa Banda",category:"anisotropy"}},
   {type:"Feature",geometry:{type:"Point",coordinates:[119.0,-9.0]},properties:{id:"anisotropy_hua2023_03",feat_type:"hua_feature",feat_id:"anisotropy_hua2023_03",feat_name:"Fossil anisotropy — losa bajo Java-Sumba",category:"anisotropy"}}
 ]};
 
 const HALL_2015={features:[
-  {type:"Feature",geometry:{type:"LineString",coordinates:[[120.8,0.3],[121.5,1.0],[122.5,1.5],[123.3,1.8],[124.2,2.0],[124.5,1.8]]},properties:{id:"subduction_zone_hall2015_01",feat_type:"hall_feature",feat_id:"subduction_zone_hall2015_01",feat_name:"North Sulawesi Trench — losa Celebes S-dipping",category:"subduction_zone"}},
-  {type:"Feature",geometry:{type:"LineString",coordinates:[[121.5,-0.5],[122.0,0.0],[122.5,0.5],[123.0,1.0],[123.5,0.5]]},properties:{id:"subduction_zone_hall2015_02",feat_type:"hall_feature",feat_id:"subduction_zone_hall2015_02",feat_name:"Sula slab — tercera losa N-dipping (tentativa)",category:"subduction_zone"}},
-  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[111.0,-6.5],[115.0,-6.5],[115.0,-9.5],[111.0,-9.5],[111.0,-6.5]]]},properties:{id:"hazard_zone_hall2015_01",feat_type:"hall_feature",feat_id:"hazard_zone_hall2015_01",feat_name:"Slab hole Java Este — gap 250–500 km",category:"hazard_zone"}},
-  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[116.5,-7.5],[119.0,-7.5],[119.0,-9.5],[116.5,-9.5],[116.5,-7.5]]]},properties:{id:"hazard_zone_hall2015_02",feat_type:"hall_feature",feat_id:"hazard_zone_hall2015_02",feat_name:"Slab hole Sumbawa — gap 200–400 km",category:"hazard_zone"}},
-  {type:"Feature",geometry:{type:"LineString",coordinates:[[98.5,0.5],[98.8,2.0],[99.0,4.0]]},properties:{id:"structure_hall2015_01",feat_type:"hall_feature",feat_id:"structure_hall2015_01",feat_name:"Sumatra slab tear — NNE bajo Toba",category:"structure"}},
-  {type:"Feature",geometry:{type:"LineString",coordinates:[[118.0,-9.5],[120.5,-10.2],[122.0,-10.5],[124.5,-10.5],[126.5,-10.8],[128.5,-9.5],[130.0,-6.5],[131.5,-4.0],[129.5,-2.5]]},properties:{id:"subduction_zone_hall2015_03",feat_type:"hall_feature",feat_id:"subduction_zone_hall2015_03",feat_name:"Banda slab — rollback ~15 Ma",category:"subduction_zone"}}
+  {type:"Feature",geometry:{type:"LineString",coordinates:[[120.8,0.3],[121.5,1.0],[122.5,1.5],[123.3,1.8],[124.2,2.0],[124.5,1.8]]},properties:{id:"subduction_zone_hall2015_01",feat_type:"hall_feature",feat_id:"subduction_zone_hall2015_01",feat_name:"Fosa Norte de Sulawesi — losa Célebes buzante al sur",category:"subduction_zone"}},
+  {type:"Feature",geometry:{type:"LineString",coordinates:[[121.5,-0.5],[122.0,0.0],[122.5,0.5],[123.0,1.0],[123.5,0.5]]},properties:{id:"subduction_zone_hall2015_02",feat_type:"hall_feature",feat_id:"subduction_zone_hall2015_02",feat_name:"Losa Sula — tercera losa buzante al norte (tentativa)",category:"subduction_zone"}},
+  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[111.0,-6.5],[115.0,-6.5],[115.0,-9.5],[111.0,-9.5],[111.0,-6.5]]]},properties:{id:"hazard_zone_hall2015_01",feat_type:"hall_feature",feat_id:"hazard_zone_hall2015_01",feat_name:"Hueco de losa Java Este — brecha 250–500 km",category:"hazard_zone"}},
+  {type:"Feature",geometry:{type:"Polygon",coordinates:[[[116.5,-7.5],[119.0,-7.5],[119.0,-9.5],[116.5,-9.5],[116.5,-7.5]]]},properties:{id:"hazard_zone_hall2015_02",feat_type:"hall_feature",feat_id:"hazard_zone_hall2015_02",feat_name:"Hueco de losa Sumbawa — brecha 200–400 km",category:"hazard_zone"}},
+  {type:"Feature",geometry:{type:"LineString",coordinates:[[98.5,0.5],[98.8,2.0],[99.0,4.0]]},properties:{id:"structure_hall2015_01",feat_type:"hall_feature",feat_id:"structure_hall2015_01",feat_name:"Desgarre de losa Sumatra — NNE bajo Toba",category:"structure"}},
+  {type:"Feature",geometry:{type:"LineString",coordinates:[[118.0,-9.5],[120.5,-10.2],[122.0,-10.5],[124.5,-10.5],[126.5,-10.8],[128.5,-9.5],[130.0,-6.5],[131.5,-4.0],[129.5,-2.5]]},properties:{id:"subduction_zone_hall2015_03",feat_type:"hall_feature",feat_id:"subduction_zone_hall2015_03",feat_name:"Losa de Banda — rollback ~15 Ma",category:"subduction_zone"}}
 ]};
 
 
@@ -389,8 +389,8 @@ const FATURRAKHMAN_2025={features:[
   {type:"Feature",geometry:{type:"Point",coordinates:[122.745,-0.557]},properties:{id:"geophysical_point_faturrakhman2025_1",feat_type:"fat25_h2seep",feat_id:"geophysical_point_faturrakhman2025_1",feat_name:"H2 seep Tanjung Api — >1000 ppm",h2_ppm:">1000",flow_rate:"1000-1400 m³/día"}},
   {type:"Feature",geometry:{type:"Point",coordinates:[122.775,-0.585]},properties:{id:"geophysical_point_faturrakhman2025_2",feat_type:"fat25_h2seep",feat_id:"geophysical_point_faturrakhman2025_2",feat_name:"H2 seep Pulodalagan — 144-197 ppm",h2_ppm:"144-197",flow_rate:"termal spring"}},
   {type:"Feature",geometry:{type:"Polygon",coordinates:[[[122.600,-0.420],[123.000,-0.420],[123.000,-0.950],[122.600,-0.950],[122.600,-0.420]]]},properties:{id:"structure_faturrakhman2025_3",feat_type:"fat25_area",feat_id:"structure_faturrakhman2025_3",feat_name:"Área estudio Tanjung Api"}},
-  {type:"Feature",geometry:{type:"LineString",coordinates:[[122.600,-0.700],[122.750,-0.620],[122.900,-0.540],[123.050,-0.480]]},properties:{id:"fault_faturrakhman2025_4",feat_type:"fat25_fault",feat_id:"fault_faturrakhman2025_4",feat_name:"Ampana Fault — NW-SE"}},
-  {type:"Feature",geometry:{type:"LineString",coordinates:[[122.300,-0.950],[122.500,-0.800],[122.700,-0.700],[122.850,-0.640]]},properties:{id:"fault_faturrakhman2025_5",feat_type:"fat25_fault",feat_id:"fault_faturrakhman2025_5",feat_name:"Toili Fault — NW-SE"}}
+  {type:"Feature",geometry:{type:"LineString",coordinates:[[122.600,-0.700],[122.750,-0.620],[122.900,-0.540],[123.050,-0.480]]},properties:{id:"fault_faturrakhman2025_4",feat_type:"fat25_fault",feat_id:"fault_faturrakhman2025_4",feat_name:"Falla Ampana — NW-SE"}},
+  {type:"Feature",geometry:{type:"LineString",coordinates:[[122.300,-0.950],[122.500,-0.800],[122.700,-0.700],[122.850,-0.640]]},properties:{id:"fault_faturrakhman2025_5",feat_type:"fat25_fault",feat_id:"fault_faturrakhman2025_5",feat_name:"Falla Toili — NW-SE"}}
 ]};
 
 // STYLE FUNCTIONS
@@ -776,7 +776,7 @@ function buildTooltipHtml(hit){
     if(type==='cmt'){
       const e=hit.get('cmt_data'),ft=faultType(e.r1);
       const c=depthHex(e.de);
-      const fN={T:'Thrust',N:'Normal',S:'Transcurrente',O:'Oblicua'};
+      const fN={T:'Cabalgamiento',N:'Normal',S:'Transcurrente',O:'Oblicua'};
       html=`<span style="color:${c};font-size:.63rem">SISMO · ${fN[ft]} · ${e.de}km</span><br><b style="color:${c}">M${e.mw}</b>`;
     }else if(type==='volcano'){
       const pt=hit.get('volc_pvmbg')||'C';
@@ -807,18 +807,18 @@ function buildTooltipHtml(hit){
     }else if(type==='hikmy_point'){
       const ur=hit.get('uplift_rate');
       const nm=hit.get('feat_name')||'';
-      html=`<span style="color:#60a5fa;font-size:.63rem">UPLIFT — Hikmy 2025</span><br><b style="color:#60a5fa">${ur!=null?ur+' mm/año · ':''}${nm}</b>`;
+      html=`<span style="color:#60a5fa;font-size:.63rem">ALZAMIENTO — Hikmy 2025</span><br><b style="color:#60a5fa">${ur!=null?ur+' mm/año · ':''}${nm}</b>`;
     }else if(type==='yuan_flow'||type==='yuan_point'){
       const nm=hit.get('feat_name')||'';
       html=`<span style="color:#7060b0;font-size:.63rem">FLUJO MANTÉLICO — Yuan 2024</span><br><b style="color:#7060b0">${nm}</b>`;
     }else if(type==='dileo_sks'){
       const dt=hit.get('delay_time_s'),deg=hit.get('fast_axis_deg'),sta=hit.get('station_name')||'';
       const degStr=deg!=null?` · φ=${deg}°`:'';
-      html=`<span style="color:#7060b0;font-size:.63rem">SPLITTING SKS — Di Leo 2012</span><br><b style="color:#7060b0">${sta}</b> · dt=${dt} s${degStr}`;
+      html=`<span style="color:#7060b0;font-size:.63rem">DIVISIÓN SKS — Di Leo 2012</span><br><b style="color:#7060b0">${sta}</b> · dt=${dt} s${degStr}`;
     }else if(type==='kesuma_tomo'){
       const vt=hit.get('ktomo_vtype'),lbl=hit.get('ktomo_label')||'';
       const c=vt==='high'?'#60a5fa':'#f87171';
-      const vtxt=vt==='high'?'ALTA Vp — slab':'BAJA Vp — zona caliente';
+      const vtxt=vt==='high'?'ALTA Vp — losa':'BAJA Vp — zona caliente';
       html=`<span style="color:${c};font-size:.63rem">${vtxt} — Kesumastuti 2025</span><br><b style="color:${c}">${lbl}</b>`;
     }else if(type==='pratama_manif'){
       const mt=hit.get('manif_type'),nm=hit.get('manif_name')||'',arm=hit.get('manif_arm')||'';
@@ -853,14 +853,14 @@ function buildTooltipHtml(hit){
       html=`<span style="color:${GPS_COL};font-size:.63rem">GPS · ${hit.get('gps_source')||''}</span><br><b style="color:${GPS_COL}">${sta}${mag?' · '+mag:''}</b>`;
     }else if(type==='serhalawan_feature'&&DB[id]){
       const cat=hit.get('category')||'';
-      const catLbl=cat==='fault'?'FALLA':cat==='subduction_zone'?'SUBDUCCIÓN':cat==='earthquake'?'SISMO':cat==='hazard_zone'?'GAP SÍSMICO':cat==='seismicity_cluster'?'CLUSTER':cat==='cross_section'?'SECCIÓN':'';
+      const catLbl=cat==='fault'?'FALLA':cat==='subduction_zone'?'SUBDUCCIÓN':cat==='earthquake'?'SISMO':cat==='hazard_zone'?'BRECHA SÍSMICA':cat==='seismicity_cluster'?'CLÚSTER':cat==='cross_section'?'SECCIÓN':'';
       const c=DB[id].color;
       html=`<span style="color:${c};font-size:.63rem">SERHALAWAN 2024 · ${catLbl}</span><br><b style="color:${c}">${DB[id].title}</b>`;
     }else if(type==='tomo_profile'&&DB[id]){
       const c='#7060b0';
       html=`<span style="color:${c};font-size:.63rem">PERFIL TOMOGRÁFICO · ${DB[id].type}</span><br><b style="color:${c}">${DB[id].title}</b>`;
     }else if(type==='hazard_zone'&&DB[id]){
-      html=`<span style="color:#ffaa00;font-size:.63rem">GAP SÍSMICO — SERHALAWAN 2024</span><br><b style="color:#ffaa00">${DB[id].title}</b>`;
+      html=`<span style="color:#ffaa00;font-size:.63rem">BRECHA SÍSMICA — SERHALAWAN 2024</span><br><b style="color:#ffaa00">${DB[id].title}</b>`;
     }else if(type==='canonical'){
       const nm=hit.get('name')||id||'';
       const lt=hit.get('layer_type')||'';
