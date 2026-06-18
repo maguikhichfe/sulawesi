@@ -348,7 +348,7 @@ const SECTION_KEYS={
   '4':['grav_bouguer','grav_freeair','height_anom'],
   '5':['volcanoes','manif_pratama','cpd_pratama','geothermal'],
   '6':['vel_s1','tect_key','tect_sub','canon_labels','palu_basin'],
-  '7':['ref_baillie','ofiolitas','core_complexes'],
+  '7':['ref_baillie','ofiolitas','core_complexes','frentes_colision','orogenos_colisionales'],
 };
 const BASE_ALWAYS=['satellite','gebco_color'];
 function activateSection(s){

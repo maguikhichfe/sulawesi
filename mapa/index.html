@@ -72,7 +72,7 @@
       <div class="lcat">Fondo</div>
       <div class="lr" data-t="satellite" id="lr-sentinel"><div class="lchk on" id="chk-satellite">✓</div><span>Sentinel-2</span><span id="sentinel-lock" style="font-size:.55rem;color:var(--dim);margin-left:4px" title="Activá GEBCO para poder apagar Sentinel">🔒</span><span onclick="event.stopPropagation();openPanel('sentinel_src')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span></div>
       <div class="lr" data-t="gebco_color"><div class="lchk" id="chk-gebco_color"></div><span>GEBCO Batimetría</span><span onclick="event.stopPropagation();openPanel('gebco_src')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span></div>
-      <div class="lr" data-t="esri_hybrid"><div class="lchk" id="chk-esri_hybrid"></div><span>ESRI Hybrid</span><span onclick="event.stopPropagation();openPanel('esri_hybrid_src')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span></div>
+      <div class="lr" data-t="esri_hybrid"><div class="lchk" id="chk-esri_hybrid"></div><span>ESRI Híbrido</span><span onclick="event.stopPropagation();openPanel('esri_hybrid_src')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span></div>
       <div class="lr" data-t="open_topo"><div class="lchk" id="chk-open_topo"></div><span>OpenTopoMap</span><span onclick="event.stopPropagation();openPanel('open_topo_src')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span></div>
       <div class="lsep"></div>
       <!-- S1 -->
@@ -84,7 +84,7 @@
       <div class="lcat">S2 — Sismicidad</div>
       <div class="lr" data-t="seismicity"><div class="lchk" id="chk-seismicity"></div><span>Sismicidad GCMT</span><label class="bb-toggle" title="Mostrar beachballs GCMT" onclick="event.stopPropagation()"><input type="checkbox" id="toggle-bb"><span class="bb-sw"></span>⊕ BB</label></div>
       <div class="lr" data-t="gaps"><div class="lchk" id="chk-gaps"></div><span>Gaps sísmicos</span></div>
-      <div class="lr" data-t="clusters"><div class="lchk" id="chk-clusters"></div><span>Regímenes Jibran</span></div>
+      <div class="lr" data-t="clusters"><div class="lchk" id="chk-clusters"></div><span>Regímenes de esfuerzo</span></div>
       <button id="hypo-profile-btn" onclick="startHypoProfileDraw()" style="width:100%;margin:3px 0 6px;background:var(--bg3);border:1px solid var(--border);color:var(--dim);padding:3px 0;border-radius:3px;font-family:monospace;font-size:.6rem;cursor:pointer;text-transform:uppercase">⏥ Trazar perfil de hipocentros</button>
       <div class="lsep"></div>
       <!-- S3 -->
@@ -114,7 +114,7 @@
       <!-- S4 -->
       <div class="lcat">S4 — Campo gravitatorio</div>
       <div class="lr" data-t="grav_bouguer"><div class="lchk" id="chk-grav_bouguer"></div><span>Bouguer WGM2012</span><span onclick="event.stopPropagation();openPanel('grav_bouguer')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span><input type="range" id="sl-gbou" min="0" max="100" value="65" class="op-slider" onclick="event.stopPropagation()" oninput="gravBouguerLayer.setOpacity(this.value/100);document.getElementById('sl-gbou-val').textContent=this.value+'%'"><span class="op-val" id="sl-gbou-val">65%</span></div>
-      <div class="lr" data-t="grav_freeair"><div class="lchk" id="chk-grav_freeair"></div><span>Free-air EGM2008</span><span onclick="event.stopPropagation();openPanel('grav_freeair')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span><input type="range" id="sl-gfa" min="0" max="100" value="65" class="op-slider" onclick="event.stopPropagation()" oninput="gravFreeairLayer.setOpacity(this.value/100);document.getElementById('sl-gfa-val').textContent=this.value+'%'"><span class="op-val" id="sl-gfa-val">65%</span></div>
+      <div class="lr" data-t="grav_freeair"><div class="lchk" id="chk-grav_freeair"></div><span>Aire libre EGM2008</span><span onclick="event.stopPropagation();openPanel('grav_freeair')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span><input type="range" id="sl-gfa" min="0" max="100" value="65" class="op-slider" onclick="event.stopPropagation()" oninput="gravFreeairLayer.setOpacity(this.value/100);document.getElementById('sl-gfa-val').textContent=this.value+'%'"><span class="op-val" id="sl-gfa-val">65%</span></div>
       <div class="lr" data-t="height_anom"><div class="lchk" id="chk-height_anom"></div><span>Geoide INAGEOID2020</span><span onclick="event.stopPropagation();openPanel('height_anom')" style="cursor:pointer;color:var(--dim);font-size:.65rem;flex-shrink:0" title="Fuente">ⓘ</span><input type="range" id="sl-hanom" min="0" max="100" value="70" class="op-slider" onclick="event.stopPropagation()" oninput="heightAnomLayer.setOpacity(this.value/100);document.getElementById('sl-hanom-val').textContent=this.value+'%'"><span class="op-val" id="sl-hanom-val">70%</span></div>
       <button id="grav-profile-btn" onclick="event.stopPropagation()">⏥ Trazar perfil gravimétrico</button>
       <button id="grav-finish-btn" onclick="event.stopPropagation()" style="display:none">✓ Finalizar perfil</button>
@@ -139,11 +139,13 @@
       <!-- S7 -->
       <div class="lcat">S7 — Petrotectónica y Metamorfismo</div>
       <div class="lr" data-t="ofiolitas"><div class="lchk" id="chk-ofiolitas"></div><span>Ofiolitas</span></div>
-      <div class="lr" data-t="core_complexes"><div class="lchk" id="chk-core_complexes"></div><span>Complejos metamórficos</span></div>
+      <div class="lr" data-t="core_complexes"><div class="lchk" id="chk-core_complexes"></div><span>Complejos metamórficos (MCC)</span></div>
+      <div class="lr" data-t="frentes_colision"><div class="lchk on" id="chk-frentes_colision">✓</div><span>Frentes de colisión</span></div>
+      <div class="lr" data-t="orogenos_colisionales"><div class="lchk" id="chk-orogenos_colisionales"></div><span>Orógenos colisionales</span></div>
       <div class="lr" data-t="ref_baillie"><div class="lchk" id="chk-ref_baillie"></div><span>Baillie 2022 — mapa geológico</span><input type="range" min="0" max="100" value="55" class="op-slider" onclick="event.stopPropagation()" oninput="refBaillieLayer.setOpacity(this.value/100)"></div>
       <div id="verif-body" style="display:none"></div>
       <div class="lsep"></div>
-      <button id="mgdraw-btn" onclick="openMgDrawModal()" style="display:none;width:100%;margin:3px 0 6px;background:var(--bg3);border:1px solid var(--border);color:var(--dim);padding:3px 0;border-radius:3px;font-family:monospace;font-size:.6rem;cursor:pointer;text-transform:uppercase">✎ Definir geometrías canónicas</button>
+      <button id="mgdraw-btn" onclick="openMgDrawModal()" style="width:100%;margin:3px 0 6px;background:var(--bg3);border:1px solid var(--border);color:var(--dim);padding:3px 0;border-radius:3px;font-family:monospace;font-size:.6rem;cursor:pointer;text-transform:uppercase">✎ Definir geometrías canónicas</button>
     </div>
   </div>
 
@@ -242,7 +244,7 @@
 </div>
 
 <!-- Elementos UI para funcionalidades JS -->
-<div id="georef-hud" style="display:none;position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:rgba(20,20,19,.92);border:1px solid var(--border);border-radius:5px;padding:6px 12px;font-family:monospace;font-size:.5rem;color:var(--text);z-index:500;display:flex;gap:10px;align-items:center">
+<div id="georef-hud" style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:rgba(20,20,19,.92);border:1px solid var(--border);border-radius:5px;padding:6px 12px;font-family:monospace;font-size:.5rem;color:var(--text);z-index:500;gap:10px;align-items:center;display:none">
   <span id="georef-name" style="color:var(--accent)"></span>
   <span id="georef-ext" style="color:var(--dim)"></span>
   <button onclick="saveGeorefToServer()" style="font-family:monospace;font-size:.48rem;padding:2px 8px;background:var(--bg3);border:1px solid var(--border);color:var(--dim);border-radius:3px;cursor:pointer">💾 Guardar extents</button>
@@ -250,8 +252,8 @@
   <button onclick="deactivateGeoref()" style="font-family:monospace;font-size:.48rem;padding:2px 8px;background:var(--bg3);border:1px solid var(--border);color:var(--dim);border-radius:3px;cursor:pointer">✕</button>
 </div>
 
-<!-- Modo edición — oculto para presentación, quitar display:none para reactivar -->
-<div style="position:fixed;bottom:28px;right:12px;z-index:400;gap:5px;align-items:center;display:none">
+<!-- Modo edición -->
+<div style="position:fixed;bottom:28px;right:12px;z-index:400;gap:5px;align-items:center;display:flex">
   <span id="edit-count" style="font-family:monospace;font-size:.48rem;color:#f59e0b;display:none"></span>
   <button id="edit-save-btn" onclick="saveEdits()" style="display:none;font-family:monospace;font-size:.48rem;padding:3px 8px;background:rgba(34,197,94,.1);border:1px solid #22c55e;color:#22c55e;border-radius:3px;cursor:pointer">💾 Guardar cambios</button>
   <button id="edit-cancel-btn" onclick="cancelEdits()" style="display:none;font-family:monospace;font-size:.48rem;padding:3px 8px;background:var(--bg3);border:1px solid var(--border);color:var(--dim);border-radius:3px;cursor:pointer">✕ Cancelar</button>

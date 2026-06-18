@@ -713,7 +713,7 @@ const map=new ol.Map({
   layers:[
     // Raster base
     esriSat,openTopoLayer,esriHybridBase,gebcoColor,esriHybridLabels,gravBouguerLayer,gravFreeairLayer,heightAnomLayer,
-    refBaillieLayer,refSocquetLayer,refWalpersdorfLayer,refSatyanaIpaLayer,refSuronoLayer,
+    refBaillieLayer,refSocquetLayer,refWalpersdorfLayer,refSatyanaIpaLayer,refSatyanaIagiLayer,refSuronoLayer,
     refSerhalawanLayer,refCiptaLayer,refJibranLayer,refNatawLayer,refNatawInlandLayer,refNataw2020Layer,refGreenfieldLayer,refJayadiLayer,
     refHuaLayer,refCaoLayer,refYuanLayer,refHeryandokoLayer,refLiuLayer,refDileoLayer,refLestariLayer,
     refSup010Layer,refSup020Layer,refSup040Layer,refSup060Layer,refSup080Layer,refSup100Layer,refSup120Layer,refSup150Layer,refSup200Layer,

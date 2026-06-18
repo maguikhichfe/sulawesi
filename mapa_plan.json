@@ -3273,6 +3273,134 @@
       "estado": "implementado",
       "nota_completado": "backend/main.py: agregado middleware no_cache_static que pone Cache-Control: no-cache, no-store, must-revalidate en respuestas de /, .html, .css, .js. Tuvo que matarse manualmente un proceso uvicorn viejo (PID 2044) que seguia ocupando el puerto 8000 sin el middleware -- pkill por patron de comando no lo detecto. Verificado: header presente, index/api funcionando.",
       "fecha_completado": "2026-06-17"
+    },
+    "fe_orogenos_colisionales_toggle": {
+      "id": "fe_orogenos_colisionales_toggle",
+      "desc": "Crear toggle combinado Orogenos colisionales en S7 agrupando Batui Thrust, Buton Thrust, WSFB y NSFTB.",
+      "estado": "implementado",
+      "nota_completado": "Creados canon_wsfb y canon_nsftb (fold_thrust_belt), vinculando features huerfanas 7 y 8 (Baillie 2022) que ya estaban completas pero sin canonical. Reasignado host layer de canon_205 (Batui) y canon_1928 (Buton Thrust) de tect_key a orogenos_colisionales -- antes ON por defecto via tect_key, ahora OFF por defecto como el resto de capas tematicas S7. Toggle nuevo: flag _orogenosVis, layerObjs, CANON_HOST_LAYER (4 canonicals), fila HTML S7, SECTION_KEYS[7]. canonHostVisible() exime estos 4 del filtro CANON_LT_SECTION al tener host layer explicito -- no fue necesario tocar CANON_LT_SECTION para layer_type fold_thrust_belt. Enriquecido canon_205 con cita de Satyana IAGI Fig.14 (seccion sismica Cuenca Banggai, frente de colision). Enriquecido canon_1928 con debate nuevo: Davidson 1991 (Tukang Besi colisiono con Buton) vs Satyana & Purwaningsih 2011 IAGI (reinterpretan que NO colisiono) -- cuestiona la configuracion misma, no solo cronologia. Extraidas figuras 14/15/16 de Satyana IAGI a data/sections/satyana_2011_iagi_evolution/. canon_wsfb y canon_nsftb con CANONICAL_DEBATES propio citando Baillie 2022, merged_geom NULL pendiente de definicion por el usuario. Backend se habia caido (proceso anterior murio) -- reiniciado para verificar serving.",
+      "fecha_completado": "2026-06-17"
+    },
+    "audit_s1_acrecion": {
+      "desc": "S1: reemplazar marco \"colage/orquidea\" por \"isla formada por acrecion de distintos elementos/terrenos\" (orogeno acrecional, marco del curso Parte 14) en conclusion S1. Reemplazar \"particionada en bloques\" por \"particion de la deformacion (strain partition)\" en conclusiones S1 y S6.",
+      "estado": "implementado",
+      "id": "audit_s1_acrecion",
+      "nota_completado": "Conclusion S1 #1 reescrita: \"isla formada por acrecion sucesiva de terrenos (orogeno acrecional)\". \"particionada en bloques\" -> \"particion de la deformacion (strain partition)\" en conclusiones S1 #6 y general #3.",
+      "fecha_completado": "2026-06-17"
+    },
+    "audit_s2_regimenes": {
+      "desc": "S2: renombrar toggle \"Regimenes Jibran\" -> \"Regimenes de esfuerzo\" (Jibran como fuente en panel, no en label). Agregar al panel de gaps el matiz del curso: transformes/fallas continentales = ruptura somera y Mw acotada vs subduccion profunda/gran magnitud (contextualiza PKF vs NST, Parte 9).",
+      "estado": "implementado",
+      "id": "audit_s2_regimenes",
+      "nota_completado": "Toggle \"Regimenes Jibran\" -> \"Regimenes de esfuerzo\" (index.html). Agregada conclusion S2: contraste plano de ruptura PKF transcurrente somero (<20km) vs subduccion NST profundo/mayor magnitud (Parte 9).",
+      "fecha_completado": "2026-06-17"
+    },
+    "audit_s3_delaminacion": {
+      "desc": "S3: agregar marco delaminacion/slab break-off a conclusion S3 y panel Sula slab usando Kesumastuti 2025 + Hall & Spakman 2015 (ya en corpus). Vocabulario del curso: cementerio de 660, ventana astenosferica, slab break-off, delaminacion (Partes 9,17,18). Sin paper nuevo.",
+      "estado": "implementado",
+      "id": "audit_s3_delaminacion",
+      "nota_completado": "Agregada conclusion S3: anomalia baja Vp brazo este = delaminacion litosferica / ventana mantelica por slab break-off, vocabulario del curso (slab-pull, ventana, manto caliente). Citas Kesumastuti 2025 + Hall & Spakman 2015 (en corpus). Sin paper nuevo.",
+      "fecha_completado": "2026-06-17"
+    },
+    "audit_s4_interpretacion_puntual": {
+      "desc": "S4: orientar interpretacion gravimetrica POR PUNTOS exactos (no enunciado general). Firmas del curso (Parte 6): zona de subduccion NST = Aire Libre fuertemente negativa + Bouguer positiva + Geoide negativo; dorso periferico = Geoide+/Bouguer 0/AL+; Bouguer negativa = raiz/deficit de densidad (WSIP corteza engrosada, modelo Airy). Anclar cada lectura a anomalia/feature especifica.",
+      "estado": "implementado",
+      "id": "audit_s4_interpretacion_puntual",
+      "nota_completado": "Conclusiones S4 reorientadas por puntos: Bouguer negativa brazo sur-central = raiz/Airy (WSIP); Bouguer positiva Mar de Celebes = oceanica sin raiz; fosa NST = AL fuertemente negativa + Bouguer positiva (topografia succionada dinamicamente) vs arco AL positiva. Firmas del curso Parte 6.",
+      "fecha_completado": "2026-06-17"
+    },
+    "audit_s6_fpc": {
+      "desc": "S6/S7.1: separar el toggle \"Orogenos colisionales\" en DOS: \"Frentes de colision\" (Batui canon_205 + Buton canon_1928) y \"Fajas plegadas y corridas (FPC)\" (canon_wsfb + canon_nsftb). Renombrar WSFB/NSFTB en CANON_NOMBRE_ES a \"Faja plegada y corrida\". Reframe explicacion a particion de la deformacion / transpresion PKF (Parte 9). Eliminar toggle orogenos_colisionales, crear frentes_colision y fpc (flags, layerObjs, CANON_HOST_LAYER, HTML S7, SECTION_KEYS).",
+      "estado": "implementado",
+      "id": "audit_s6_fpc",
+      "nota_completado": "Toggle \"Orogenos colisionales\" separado en \"Frentes de colision\" (canon_205,canon_1928) + \"Fajas plegadas y corridas (FPC)\" (canon_wsfb,canon_nsftb). Flags _frentesColisionVis/_fpcVis, layerObjs, CANON_HOST_LAYER, HTML S7, SECTION_KEYS[7], CANON_NOMBRE_ES (WSFB/NSFTB -> \"Faja Plegada y Corrida\"). Conclusion S6 reescrita: FPC por particion de la deformacion/transpresion PKF.",
+      "fecha_completado": "2026-06-17"
+    },
+    "audit_s7_mcc_rename": {
+      "desc": "S7.2: renombrar toggle \"Complejos metamorficos\" -> \"Complejos metamorficos de nucleo (MCC)\" (metamorphic core complex, termino preciso del curso Partes 10/17/18).",
+      "estado": "implementado",
+      "id": "audit_s7_mcc_rename",
+      "nota_completado": "Toggle \"Complejos metamorficos\" -> \"Complejos metamorficos de nucleo (MCC)\" (index.html).",
+      "fecha_completado": "2026-06-17"
+    },
+    "audit_s7_csmb_grado": {
+      "desc": "S7.3: corregir grado metamorfico del CSMB en panel canon_csmb de \"alta presion (HP)\" a \"esquisto verde\" (greenschist). Razon: Baillie describe litologias de bajo grado (marmol, filita, esquisto cuarzo-micaceo); el grado HP/blueschist viene de Parkinson 1998 que NO esta en corpus. La conclusion S7 ya dice esquisto verde -> se reconcilia la inconsistencia interna.",
+      "estado": "implementado",
+      "id": "audit_s7_csmb_grado",
+      "nota_completado": "Panel canon_csmb: grado \"Alta presion (HP)\" -> \"Esquisto verde (bajo grado)\"; desc actualizada con litologias de bajo grado. geo_feature 16 metamorphic_grade HP -> greenschist (low-grade). Reconcilia inconsistencia con conclusion S7.",
+      "fecha_completado": "2026-06-17"
+    },
+    "audit_s7_conclusiones_metam": {
+      "desc": "S7.4: limpiar conclusiones S7 (y general): CSMB/MMC=esquisto verde, PMC=anfibolita (Baillie). Quitar mencion de Mekongga-Rumbia (borrado de DB esta sesion). Quitar claim UHP-Bantimala (no digitalizado, sin fuente en corpus). Quitar citas Bohnke et al. (2024) y Parkinson et al. (1998) -- ninguno en el corpus. Reescribir conclusiones afectadas sin claims sin respaldo.",
+      "estado": "implementado",
+      "id": "audit_s7_conclusiones_metam",
+      "nota_completado": "Conclusiones S7 limpiadas: eliminado claim UHP-Bantimala (#5 completo) y mencion Mekongga-Rumbia/blueschist; quitadas citas Bohnke 2024, Parkinson 1998, Advokaat 2017 (ninguno en corpus). Reescritas #6 (espectro PMC anfibolita/CSMB-MMC esquisto verde, marco Miyashiro-Ernst) y #7 (secuencia acrecion->core complex). General #2: Bantimala UHP -> ESO Cretacico-Mioceno, cita Parkinson -> Baillie.",
+      "fecha_completado": "2026-06-17"
+    },
+    "audit_s7_eso_residuo": {
+      "desc": "S7.5: enriquecer panel ESO (canon_eso) con el angulo del curso (Parte 19): residuo mantelico (dunita/harzburgita/lherzolita) indica velocidad de expansion de la dorsal de origen; perfil ofiolitico clasico (sedimentos pelagicos->pillow lavas->diques->gabros->peridotita). Usar tipos de roca ya listados en la feature.",
+      "estado": "implementado",
+      "id": "audit_s7_eso_residuo",
+      "nota_completado": "Panel canon_eso: agregadas filas \"Perfil ofiolitico\" (sedimentos pelagicos->pillow->diques->gabros->peridotita) y \"Residuo mantelico\" (grado de empobrecimiento del manto en la dorsal de origen), marco Parte 19.",
+      "fecha_completado": "2026-06-17"
+    },
+    "audit_s7_arcos": {
+      "desc": "S7.6: distinguir en paneles arco continental (WSIP, corteza gruesa) vs arco de islas CO-CO (North Arm Volcanic Arc), distincion del curso (Partes 9,15). Orientar descripciones de canon_wsip y canon_nsarc.",
+      "estado": "implementado",
+      "id": "audit_s7_arcos",
+      "nota_completado": "Conclusion S7 #2 reescrita: North Arm = arco de islas (subduccion CO-CO Mar de Celebes) vs WSIP = arco continental sobre corteza engrosada, distincion del curso Partes 9/15.",
+      "fecha_completado": "2026-06-17"
+    },
+    "audit_s6_fpc_geom": {
+      "id": "audit_s6_fpc_geom",
+      "desc": "FPC (WSFB/NSFTB) requerian geometria canonica para renderizar. Resuelto con opciones 2+3 elegidas por usuario.",
+      "estado": "implementado",
+      "nota_completado": "Opcion 3: merged_geom de canon_wsfb y canon_nsftb adoptado de sus features 7/8 (poligonos digitalizados de Baillie Fig.7/Fig.9) por instruccion explicita del usuario -> FPC ahora renderiza. Opcion 2: extraidas Baillie Fig.7 (WSFB, p10, batimetria offshore W) y Fig.9 (NSFTB, p13, batimetria NW North Arm) a data/sections/baillie_2022_sulawesi/. Cableadas como ref layers ref_baillie_fig7/ref_baillie_fig9 (extents placeholder, makeRefLayer, layerObjs, REF_LAYERS_DATA, REF_LABELS, SOURCE_TO_REFS baillie). Sin grilla lat/lon en las figuras -> calibracion futura por ajuste de esquinas contra basemap/GEBCO. Frentes de colision (Batui/Buton) ya tenian merged_geom, no requerian nada.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_fpc_ref_satyana": {
+      "id": "fe_fpc_ref_satyana",
+      "desc": "Cambiar la imagen de referencia para definir las FPC (WSFB/NSFTB): de Baillie Fig.7/9 (batimetria, vista de corte/local, mal elegida) a Satyana 2011 IAGI Fig.2 (mapa estructural en planta).",
+      "estado": "implementado",
+      "nota_completado": "Eliminado cableado y PNG de ref_baillie_fig7/fig9. Re-apuntado ref_satyana_iagi al recorte limpio satyana_2011_iagi_evolution_fig2_structural_map.png. Re-fuenteadas features 7 (WSFB) y 8 (NSFTB) de baillie_2022_sulawesi a satyana_2011_iagi_evolution con source_apa Satyana -> al definir en mgdraw aparece la ref Satyana Fig.2. Paneles canon_wsfb/nsftb actualizados liderando con cita Satyana (Offshore West Sulawesi Foldbelt 3 provincias p8; North Sulawesi Foldbelt p24). merged_geom de ambas en NULL, pendientes de trazado por usuario sobre Fig.2.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_nombres_es_mcc": {
+      "id": "fe_nombres_es_mcc",
+      "desc": "Nombres en espanol: toggle MCC, 23 canonicals sin nombre ES, Free-air -> Aire libre. Reactivar herramientas de edicion.",
+      "estado": "implementado",
+      "nota_completado": "Toggle \"Complejos metamorficos de nucleo (MCC)\" -> \"Complejos metamorficos (MCC)\" (de nucleo era traduccion forzada; el resumen usa el termino en ingles). Agregados 23 nombres ES en CANON_NOMBRE_ES (4 fallas, polo Euler, 10 clusters Jibran, Sassak, 7 volcanes) manteniendo terminos tecnicos en ingles. Toggle Free-air -> Aire libre. Reactivados mgdraw-btn, modo edicion y georef-hud (quitado display:none).",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_satyana_iagi_layer_missing": {
+      "id": "fe_satyana_iagi_layer_missing",
+      "desc": "Bug: la imagen de Satyana IAGI no aparecia al calibrar (FPC y antes PMC). Causa raiz: refSatyanaIagiLayer se creo en layerObjs/REF_LAYERS_DATA pero nunca se agrego al array layers del ol.Map -> setVisible(true) no renderizaba nada.",
+      "estado": "implementado",
+      "nota_completado": "Agregado refSatyanaIagiLayer al array de capas del map en part2-map-style.js (junto a refSatyanaIpaLayer). Cross-check confirmado: todas las ref layers de layerObjs estan ahora en el mapa. Resuelve tambien el problema previo de calibracion Satyana IAGI para PMC.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_fpc_baja": {
+      "id": "fe_fpc_baja",
+      "desc": "Dar de baja FPC (WSFB/NSFTB) por decision del usuario.",
+      "estado": "implementado",
+      "nota_completado": "Borrados canon_wsfb, canon_nsftb y features 7/8 de la DB. Eliminado todo el cableado: flag _fpcVis, layerObjs.fpc, CANON_HOST_LAYER, toggle HTML, SECTION_KEYS[7], CANON_NOMBRE_ES, entradas CANONICAL_DEBATES, conclusion S6 sobre FPC. Sin residuos.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_orogenos_colisionales": {
+      "id": "fe_orogenos_colisionales",
+      "desc": "Crear toggle Orogenos colisionales (Banggai-Sula, Buton-Tukang Besi) como poligonos con descripcion + secciones estructurales de Satyana en el panel, separado de Frentes de colision.",
+      "estado": "implementado",
+      "nota_completado": "Agregado soporte de imagenes (adopta.imgs) al panel canonico (openCanonicalPanel) + funcion openImgZoom (lightbox). Creados canon_orogen_bsm y canon_orogen_btb (layer_type structure) con poligonos candidatos aproximados fuenteados de satyana_2011_iagi_evolution (merged_geom NULL, usuario define sobre Satyana Fig.2). Toggle nuevo Orogenos colisionales: flag _orogenosColisVis, layerObjs, CANON_HOST_LAYER, HTML S7, SECTION_KEYS[7], CANON_NOMBRE_ES. Paneles: canon_orogen_bsm con Satyana Fig.14 (sismica Banggai) + Fig.16 (esquematica Banggai-Sula); canon_orogen_btb con Fig.15 (Buton-TB) + debate Davidson 1991 (Tukang Besi colisiono con Buton) vs Satyana 2011 (NO colisiono), marcado VERIFICAR para chequeo del usuario. Relacionados a los frentes Batui (canon_205) y Buton (canon_1928) que siguen en su propio toggle.",
+      "fecha_completado": "2026-06-17"
+    },
+    "fe_auditoria_lenguaje": {
+      "id": "fe_auditoria_lenguaje",
+      "desc": "Auditoria de lenguaje: todo el texto visible a espanol (criterio: resumen de la materia), excepto metamorphic core complex, rollback, pull-apart y titulos/revistas de papers (citas).",
+      "estado": "implementado",
+      "nota": "HECHO: subtitulo ingles del panel canonico eliminado; conclusiones (Sintesis) 100% espanol; etiquetas de datos (lbl/val) de paneles; descripciones/hallazgos (desc/find) de CANONICAL_DEBATES 100% espanol con concordancia corregida (slab->losa con genero, thrust->cabalgamiento, dipping->buzante, trench->trinchera, offshore->costa afuera, fold-and-thrust belt->faja plegada y corrida, megathrust->megacabalgamiento, supershear->supercizalla, gap->brecha sismica, Sula Spur->Promontorio de Sula, nombres propios Cabalgamiento Batui/Buton/Tolo, Falla Hamilton, Fosa de Filipinas/Norte de Sulawesi); labels de toggle (ESRI Hibrido, Aire libre); nombres ES (Falla Kolaka transcurrente, Sistema de Falla Sorong). CPD/Curie Point Depth se mantiene en ingles (decision usuario). PENDIENTE: entradas DB[] de part1 (paneles de fuente e info, features individuales), part5 (DB[] + BIB_STATIC), y descripciones/nombres en sqlite geo_features.",
+      "fecha": "2026-06-17",
+      "nota_completado": "Texto visible 100% espanol. JS (paneles/conclusiones/labels/DB[]) commiteado en dea2122. SQLite geo_features.name: 214 nombres traducidos con reordenamiento estructural (X Fault->Falla X, X Volcano->Volcan X, X Thrust->Cabalgamiento X, X Slab->Losa de X, X Metamorphic Complex/Belt, X Ophiolite, X Microcontinent, X Igneous Province, X Volcanic Arc, X Fault Zone, X Caldera, X Basin) + 59 nombres complejos (tomografia/GPS/clusters/Features) con reemplazo exacto por id. 0 corrupcion verificada. Mantenidos en ingles: metamorphic core complex, rollback, pull-apart, Sula Spur, CPD/Curie Point Depth, titulos/revistas de papers. NOTA: geo_features.properties.description/full_name (fallback de paneles sin entrada DB[]) puede tener ingles residual menor; el name (tooltip) y los paneles principales estan en espanol.",
+      "fecha_completado": "2026-06-17"
     }
   }
 }

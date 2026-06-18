@@ -222,7 +222,7 @@ const CANON_NOMBRE_ES={
   canon_289: 'Cabalgamiento del Estrecho de Makassar — Somba',
   canon_1921:'Zona de Falla Sorong — Oeste',
   canon_1922:'Transformante NE de Sulawesi / Sula',
-  canon_1929:'Sorong Fault System — Ramal Sur',
+  canon_1929:'Sistema de Falla Sorong — Ramal Sur',
 
   canon_1927:'Falla Este-Oeste (EWF)',
   canon_1928:'Cabalgamiento de Buton',
@@ -234,6 +234,8 @@ const CANON_NOMBRE_ES={
   canon_wsip: 'Provincia Ígnea del Oeste de Sulawesi (WSIP)',
   canon_terrane_bsm:'Microcontinente Banggai-Sula',
   canon_terrane_btb:'Microcontinente Buton-Tukang Besi',
+  canon_orogen_bsm:'Orógeno colisional Banggai-Sula',
+  canon_orogen_btb:'Orógeno colisional Buton-Tukang Besi',
   canon_pmc:  'Complejo Metamórfico de Palu (PMC)',
   canon_csmb: 'Cinturón Metamórfico de Sulawesi Central (CSMB)',
   canon_mmc:  'Complejo Metamórfico de Malino (MMC)',
@@ -244,37 +246,59 @@ const CANON_NOMBRE_ES={
   canon_1910: 'Sistema de Falla Sorong',
   canon_1919: 'Subducción de Cotabato',
   canon_1933: 'Zona de Falla Balantak',
+  canon_100:  'Falla Lawanopo',
+  canon_116:  'Falla Kolaka — transcurrente con componente normal',
+  canon_789:  'Falla Gorontalo',
+  canon_1010: 'Cabalgamiento Tolo — vergencia oeste',
+  canon_jib_01:'Clúster Jibran 01 — Régimen compresional NST oeste',
+  canon_jib_02:'Clúster Jibran 02 — Régimen compresional NST este',
+  canon_jib_03:'Clúster Jibran 03 — Régimen transformante PKF',
+  canon_jib_04:'Clúster Jibran 04 — Régimen extensional Lalanga-Togian',
+  canon_jib_05:'Clúster Jibran 05 — Régimen compresional (thrust N-vergente)',
+  canon_jib_06:'Clúster Jibran 06 — Régimen transformante Matano',
+  canon_jib_07:'Clúster Jibran 07 — Régimen compresional Sangihe oeste',
+  canon_jib_08:'Clúster Jibran 08 — Régimen compresional Mar de Molucas (mayor)',
+  canon_jib_09:'Clúster Jibran 09 — Régimen compresional Mar de Molucas norte',
+  canon_jib_10:'Clúster Jibran 10 — Régimen compresional retroarco Nusa Tenggara',
+  canon_sassak:'Pórfido de Cu-Au Sassak',
+  canon_vol_ambang:'Volcán Ambang',
+  canon_vol_awu:'Volcán Awu',
+  canon_vol_lahendong:'Campo geotérmico Lahendong',
+  canon_vol_lokon:'Volcanes Lokon-Empung',
+  canon_vol_ruang:'Volcán Ruang',
+  canon_vol_tondano:'Caldera de Tondano',
+  canon_vol_unauna:'Volcán Una-Una',
 };
 
 // Debate científico por canonical — {adopta:{desc,data,refs[]}, debate:[{desc,refs[]}]}
 const CANONICAL_DEBATES={
   'canon_5':{
     adopta:{
-      desc:'Segmentación LiDAR en 4 segmentos: Tanimbaya (offshore norte) → Donggala → Palu → Saluki (inland sur). Ruptura 2018 Mw 7.5 fue supershear (~4.1 km/s) y multisegmento, cubriendo los cuatro segmentos en propagación bilateral desde Donggala.',
+      desc:'Segmentación LiDAR en 4 segmentos: Tanimbaya (costa afuera norte) → Donggala → Palu → Saluki (tierra adentro sur). Ruptura 2018 Mw 7.5 fue supershear (~4.1 km/s) y multisegmento, cubriendo los cuatro segmentos en propagación bilateral desde Donggala.',
       data:[
         {lbl:'Slip rate',val:'35 mm/yr (Socquet 2006)'},
         {lbl:'Longitud total',val:'~420 km'},
         {lbl:'Cinemática',val:'Sinistral (casi vertical)'},
-        {lbl:'Ruptura 2018',val:'Mw 7.5 · supershear · 4 segmentos'},
+        {lbl:'Ruptura 2018',val:'Mw 7.5 · supercizalla · 4 segmentos'},
         {lbl:'Profundidad sismogénica',val:'< 20 km'},
       ],
       refs:[
         {ref:'Natawidjaja, D. H. et al. (2020)',title:'The 2018 Mw7.5 Palu Earthquake Sequence',journal:'Seismol. Res. Lett., 91(5), 2524–2535. doi:10.1785/0220190380',find:'4 segmentos (Tanimbaya/Donggala/Palu/Saluki) con trazas LiDAR. Ruptura bilateral desde Donggala; slip máximo en segmento Palu (~6 m).'},
         {ref:'Natawidjaja, D. H. et al. (2021)',title:'Supershear rupture of the 2018 Lake Palu earthquake',journal:'Geophys. Res. Lett., 48, e2021GL094561. doi:10.1029/2021GL094561',find:'Velocidad de ruptura 4.1 km/s (supershear). Traza LiDAR + batimetría define geometría canónica.'},
-        {ref:'Socquet et al. (2006)',title:'India and Sunda plates motion and deformation along their boundary in Myanmar',journal:'J. Geophys. Res., 111, B05406. doi:10.1029/2005JB003877',find:'Slip rate PKF: 35 mm/yr medido por GPS en referencia ITRF2000. Particionamiento de la convergencia oblicua entre PKF (sinestral) y NST (thrust).'},
+        {ref:'Socquet et al. (2006)',title:'India and Sunda plates motion and deformation along their boundary in Myanmar',journal:'J. Geophys. Res., 111, B05406. doi:10.1029/2005JB003877',find:'Tasa de deslizamiento PKF: 35 mm/yr medido por GPS en referencia ITRF2000. Particionamiento de la convergencia oblicua entre PKF (sinestral) y NST (cabalgamiento).'},
       ]
     },
     debate:[
       {
-        desc:'Slip rate: Walpersdorf et al. (1998) obtienen 40–45 mm/yr (GPS norte Sulawesi, ITRF96) — valor mayor que Socquet et al. 2006 (35 mm/yr, ITRF2000). La discrepancia ~5–10 mm/yr puede reflejar diferencias en el marco de referencia, período de medición, o heterogeneidad a lo largo de la falla. Este mapa adopta el valor de Socquet 2006 como más reciente y con mayor cobertura espacial.',
+        desc:'Tasa de deslizamiento: Walpersdorf et al. (1998) obtienen 40–45 mm/yr (GPS norte Sulawesi, ITRF96) — valor mayor que Socquet et al. 2006 (35 mm/yr, ITRF2000). La discrepancia ~5–10 mm/yr puede reflejar diferencias en el marco de referencia, período de medición, o heterogeneidad a lo largo de la falla. Este mapa adopta el valor de Socquet 2006 como más reciente y con mayor cobertura espacial.',
         refs:[
-          {ref:'Walpersdorf et al. (1998)',title:'Monitoring of the Palu-Koro Fault (Sulawesi) by GPS',journal:'Geophys. Res. Lett., 25(13), 2313–2316. doi:10.1029/98GL01503',find:'Slip rate 40–45 mm/yr medido con red GPS norte Sulawesi. Marco de referencia ITRF96. Período 1994–1997.'},
+          {ref:'Walpersdorf et al. (1998)',title:'Monitoring of the Palu-Koro Fault (Sulawesi) by GPS',journal:'Geophys. Res. Lett., 25(13), 2313–2316. doi:10.1029/98GL01503',find:'Tasa de deslizamiento 40–45 mm/yr medido con red GPS norte Sulawesi. Marco de referencia ITRF96. Período 1994–1997.'},
         ]
       },
       {
-        desc:'Extensión norte offshore: Yang et al. (2026) detectan mediante OBS un segmento offshore que prolonga la PKF en la bahía de Donggala. GPlates topology y Serhalawan (2024) colocan el junction PKF–NST en [119.30°E, 1.21°N]; otros papers difieren. La conexión precisa norte no está resuelta sin batimetría de alta resolución.',
+        desc:'Extensión norte costa afuera: Yang et al. (2026) detectan mediante OBS un segmento costa afuera que prolonga la PKF en la bahía de Donggala. GPlates topology y Serhalawan (2024) colocan el junction PKF–NST en [119.30°E, 1.21°N]; otros papers difieren. La conexión precisa norte no está resuelta sin batimetría de alta resolución.',
         refs:[
-          {ref:'Yang et al. (2025)',title:'Crustal structure along the Palu-Koro Fault Zone (PKF)',journal:'EGUsphere preprint (2025). doi:10.5194/egusphere-2025-3105',find:'Perfiles OBS: diferencia de velocidad cortical a ambos lados de PKF. Extensión offshore hacia la bahía de Donggala.'},
+          {ref:'Yang et al. (2025)',title:'Crustal structure along the Palu-Koro Fault Zone (PKF)',journal:'EGUsphere preprint (2025). doi:10.5194/egusphere-2025-3105',find:'Perfiles OBS: diferencia de velocidad cortical a ambos lados de PKF. Extensión costa afuera hacia la bahía de Donggala.'},
         ]
       },
     ]
@@ -306,7 +330,7 @@ const CANONICAL_DEBATES={
 
   'canon_364':{
     adopta:{
-      desc:'Megathrust del Mar de Célebes (Sulawesi Sea) subductando bajo el brazo norte. Inicio ~8–9 Ma. La variación de azimut del vector de deslizamiento (de NNE en el oeste a N en el este) se explica por contrastes de energía potencial gravitatoria (GPE), NO por geometría 3D del slab (Greenfield 2021). Gap sísmico central 121–121.7°E: sin terremotos interplaca Mw≥6.5 documentados.',
+      desc:'Megacabalgamiento del Mar de Célebes (Sulawesi Sea) subductando bajo el brazo norte. Inicio ~8–9 Ma. La variación de azimut del vector de deslizamiento (de NNE en el oeste a N en el este) se explica por contrastes de energía potencial gravitatoria (GPE), NO por geometría 3D de la losa (Greenfield 2021). Gap sísmico central 121–121.7°E: sin terremotos interplaca Mw≥6.5 documentados.',
       data:[
         {lbl:'Convergencia',val:'~50–55 mm/yr (Socquet 2006)'},
         {lbl:'Longitud',val:'~700 km'},
@@ -315,15 +339,15 @@ const CANONICAL_DEBATES={
         {lbl:'Gap sísmico',val:'121–121.7°E (Serhalawan 2024)'},
       ],
       refs:[
-        {ref:'Greenfield, T. et al. (2021)',title:'The seismicity and tectonics of the northern Sulawesi subduction zone',journal:'Tectonics, 40, e2020TC006573. doi:10.1029/2020TC006573',find:'Variación de azimut del slip vector explicada por GPE contrasts — hipótesis de curvatura horizontal del slab rechazada (sin evidencia en EHB <40 km). Elastic thickness: 10 (+6/–24) km.'},
+        {ref:'Greenfield, T. et al. (2021)',title:'The seismicity and tectonics of the northern Sulawesi subduction zone',journal:'Tectonics, 40, e2020TC006573. doi:10.1029/2020TC006573',find:'Variación de azimut del slip vector explicada por GPE contrasts — hipótesis de curvatura horizontal de la losa rechazada (sin evidencia en EHB <40 km). Elastic thickness: 10 (+6/–24) km.'},
         {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'Gap NST central 121–121.7°E: ausencia de sismos interplaca Mw≥6.5. Tres hipótesis: bajo acoplamiento, deslizamiento asísmico, o zona de gran sismo futuro.'},
       ]
     },
     debate:[
       {
-        desc:'Causa de la variación de azimut del slip vector: Greenfield (2021) rechaza la geometría 3D del slab como explicación (sin variación detectable de curvatura horizontal en EHB <40 km) y propone GPE contrasts. La hipótesis alternativa —geometría del slab— predice una variación de dirección de convergencia entre el Mar de Célebes y Sulawesi, lo cual no se observa en datos GPS. El GPE model predice el patrón de deformación E-W en el norte que sí se observa.',
+        desc:'Causa de la variación de azimut del slip vector: Greenfield (2021) rechaza la geometría 3D de la losa como explicación (sin variación detectable de curvatura horizontal en EHB <40 km) y propone GPE contrasts. La hipótesis alternativa —geometría de la losa— predice una variación de dirección de convergencia entre el Mar de Célebes y Sulawesi, lo cual no se observa en datos GPS. El GPE model predice el patrón de deformación E-W en el norte que sí se observa.',
         refs:[
-          {ref:'Greenfield, T. et al. (2021)',title:'The seismicity and tectonics of the northern Sulawesi subduction zone',journal:'Tectonics, 40, e2020TC006573. doi:10.1029/2020TC006573',find:'Test directo: sin variación de curvatura horizontal del slab en catálogo EHB <40 km. GPE contrasts predicen la deformación E-W observada en Sulawesi norte.'},
+          {ref:'Greenfield, T. et al. (2021)',title:'The seismicity and tectonics of the northern Sulawesi subduction zone',journal:'Tectonics, 40, e2020TC006573. doi:10.1029/2020TC006573',find:'Test directo: sin variación de curvatura horizontal de la losa en catálogo EHB <40 km. GPE contrasts predicen la deformación E-W observada en Sulawesi norte.'},
         ]
       },
       {
@@ -339,21 +363,22 @@ const CANONICAL_DEBATES={
     adopta:{
       desc:'Cabalgamiento thin-skinned NW-vergente activo en el frente de colisión Banggai-Sula (área de Luwuk, brazo este). Husein (2014) documenta 3 compartimentos N-S: extensión al norte (bloque ofiolítico Balantak), compresión thin-skinned al centro (Anticlinorio Salodik), deslizamientos gravitacionales al sur (molasa Kemumu).',
       data:[
-        {lbl:'Cinemática',val:'Thrust NW-vergente (thin-skinned)'},
+        {lbl:'Cinemática',val:'Cabalgamiento NW-vergente (epidérmico)'},
         {lbl:'Sismicidad',val:'Baja — sin soluciones GCMT'},
         {lbl:'Último M>5 registrado',val:'1981'},
         {lbl:'Edad inicio compresión',val:'Mioceno Tardío – Plioceno'},
       ],
       refs:[
-        {ref:'Husein et al. (2014)',title:'Geological structures and tectonic reconstruction of Luwuk, East Sulawesi',journal:'Proc. IPA, 38th Conv. IPA 14-G-137',find:'Batui/Salodik Thrust: thin-skinned NW-vergente en Anticlinorio Salodik. ESO actúa como bloque rígido. Deformación polifásica: inversión Mioceno Tardío (Balantak Fault) + compresión Plioceno Tardío (Sorong Fault).'},
-        {ref:'Hikmy & Isbram (2025)',title:'Analisis geomorfologi tektonik segmen timur Sulawesi',journal:'Jurnal Geologi Indonesia [2025]',find:'Batui Thrust Belt — geomorfología tectónica confirma actividad neotectónica. Índices IAT clase 1-2 en el frente de thrust.'},
+        {ref:'Husein et al. (2014)',title:'Geological structures and tectonic reconstruction of Luwuk, East Sulawesi',journal:'Proc. IPA, 38th Conv. IPA 14-G-137',find:'Cabalgamiento Batui/Salodik: thin-skinned NW-vergente en Anticlinorio Salodik. ESO actúa como bloque rígido. Deformación polifásica: inversión Mioceno Tardío (Balantak Fault) + compresión Plioceno Tardío (Sorong Fault).'},
+        {ref:'Hikmy & Isbram (2025)',title:'Analisis geomorfologi tektonik segmen timur Sulawesi',journal:'Jurnal Geologi Indonesia [2025]',find:'Cinturón de Cabalgamiento Batui — geomorfología tectónica confirma actividad neotectónica. Índices IAT clase 1-2 en el frente de cabalgamiento.'},
+        {ref:'Satyana, A. H., & Purwaningsih, M. E. M. (2011)',title:'Sulawesi collision tectonics: evolution and overview',journal:'Proc. JCM Makassar 2011, 36th HAGI / 40th IAGI Annual Convention',find:'Fig. 14: sección sísmica W-E en la Cuenca de Banggai mostrando el frente de colisión Banggai-Sula. Faja plegada y corrida deforma la plataforma carbonática en el borde de avance del terreno Banggai, formando la trampa petrolera de Tiaka. Sedimentos molásicos depositados post-colisión (Satyana, 2006).'},
       ]
     },
     debate:[
       {
-        desc:'Actividad actual: Husein (2014) describe la compresión principal en el Plioceno Tardío. Serhalawan & Chen (2024) lo clasifican como thrust activo de baja sismicidad con M>5 documentado en 1981 pero sin soluciones GCMT. La distinción entre "activo con largo período de recurrencia" y "posiblemente inactivo" requiere datos paleosísmicos aún no disponibles para este segmento.',
+        desc:'Actividad actual: Husein (2014) describe la compresión principal en el Plioceno Tardío. Serhalawan & Chen (2024) lo clasifican como cabalgamiento activo de baja sismicidad con M>5 documentado en 1981 pero sin soluciones GCMT. La distinción entre "activo con largo período de recurrencia" y "posiblemente inactivo" requiere datos paleosísmicos aún no disponibles para este segmento.',
         refs:[
-          {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'Batui Thrust: low seismicity. Último M>5 en 1981. Sin soluciones GCMT. Clasificado activo de bajo nivel en mapa sismotectónico.'},
+          {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'Cabalgamiento Batui: baja sismicidad. Último M>5 en 1981. Sin soluciones GCMT. Clasificado activo de bajo nivel en mapa sismotectónico.'},
         ]
       },
     ]
@@ -361,14 +386,14 @@ const CANONICAL_DEBATES={
 
   'canon_286':{
     adopta:{
-      desc:'Makassar Strait Thrust Norte — segmento norte del sistema MST, límite compresivo Sunda/bloque Sulawesi. Cuatro segmentos del sistema MST (N/CN/Mamuju/Somba) con niveles de sismicidad distintos. El segmento Mamuju registró Mw 6.2 en 2021 y Mw 6.7 en 1984 — confirma actividad reciente.',
+      desc:'Cabalgamiento del Estrecho de Makassar Norte — segmento norte del sistema MST, límite compresivo Sunda/bloque Sulawesi. Cuatro segmentos del sistema MST (N/CN/Mamuju/Somba) con niveles de sismicidad distintos. El segmento Mamuju registró Mw 6.2 en 2021 y Mw 6.7 en 1984 — confirma actividad reciente.',
       data:[
         {lbl:'Slip rate sistema MST',val:'5–11 mm/yr (Serhalawan 2024)'},
         {lbl:'Profundidad sismogénica',val:'< 25 km'},
         {lbl:'Episodio reciente',val:'Mw 6.2 Mamuju–Majene 2021'},
       ],
       refs:[
-        {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'MST Norte: least seismically active segment. Slip rate 5-11 mm/yr. Mamuju: Mw 6.7 (1984), Mw 6.2 (2021). Somba: Mw 7.1 (1969), silencio sísmico desde 1970.'},
+        {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'MST Norte: least seismically active segment. Tasa de deslizamiento 5-11 mm/yr. Mamuju: Mw 6.7 (1984), Mw 6.2 (2021). Somba: Mw 7.1 (1969), silencio sísmico desde 1970.'},
       ]
     },
     debate:[
@@ -383,42 +408,42 @@ const CANONICAL_DEBATES={
 
   'canon_369':{
     adopta:{
-      desc:'Zona de subducción oeste-dipping del Mar de Molucas bajo el arco Sangihe. Componente occidental de la doble subducción opuesta del Mar de Molucas. El slab de Sangihe alcanza ~600 km de profundidad según tomografía (Hua 2023), siendo el slab más profundo del sistema Molucas. La anisotropía SKS indica flujo mantélico trench-parallel a lo largo del slab (Yuan 2024). Convergencia del Mar de Molucas hacia el oeste: ~70 mm/yr (Socquet 2006).',
+      desc:'Zona de subducción buzante al oeste del Mar de Molucas bajo el arco Sangihe. Componente occidental de la doble subducción opuesta del Mar de Molucas. La losa de Sangihe alcanza ~600 km de profundidad según tomografía (Hua 2023), siendo la losa más profunda del sistema Molucas. La anisotropía SKS indica flujo mantélico paralelo a la trinchera a lo largo de la losa (Yuan 2024). Convergencia del Mar de Molucas hacia el oeste: ~70 mm/yr (Socquet 2006).',
       data:[
-        {lbl:'Vergencia',val:'Oeste-dipping (hacia arco Sangihe)'},
-        {lbl:'Profundidad slab',val:'~600 km (Hua 2023)'},
-        {lbl:'Flujo mantélico',val:'Trench-parallel (Yuan 2024)'},
+        {lbl:'Vergencia',val:'Buzante al oeste (hacia arco Sangihe)'},
+        {lbl:'Profundidad de la losa',val:'~600 km (Hua 2023)'},
+        {lbl:'Flujo mantélico',val:'Paralelo a la trinchera (Yuan 2024)'},
         {lbl:'Convergencia',val:'~70 mm/yr (Socquet 2006)'},
       ],
       refs:[
-        {ref:'Hua, Y. et al. (2023)',title:'Tomography of the Banda arc and surrounding regions',journal:'JGR Solid Earth, 128, e2022JB025600. doi:10.1029/2022JB025600',find:'Slab Sangihe: ~600 km profundidad. Slab Halmahera: ~275 km. Asimetría clara en profundidad de penetración — Sangihe penetra más profundo en el manto inferior.'},
-        {ref:'Yuan, T. et al. (2024)',title:'Multiple Slabs and Complex Mantle Flows in the Molucca Sea Subduction Zone',journal:'Geochemistry, Geophysics, Geosystems, 25, e2024GC011500. doi:10.1029/2024GC011500',find:'Anisotropía SKS indica flujo mantélico trench-parallel a lo largo del slab Sangihe. Flujo controlado por geometría de la doble subducción opuesta del Mar de Molucas.'},
+        {ref:'Hua, Y. et al. (2023)',title:'Tomography of the Banda arc and surrounding regions',journal:'JGR Solid Earth, 128, e2022JB025600. doi:10.1029/2022JB025600',find:'Losa Sangihe: ~600 km profundidad. Losa Halmahera: ~275 km. Asimetría clara en profundidad de penetración — Sangihe penetra más profundo en el manto inferior.'},
+        {ref:'Yuan, T. et al. (2024)',title:'Multiple Slabs and Complex Mantle Flows in the Molucca Sea Subduction Zone',journal:'Geochemistry, Geophysics, Geosystems, 25, e2024GC011500. doi:10.1029/2024GC011500',find:'Anisotropía SKS indica flujo mantélico paralelo a la trinchera a lo largo de la losa Sangihe. Flujo controlado por geometría de la doble subducción opuesta del Mar de Molucas.'},
         {ref:'Socquet, A. et al. (2006)',title:'Microblock rotations and fault coupling in SE Asia triple junction (Sulawesi, Indonesia) from GPS and earthquake slip vector data',journal:'JGR Solid Earth, 111, B08409. doi:10.1029/2005JB003963',find:'Convergencia Mar de Molucas: ~70 mm/yr hacia el oeste. Rotación del bloque Molucas en contexto de triple unión.'},
       ]
     },
     debate:[
       {
-        desc:'<b>Debate fundamental de polaridad:</b> el modelo estándar postula que el Mar de Molucas es la placa subductante y subducta hacia AFUERA en ambos sentidos — hacia el oeste bajo Sangihe y hacia el este bajo Halmahera. Hall & Spakman (2015) proponen el modelo <b>inverso</b>: son los propios arcos de Sangihe y Halmahera los que subductan hacia ADENTRO del Mar de Molucas, de modo que el Mar de Molucas actúa como placa cabalgante en ambos flancos. En este modelo alternativo el slab bajo el arco de Sangihe no es el piso de Molucas yendo al oeste sino el arco de Sangihe buceando hacia el este (E-dipping); el slab bajo Halmahera no es el piso de Molucas yendo al este sino el arco de Halmahera buceando hacia el oeste (W-dipping). Ambas subducciones son en sentido estrictamente contrario al modelo mayoritario. Esta inversión de polaridad cambia fundamentalmente quién es la placa subductante, el mecanismo que impulsa la convergencia y la dinámica futura de la colisión arc-arc. La mayoría de la comunidad (Yuan 2024, Supendi 2024, Kesumastuti 2025, Di Leo 2012) trabaja con el modelo estándar, pero la tomografía de alta resolución todavía no resuelve unívocamente la polaridad real porque ambos modelos producen anomalías de alta velocidad similares en posición.',
+        desc:'<b>Debate fundamental de polaridad:</b> el modelo estándar postula que el Mar de Molucas es la placa subductante y subducta hacia AFUERA en ambos sentidos — hacia el oeste bajo Sangihe y hacia el este bajo Halmahera. Hall & Spakman (2015) proponen el modelo <b>inverso</b>: son los propios arcos de Sangihe y Halmahera los que subductan hacia ADENTRO del Mar de Molucas, de modo que el Mar de Molucas actúa como placa cabalgante en ambos flancos. En este modelo alternativo la losa bajo el arco de Sangihe no es el piso de Molucas yendo al oeste sino el arco de Sangihe buceando hacia el este (buzante al este); la losa bajo Halmahera no es el piso de Molucas yendo al este sino el arco de Halmahera buceando hacia el oeste (buzante al oeste). Ambas subducciones son en sentido estrictamente contrario al modelo mayoritario. Esta inversión de polaridad cambia fundamentalmente quién es la placa subductante, el mecanismo que impulsa la convergencia y la dinámica futura de la colisión arc-arc. La mayoría de la comunidad (Yuan 2024, Supendi 2024, Kesumastuti 2025, Di Leo 2012) trabaja con el modelo estándar, pero la tomografía de alta resolución todavía no resuelve unívocamente la polaridad real porque ambos modelos producen anomalías de alta velocidad similares en posición.',
         refs:[
           {ref:'Hall, R. & Spakman, W. (2015)',title:'Mantle structure and tectonic history of SE Asia',journal:'Tectonophysics, 658. doi:10.1016/j.tecto.2015.07.003',find:'Modelo de inversión de polaridad: arcos de Sangihe y Halmahera subductando hacia el Mar de Molucas (inward), en oposición al modelo estándar donde el Mar de Molucas subduce hacia afuera (outward). Las anomalías tomográficas de alta velocidad son compatibles con ambas geometrías.'},
-          {ref:'Yuan, T. et al. (2024)',title:'Multiple Slabs and Complex Mantle Flows in the Molucca Sea Subduction Zone',journal:'Geochemistry, Geophysics, Geosystems, 25, e2024GC011500. doi:10.1029/2024GC011500',find:'Adopta el modelo estándar (Molucas outward-subducting). El patrón de flujo mantélico registrado (Features A–E) es consistente con W-dipping bajo Sangihe y E-dipping bajo Halmahera como placa subductante, no con el modelo invertido.'},
-          {ref:'Kesumastuti, A. et al. (2025)',title:'Multiple slab subduction beneath Sulawesi',journal:'Geophysical Research Letters. doi:10.1029/2025GL115393',find:'Trabaja en el marco estándar: slabs H1–H3 corresponden al Mar de Molucas subductando outward. No confronta directamente el modelo de inversión de Hall & Spakman.'},
+          {ref:'Yuan, T. et al. (2024)',title:'Multiple Slabs and Complex Mantle Flows in the Molucca Sea Subduction Zone',journal:'Geochemistry, Geophysics, Geosystems, 25, e2024GC011500. doi:10.1029/2024GC011500',find:'Adopta el modelo estándar (Molucas outward-subducting). El patrón de flujo mantélico registrado (Features A–E) es consistente con buzante al oeste bajo Sangihe y buzante al este bajo Halmahera como placa subductante, no con el modelo invertido.'},
+          {ref:'Kesumastuti, A. et al. (2025)',title:'Multiple slab subduction beneath Sulawesi',journal:'Geophysical Research Letters. doi:10.1029/2025GL115393',find:'Trabaja en el marco estándar: losas H1–H3 corresponden al Mar de Molucas subductando outward. No confronta directamente el modelo de inversión de Hall & Spakman.'},
         ]
       },
       {
-        desc:'Hall & Spakman (2015) proponen además, bajo el norte de Sulawesi, un slab de dirección N-dipping independiente ("Sula slab") relacionado con la colisión del Microcontinente Banggai-Sula. Cao et al. (2024) adoptan el mismo modelo. Kesumastuti et al. (2025) no encuentran evidencia tomográfica de este slab al oeste de 122.5°E: la anomalía H2 podría ser una flexión del slab de Sangihe o artefacto de resolución. Supendi et al. (2024) confirman el slab W-dipping en perfiles E-O pero sus perfiles no están orientados para resolver la componente N-dipping.',
+        desc:'Hall & Spakman (2015) proponen además, bajo el norte de Sulawesi, una losa de dirección buzante al norte independiente ("losa Sula") relacionado con la colisión del Microcontinente Banggai-Sula. Cao et al. (2024) adoptan el mismo modelo. Kesumastuti et al. (2025) no encuentran evidencia tomográfica de esta losa al oeste de 122.5°E: la anomalía H2 podría ser una flexión de la losa de Sangihe o artefacto de resolución. Supendi et al. (2024) confirman la losa buzante al oeste en perfiles E-O pero sus perfiles no están orientados para resolver la componente buzante al norte.',
         refs:[
-          {ref:'Hall, R. & Spakman, W. (2015)',title:'Mantle structure and tectonic history of SE Asia',journal:'Tectonophysics, 658. doi:10.1016/j.tecto.2015.07.003',find:'Fig. 15: Sula slab N-dipping como estructura independiente evolucionando a casi vertical al presente.'},
-          {ref:'Cao, L. et al. (2024)',title:'Slab subduction and mantle dynamics beneath Sulawesi',journal:'JGR: Solid Earth. doi:10.1029/2024JB029012',find:'Fig. 7 (cartoon 3D): Sula slab como cuerpo separado con dirección diferente al slab de Sangihe.'},
-          {ref:'Kesumastuti, A. et al. (2025)',title:'Multiple slab subduction beneath Sulawesi',journal:'Geophysical Research Letters. doi:10.1029/2025GL115393',find:'Sin evidencia del Sula slab al oeste de 122.5°E; H2 es posiblemente flexión del slab de Sangihe.'},
-          {ref:'Supendi, P. et al. (2024)',title:'Slab geometry beneath Sulawesi from regional seismicity',journal:'JGR: Solid Earth. doi:10.1029/2023JB027989',find:'Perfiles Fig. 3A-B y 3C-D (E-O): W-dipping confirmado pero no resuelve componente N-S del posible Sula slab.'},
+          {ref:'Hall, R. & Spakman, W. (2015)',title:'Mantle structure and tectonic history of SE Asia',journal:'Tectonophysics, 658. doi:10.1016/j.tecto.2015.07.003',find:'Fig. 15: losa Sula buzante al norte como estructura independiente evolucionando a casi vertical al presente.'},
+          {ref:'Cao, L. et al. (2024)',title:'Slab subduction and mantle dynamics beneath Sulawesi',journal:'JGR: Solid Earth. doi:10.1029/2024JB029012',find:'Fig. 7 (cartoon 3D): losa Sula como cuerpo separado con dirección diferente al losa de Sangihe.'},
+          {ref:'Kesumastuti, A. et al. (2025)',title:'Multiple slab subduction beneath Sulawesi',journal:'Geophysical Research Letters. doi:10.1029/2025GL115393',find:'Sin evidencia de la losa Sula al oeste de 122.5°E; H2 es posiblemente flexión de la losa de Sangihe.'},
+          {ref:'Supendi, P. et al. (2024)',title:'Slab geometry beneath Sulawesi from regional seismicity',journal:'JGR: Solid Earth. doi:10.1029/2023JB027989',find:'Perfiles Fig. 3A-B y 3C-D (E-O): buzante al oeste confirmado pero no resuelve componente N-S del posible losa Sula.'},
         ]
       },,
       {
-        desc:'Asimetría Sangihe–Halmahera: Hua (2023) documenta que el slab de Sangihe (~600 km) penetra ~2× más profundo que el slab de Halmahera (~275 km). El mecanismo de esta asimetría — diferencia en edad litosférica, velocidad de convergencia, o dinámica de rollback — no está resuelto. Yuan (2024) propone que el flujo mantélico trench-parallel retroalimenta la asimetría al modificar la presión dinámica en la cuña mantélica.',
+        desc:'Asimetría Sangihe–Halmahera: Hua (2023) documenta que la losa de Sangihe (~600 km) penetra ~2× más profundo que la losa de Halmahera (~275 km). El mecanismo de esta asimetría — diferencia en edad litosférica, velocidad de convergencia, o dinámica de rollback — no está resuelto. Yuan (2024) propone que el flujo mantélico paralelo a la trinchera retroalimenta la asimetría al modificar la presión dinámica en la cuña mantélica.',
         refs:[
-          {ref:'Hua, Y. et al. (2023)',title:'Tomography of the Banda arc and surrounding regions',journal:'JGR Solid Earth, 128, e2022JB025600. doi:10.1029/2022JB025600',find:'Slab Sangihe ~600 km vs Halmahera ~275 km. Asimetría documentada en tomografía Vp y Vs. Sin consenso sobre causa dinámica.'},
-          {ref:'Yuan, T. et al. (2024)',title:'Multiple Slabs and Complex Mantle Flows in the Molucca Sea Subduction Zone',journal:'Geochemistry, Geophysics, Geosystems, 25, e2024GC011500. doi:10.1029/2024GC011500',find:'Flujo mantélico trench-parallel Sangihe — posible mecanismo de retroalimentación en asimetría de profundidad slab.'},
+          {ref:'Hua, Y. et al. (2023)',title:'Tomography of the Banda arc and surrounding regions',journal:'JGR Solid Earth, 128, e2022JB025600. doi:10.1029/2022JB025600',find:'Losa Sangihe ~600 km vs Halmahera ~275 km. Asimetría documentada en tomografía Vp y Vs. Sin consenso sobre causa dinámica.'},
+          {ref:'Yuan, T. et al. (2024)',title:'Multiple Slabs and Complex Mantle Flows in the Molucca Sea Subduction Zone',journal:'Geochemistry, Geophysics, Geosystems, 25, e2024GC011500. doi:10.1029/2024GC011500',find:'Flujo mantélico paralelo a la trinchera Sangihe — posible mecanismo de retroalimentación en asimetría de profundidad losa.'},
         ]
       },
     ]
@@ -426,35 +451,35 @@ const CANONICAL_DEBATES={
 
   'canon_805':{
     adopta:{
-      desc:'Zona de subducción este-dipping del Mar de Molucas bajo el arco Halmahera. Componente de la doble subducción opuesta del Mar de Molucas. El slab de Halmahera alcanza aproximadamente 275 km de profundidad según tomografía (Hua 2023), considerablemente menos profundo que el slab de Sangihe.',
+      desc:'Zona de subducción buzante al este del Mar de Molucas bajo el arco Halmahera. Componente de la doble subducción opuesta del Mar de Molucas. La losa de Halmahera alcanza aproximadamente 275 km de profundidad según tomografía (Hua 2023), considerablemente menos profundo que la losa de Sangihe.',
       data:[
-        {lbl:'Vergencia',val:'Este-dipping (hacia arco Halmahera)'},
-        {lbl:'Profundidad slab',val:'~275 km (Hua 2023)'},
+        {lbl:'Vergencia',val:'Buzante al este (hacia arco Halmahera)'},
+        {lbl:'Profundidad de la losa',val:'~275 km (Hua 2023)'},
       ],
       refs:[
-        {ref:'Hua et al. (2023)',title:'P and S wave anisotropic tomography of the Banda subduction zone',journal:'Geophys. Res. Lett., 50, e2023GL105611. doi:10.1029/2023GL105611',find:'Halmahera E-dipping hasta ~275 km — significativamente menos profundo que Sangihe (~660 km).'},
+        {ref:'Hua et al. (2023)',title:'P and S wave anisotropic tomography of the Banda subduction zone',journal:'Geophys. Res. Lett., 50, e2023GL105611. doi:10.1029/2023GL105611',find:'Halmahera buzante al este hasta ~275 km — significativamente menos profundo que Sangihe (~660 km).'},
       ]
     },
     debate:[
       {
-        desc:'<b>Debate fundamental de polaridad (vinculado al debate de Sangihe):</b> en el modelo estándar el Mar de Molucas subduce HACIA EL ESTE bajo el arco de Halmahera (E-dipping). Hall & Spakman (2015) proponen la inversión: es el arco de Halmahera el que subduce hacia el OESTE, dentro del Mar de Molucas (W-dipping), siendo el Mar de Molucas la placa cabalgante. Esta inversión es simétrica al debate de Sangihe: ambos arcos subductan hacia adentro en el modelo de Hall & Spakman, en lugar del Mar de Molucas subductando hacia afuera en el modelo estándar. La distinción observacional entre ambos modelos es difícil porque las anomalías de alta velocidad son compatibles con cualquiera de las dos geometrías — lo que distingue los modelos es la interpretación de qué material forma la anomalía (arco vs. piso oceánico) y el patrón de flujo mantélico esperado en cada caso.',
+        desc:'<b>Debate fundamental de polaridad (vinculado al debate de Sangihe):</b> en el modelo estándar el Mar de Molucas subduce HACIA EL ESTE bajo el arco de Halmahera (buzante al este). Hall & Spakman (2015) proponen la inversión: es el arco de Halmahera el que subduce hacia el OESTE, dentro del Mar de Molucas (buzante al oeste), siendo el Mar de Molucas la placa cabalgante. Esta inversión es simétrica al debate de Sangihe: ambos arcos subductan hacia adentro en el modelo de Hall & Spakman, en lugar del Mar de Molucas subductando hacia afuera en el modelo estándar. La distinción observacional entre ambos modelos es difícil porque las anomalías de alta velocidad son compatibles con cualquiera de las dos geometrías — lo que distingue los modelos es la interpretación de qué material forma la anomalía (arco vs. piso oceánico) y el patrón de flujo mantélico esperado en cada caso.',
         refs:[
-          {ref:'Hall, R. & Spakman, W. (2015)',title:'Mantle structure and tectonic history of SE Asia',journal:'Tectonophysics, 658. doi:10.1016/j.tecto.2015.07.003',find:'Modelo de inversión de polaridad para el Mar de Molucas: Halmahera subducta hacia el oeste (W-dipping), con el Mar de Molucas como placa superior. Simétrico al modelo invertido para Sangihe.'},
-          {ref:'Yuan, T. et al. (2024)',title:'Multiple Slabs and Complex Mantle Flows in the Molucca Sea Subduction Zone',journal:'Geochemistry, Geophysics, Geosystems, 25, e2024GC011500. doi:10.1029/2024GC011500',find:'Adopta el modelo estándar (E-dipping bajo Halmahera). Las Features mantélicas C–E son consistentes con Molucas subductando outward hacia el este, no con Halmahera subductando inward.'},
+          {ref:'Hall, R. & Spakman, W. (2015)',title:'Mantle structure and tectonic history of SE Asia',journal:'Tectonophysics, 658. doi:10.1016/j.tecto.2015.07.003',find:'Modelo de inversión de polaridad para el Mar de Molucas: Halmahera subducta hacia el oeste (buzante al oeste), con el Mar de Molucas como placa superior. Simétrico al modelo invertido para Sangihe.'},
+          {ref:'Yuan, T. et al. (2024)',title:'Multiple Slabs and Complex Mantle Flows in the Molucca Sea Subduction Zone',journal:'Geochemistry, Geophysics, Geosystems, 25, e2024GC011500. doi:10.1029/2024GC011500',find:'Adopta el modelo estándar (buzante al este bajo Halmahera). Las Features mantélicas C–E son consistentes con Molucas subductando outward hacia el este, no con Halmahera subductando inward.'},
         ]
       },
       {
-        desc:'Dentro del modelo estándar (E-dipping), Yuan et al. (2024) documentan un fragmento detached o slab edge libre en el segmento norte del slab de Halmahera, generando flujo toroidal alrededor del extremo (Feature E). Implica que la dirección de hundimiento no es uniforme a lo largo del arco: el segmento central es E-dipping canónico, pero el segmento norte es más complejo. Di Leo et al. (2012) registran en la estación TERN ejes SKS trench-parallel, incompatibles con una subducción E-dipping puramente ortogonal — apuntan a flujo de escape lateral. Liu et al. (2026) muestran en la isosuperficie 3D variaciones laterales de dip direction entre segmentos del slab de Halmahera.',
+        desc:'Dentro del modelo estándar (buzante al este), Yuan et al. (2024) documentan un fragmento desprendido o borde de losa libre en el segmento norte de la losa de Halmahera, generando flujo toroidal alrededor del extremo (Feature E). Implica que la dirección de hundimiento no es uniforme a lo largo del arco: el segmento central es buzante al este canónico, pero el segmento norte es más complejo. Di Leo et al. (2012) registran en la estación TERN ejes SKS paralelo a la trinchera, incompatibles con una subducción buzante al este puramente ortogonal — apuntan a flujo de escape lateral. Liu et al. (2026) muestran en la isosuperficie 3D variaciones laterales de dirección de buzamiento entre segmentos de la losa de Halmahera.',
         refs:[
-          {ref:'Yuan, T. et al. (2024)',title:'Multiple Slabs and Complex Mantle Flows in the Molucca Sea Subduction Zone',journal:'Geochemistry, Geophysics, Geosystems, 25, e2024GC011500. doi:10.1029/2024GC011500',find:'Feature E: flujo toroidal alrededor del extremo N del slab de Halmahera — fragmento detached o slab edge libre con dirección de hundimiento variable.'},
-          {ref:'Di Leo, J. F. et al. (2012)',title:'Mantle flow in regions of complex tectonics: Insights from Indonesia',journal:'Geochemistry, Geophysics, Geosystems, 13(12). doi:10.1029/2012GC004417',find:'TERN: fast axes trench-parallel en zona Halmahera; incompatible con subducción E-dipping ortogonal simple.'},
-          {ref:'Liu, H. et al. (2026)',title:'S-wave tomography of the Indonesian subduction system',journal:'JGR: Solid Earth. doi:10.1029/2025JB031000',find:'Isosuperficie 3D: variaciones laterales de dip direction en el slab de Halmahera que exceden el descriptor simple E-dipping.'},
+          {ref:'Yuan, T. et al. (2024)',title:'Multiple Slabs and Complex Mantle Flows in the Molucca Sea Subduction Zone',journal:'Geochemistry, Geophysics, Geosystems, 25, e2024GC011500. doi:10.1029/2024GC011500',find:'Feature E: flujo toroidal alrededor del extremo N de la losa de Halmahera — fragmento desprendido o borde de losa libre con dirección de hundimiento variable.'},
+          {ref:'Di Leo, J. F. et al. (2012)',title:'Mantle flow in regions of complex tectonics: Insights from Indonesia',journal:'Geochemistry, Geophysics, Geosystems, 13(12). doi:10.1029/2012GC004417',find:'TERN: ejes rápidos paralelo a la trinchera en zona Halmahera; incompatible con subducción buzante al este ortogonal simple.'},
+          {ref:'Liu, H. et al. (2026)',title:'S-wave tomography of the Indonesian subduction system',journal:'JGR: Solid Earth. doi:10.1029/2025JB031000',find:'Isosuperficie 3D: variaciones laterales de dirección de buzamiento en la losa de Halmahera que exceden el descriptor simple buzante al este.'},
         ]
       },,
       {
-        desc:'Profundidad del slab y continuación en el manto: la diferencia en profundidad entre Halmahera (~275 km) y Sangihe (~660 km) es llamativa. Puede reflejar que el slab de Halmahera es más joven o que su subducción empezó más recientemente que Sangihe. Los datos de flujo mantélico (Yuan 2024) sugieren que el flujo toroidal entre ambas cuñas está influenciado por esta asimetría.',
+        desc:'Profundidad de la losa y continuación en el manto: la diferencia en profundidad entre Halmahera (~275 km) y Sangihe (~660 km) es llamativa. Puede reflejar que la losa de Halmahera es más joven o que su subducción empezó más recientemente que Sangihe. Los datos de flujo mantélico (Yuan 2024) sugieren que el flujo toroidal entre ambas cuñas está influenciado por esta asimetría.',
         refs:[
-          {ref:'Yuan et al. (2024)',title:'Mantle flow in the Molucca Sea region',journal:'J. Geophys. Res. Solid Earth, 129, e2023JB028021. doi:10.1029/2023JB028021',find:'Flujo toroidal entre cuñas de Sangihe y Halmahera — asimetría de profundidad de slabs como driver geodinámico.'},
+          {ref:'Yuan et al. (2024)',title:'Mantle flow in the Molucca Sea region',journal:'J. Geophys. Res. Solid Earth, 129, e2023JB028021. doi:10.1029/2023JB028021',find:'Flujo toroidal entre cuñas de Sangihe y Halmahera — asimetría de profundidad de losas como driver geodinámico.'},
         ]
       },
     ]
@@ -464,13 +489,13 @@ const CANONICAL_DEBATES={
     adopta:{
       desc:'Falla de desgarre dextral E-W, la más rápida del sistema regional (~120 mm/yr). Conecta la triple junction Matano–Sorong–SST ([122.05°E, -3.34°N]) al oeste con el extremo NW de Bird\'s Head al este. Limita el bloque del Bird\'s Head/placa del Pacífico al norte del Mar de Banda/plataforma australiana. Consta de una rama principal (Sorong s.s.) y una rama sur (Sorong S). El desplazamiento total acumulado supera los 200 km (estimaciones Oligoceno–Presente).',
       data:[
-        {lbl:'Cinemática',val:'Dextral E-W (right-lateral)'},
+        {lbl:'Cinemática',val:'Dextral E-W'},
         {lbl:'Slip rate',val:'~120 mm/yr (Socquet et al. 2006)'},
         {lbl:'Longitud',val:'~1200 km (rama principal)'},
         {lbl:'Desplazamiento total',val:'>200 km (Oligoceno–Presente)'},
       ],
       refs:[
-        {ref:'Socquet et al. (2006)',title:'India and Sunda plates motion and deformation along their boundary in Myanmar',journal:'J. Geophys. Res., 111, B05406. doi:10.1029/2005JB003877',find:'Slip rate Sorong: ~120 mm/yr (GPS), la falla de desgarre más rápida de SE Asia. Particionamiento entre Sorong (sinistral) y sistemas thrust del borde sur del Bird\'s Head.'},
+        {ref:'Socquet et al. (2006)',title:'India and Sunda plates motion and deformation along their boundary in Myanmar',journal:'J. Geophys. Res., 111, B05406. doi:10.1029/2005JB003877',find:'Tasa de deslizamiento Sorong: ~120 mm/yr (GPS), la falla de desgarre más rápida de SE Asia. Particionamiento entre Sorong (sinistral) y sistemas de cabalgamiento del borde sur del Bird\'s Head.'},
         {ref:'Baillie, P. W., & Decker, J. (2022)',title:'Tectonic evolution of Sulawesi, Indonesia',journal:'Berita Sedimentologi, 48(1). doi:10.51835/bsed.2022.48.1.388',find:'Sorong conecta con Matano en la triple junction [122.05°E, -3.34°N]. Inicio del movimiento actual en el Mioceno Tardío–Plioceno, desplazamiento total >200 km.'},
       ]
     },
@@ -493,7 +518,7 @@ const CANONICAL_DEBATES={
 
   'canon_287':{
     adopta:{
-      desc:'MST Central-Norte — segmento identificado recientemente por Hutchings & Mooney (2021) en Serhalawan & Chen (2024). Zona de sismicidad moderada entre los segmentos Norte y Mamuju. Slip rate dentro del rango sistémico 5–11 mm/yr. Ver también debate del sistema MST en canon_286.',
+      desc:'MST Central-Norte — segmento identificado recientemente por Hutchings & Mooney (2021) en Serhalawan & Chen (2024). Zona de sismicidad moderada entre los segmentos Norte y Mamuju. Tasa de deslizamiento dentro del rango sistémico 5–11 mm/yr. Ver también debate del sistema MST en canon_286.',
       data:[
         {lbl:'Slip rate',val:'5–11 mm/yr (Serhalawan 2024)'},
         {lbl:'Estado',val:'Recién identificado — sin datos de campo directos'},
@@ -507,7 +532,7 @@ const CANONICAL_DEBATES={
 
   'canon_288':{
     adopta:{
-      desc:'MST Mamuju — el segmento más sísmicamente activo del sistema MST. Max Mw 6.7 (1984). El sismo de Mamuju–Majene 2021 (Mw 6.2) confirmó la actividad reciente y fue altamente destructivo. Slip rate 5–11 mm/yr.',
+      desc:'MST Mamuju — el segmento más sísmicamente activo del sistema MST. Max Mw 6.7 (1984). El sismo de Mamuju–Majene 2021 (Mw 6.2) confirmó la actividad reciente y fue altamente destructivo. Tasa de deslizamiento 5–11 mm/yr.',
       data:[
         {lbl:'Slip rate',val:'5–11 mm/yr (Serhalawan 2024)'},
         {lbl:'Sismo mayor',val:'Mw 6.7 (1984) · Mw 6.2 (2021)'},
@@ -537,10 +562,10 @@ const CANONICAL_DEBATES={
 
   'canon_789':{
     adopta:{
-      desc:'Falla de Gorontalo — falla dextral NE-SW en el Golfo de Gorontalo, brazo norte de Sulawesi. Controla la subsidencia del Golfo de Gorontalo como cuenca pull-apart o de tipo half-graben. Presenta sismicidad moderada documentada en catálogos ISC/GCMT.',
+      desc:'Falla de Gorontalo — falla dextral NE-SW en el Golfo de Gorontalo, brazo norte de Sulawesi. Controla la subsidencia del Golfo de Gorontalo como cuenca pull-apart o de tipo medio-graben. Presenta sismicidad moderada documentada en catálogos ISC/GCMT.',
       data:[
         {lbl:'Cinemática',val:'Dextral NE-SW'},
-        {lbl:'Contexto',val:'Pull-apart / half-graben Golfo de Gorontalo'},
+        {lbl:'Contexto',val:'Pull-apart / medio-graben Golfo de Gorontalo'},
       ],
       refs:[
         {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'Gorontalo Fault: dextral NE-SW, controla la cuenca del Golfo de Gorontalo.'},
@@ -551,13 +576,13 @@ const CANONICAL_DEBATES={
 
   'canon_1010':{
     adopta:{
-      desc:'Tolo Thrust — cabalgamiento de vergencia sur en el Golfo de Tolo (Teluk Tolo), extremo oriental del brazo este. Asociado a la compresión N-S en la zona de colisión Banggai-Sula. Presenta soluciones focales de tipo reverse en el catálogo instrumental.',
+      desc:'Cabalgamiento Tolo — cabalgamiento de vergencia sur en el Golfo de Tolo (Teluk Tolo), extremo oriental del brazo este. Asociado a la compresión N-S en la zona de colisión Banggai-Sula. Presenta soluciones focales de tipo reverse en el catálogo instrumental.',
       data:[
-        {lbl:'Cinemática',val:'Thrust S-vergente'},
+        {lbl:'Cinemática',val:'Cabalgamiento S-vergente'},
         {lbl:'Contexto',val:'Frente compresivo este del brazo este'},
       ],
       refs:[
-        {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'Tolo Thrust: asociado a sismicidad thrust en el Golfo de Tolo. Compresión N-S en la zona de colisión este.'},
+        {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'Cabalgamiento Tolo: asociado a sismicidad de cabalgamiento en el Golfo de Tolo. Compresión N-S en la zona de colisión este.'},
       ]
     },
     debate:[]
@@ -565,20 +590,20 @@ const CANONICAL_DEBATES={
 
   'canon_1927':{
     adopta:{
-      desc:'East Walane Fault (EWF) — segmento este del Walane Fault System (WFS) en el brazo sur de Sulawesi. Cinemática compleja: thrust east-dipping en el segmento norte, con componente sinestral en el segmento sur. Es el segmento más sísmicamente activo del WFS, con mayor frecuencia de eventos que el WWF.',
+      desc:'East Walane Fault (EWF) — segmento este del Walane Fault System (WFS) en el brazo sur de Sulawesi. Cinemática compleja: cabalgamiento buzante al este en el segmento norte, con componente sinestral en el segmento sur. Es el segmento más sísmicamente activo del WFS, con mayor frecuencia de eventos que el WWF.',
       data:[
-        {lbl:'Cinemática N',val:'Thrust east-dipping'},
-        {lbl:'Cinemática S',val:'Sinistral (left-lateral)'},
+        {lbl:'Cinemática N',val:'Cabalgamiento buzante al este'},
+        {lbl:'Cinemática S',val:'Sinistral'},
         {lbl:'Slip rate sistema',val:'~0.5 mm/yr (Serhalawan 2024)'},
         {lbl:'Longitud',val:'~200 km'},
       ],
       refs:[
-        {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'EWF: thrust east-dipping al norte, left-lateral al sur. Más activo sísmicamente que el WWF. Slip rate ~0.5 mm/yr para el sistema WFS.'},
+        {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'EWF: cabalgamiento buzante al este al norte, sinistral al sur. Más activo sísmicamente que el WWF. Tasa de deslizamiento ~0.5 mm/yr para el sistema WFS.'},
       ]
     },
     debate:[
       {
-        desc:'La transición cinemática a lo largo de la traza (thrust N → sinestral S) no está completamente documentada con datos de campo. La conexión geométrica y cinemática entre EWF y WWF — y si constituyen un sistema conjugado o estructuras independientes — no está resuelta. Jaya (2014) propone que el EWF y WWF actúan en conjunto como límite tectónico del brazo sur.',
+        desc:'La transición cinemática a lo largo de la traza (cabalgamiento N → sinestral S) no está completamente documentada con datos de campo. La conexión geométrica y cinemática entre EWF y WWF — y si constituyen un sistema conjugado o estructuras independientes — no está resuelta. Jaya (2014) propone que el EWF y WWF actúan en conjunto como límite tectónico del brazo sur.',
         refs:[
           {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'EWF y WWF como componentes del Walane Fault System. Relación estructural entre ambos segmentos requiere mapeo de campo adicional.'},
         ]
@@ -589,21 +614,21 @@ const CANONICAL_DEBATES={
 
   'canon_1933':{
     adopta:{
-      desc:'Falla Balantak — falla dextral transtensional NE-SW en el extremo NE del brazo este (zona de Luwuk). Husein et al. (2014) la interpretan como estructuralmente distinta del Batui Thrust: controla la apertura transtensional del Valle de Siuna (Gulf of Poh) desde el Mioceno Tardío. El bloque de ofiolita Balantak actúa como elemento rígido que particiona la deformación: thrust al SW (Batui) y transtensión al NE (Balantak).',
+      desc:'Falla Balantak — falla dextral transtensional NE-SW en el extremo NE del brazo este (zona de Luwuk). Husein et al. (2014) la interpretan como estructuralmente distinta del Cabalgamiento Batui: controla la apertura transtensional del Valle de Siuna (Gulf of Poh) desde el Mioceno Tardío. El bloque de ofiolita Balantak actúa como elemento rígido que particiona la deformación: cabalgamiento al SW (Batui) y transtensión al NE (Balantak).',
       data:[
         {lbl:'Cinemática',val:'Dextral transtensional NE-SW'},
         {lbl:'Contexto',val:'Controls apertura Valle Siuna / Gulf of Poh'},
         {lbl:'Inicio',val:'Mioceno Tardío'},
       ],
       refs:[
-        {ref:'Husein et al. (2014)',title:'Geological structures and tectonic reconstruction of Luwuk, East Sulawesi',journal:'Proc. IPA, 38th Conv. IPA 14-G-137',find:'Balantak Fault dextral transtensional; controla apertura Gulf of Poh (Valle de Siuna) desde Mioceno Tardío. La ofiolita Balantak actúa como bloque rígido — particiona la deformación entre thrust (SW) y transtensión (NE).'},
+        {ref:'Husein et al. (2014)',title:'Geological structures and tectonic reconstruction of Luwuk, East Sulawesi',journal:'Proc. IPA, 38th Conv. IPA 14-G-137',find:'Balantak Fault dextral transtensional; controla apertura Gulf of Poh (Valle de Siuna) desde Mioceno Tardío. La ofiolita Balantak actúa como bloque rígido — particiona la deformación entre cabalgamiento (SW) y transtensión (NE).'},
       ]
     },
     debate:[
       {
-        desc:'Simandjuntak (1986) la cartografía como right-lateral simple sin componente transtensional; Husein (2014) revisa esta interpretación y documenta la transtensión a partir de gabros cizallados en Pagimana. La extensión y conectividad de la falla fuera del área de mapeo de Husein (hacia el NE, offshore) no está documentada.',
+        desc:'Simandjuntak (1986) la cartografía como dextral simple sin componente transtensional; Husein (2014) revisa esta interpretación y documenta la transtensión a partir de gabros cizallados en Pagimana. La extensión y conectividad de la falla fuera del área de mapeo de Husein (hacia el NE, costa afuera) no está documentada.',
         refs:[
-          {ref:'Husein et al. (2014)',title:'Geological structures and tectonic reconstruction of Luwuk, East Sulawesi',journal:'Proc. IPA, 38th Conv. IPA 14-G-137',find:'Revisión de Simandjuntak 1986: análisis cinemático de gabro cizallado en Pagimana confirma transtensión dextral, no right-lateral simple.'},
+          {ref:'Husein et al. (2014)',title:'Geological structures and tectonic reconstruction of Luwuk, East Sulawesi',journal:'Proc. IPA, 38th Conv. IPA 14-G-137',find:'Revisión de Simandjuntak 1986: análisis cinemático de gabro cizallado en Pagimana confirma transtensión dextral, no dextral simple.'},
         ]
       },
     ]
@@ -611,22 +636,28 @@ const CANONICAL_DEBATES={
 
   'canon_1928':{
     adopta:{
-      desc:'Buton Thrust — cabalgamiento de vergencia norte en el extremo sur del brazo SE, asociado a la colisión del microcontinente Buton-Tukang Besi con el brazo sureste. Baja sismicidad instrumental: pocos eventos thrust cerca del extremo sur, sin soluciones GCMT disponibles. Serhalawan & Chen (2024) lo clasifican como activo de bajo nivel.',
+      desc:'Cabalgamiento Buton — cabalgamiento de vergencia norte en el extremo sur del brazo SE, asociado a la colisión del microcontinente Buton-Tukang Besi con el brazo sureste. Baja sismicidad instrumental: pocos eventos de cabalgamiento cerca del extremo sur, sin soluciones GCMT disponibles. Serhalawan & Chen (2024) lo clasifican como activo de bajo nivel.',
       data:[
-        {lbl:'Cinemática',val:'Thrust N-vergente'},
+        {lbl:'Cinemática',val:'Cabalgamiento N-vergente'},
         {lbl:'Contexto',val:'Frente de colisión Buton-Tukang Besi'},
         {lbl:'Sismicidad',val:'Baja — sin soluciones GCMT'},
       ],
       refs:[
-        {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'Buton Thrust: low seismicity, pocos eventos thrust cerca del extremo sur. Activo de bajo nivel.'},
-        {ref:'Satyana & Purwaningsih (2011)',title:'Tectonic evolution of Sulawesi — IPA paper',journal:'Proc. IPA, 35th Conv. IPA11-G-219',find:'Buton-Tukang Besi: microcontinente de afinidad australiana, colisión con el brazo SE. Buton Thrust como frente de colisión activo.'},
+        {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'Cabalgamiento Buton: baja sismicidad, pocos eventos de cabalgamiento cerca del extremo sur. Activo de bajo nivel.'},
+        {ref:'Satyana & Purwaningsih (2011)',title:'Tectonic evolution of Sulawesi — IPA paper',journal:'Proc. IPA, 35th Conv. IPA11-G-219',find:'Buton-Tukang Besi: microcontinente de afinidad australiana, colisión con el brazo SE. Cabalgamiento Buton como frente de colisión activo.'},
       ]
     },
     debate:[
       {
-        desc:'La cronología exacta del inicio de la actividad del Buton Thrust no está bien constrenida — estimaciones van desde el Mioceno Tardío hasta el Plioceno-Cuaternario. Sin datos paleosísmicos directos, es difícil discriminar si es "activo con largo período de recurrencia" o si la actividad principal ya cesó.',
+        desc:'La cronología exacta del inicio de la actividad del Cabalgamiento Buton no está bien constrenida — estimaciones van desde el Mioceno Tardío hasta el Plioceno-Cuaternario. Sin datos paleosísmicos directos, es difícil discriminar si es "activo con largo período de recurrencia" o si la actividad principal ya cesó.',
         refs:[
-          {ref:'Satyana & Purwaningsih (2011)',title:'Tectonic evolution of Sulawesi — IPA paper',journal:'Proc. IPA, 35th Conv. IPA11-G-219',find:'Colisión Buton-Tukang Besi: inicio ~Mioceno-Plioceno. Cronología del thrust frontal requiere dataciones de campo adicionales.'},
+          {ref:'Satyana & Purwaningsih (2011)',title:'Tectonic evolution of Sulawesi — IPA paper',journal:'Proc. IPA, 35th Conv. IPA11-G-219',find:'Colisión Buton-Tukang Besi: inicio ~Mioceno-Plioceno. Cronología del cabalgamiento frontal requiere dataciones de campo adicionales.'},
+        ]
+      },
+      {
+        desc:'Configuración misma de la colisión en debate: Davidson (1991) propone que Tukang Besi colisionó con Buton (secciones esquemáticas Eoceno-Oligoceno → Mioceno → Plioceno/Pleistoceno, con faja plegada y corrida activo en el frente). Satyana & Purwaningsih (2011, paper IAGI) reinterpretan que Tukang Besi NO colisionó con Buton — cuestionando la premisa misma del modelo de Davidson, no solo su cronología.',
+        refs:[
+          {ref:'Satyana, A. H., & Purwaningsih, M. E. M. (2011)',title:'Sulawesi collision tectonics: evolution and overview',journal:'Proc. JCM Makassar 2011, 36th HAGI / 40th IAGI Annual Convention',find:'Fig. 15: secciones esquemáticas de la colisión Buton-Tukang Besi con SE Sulawesi (Davidson, 1991). Satyana & Purwaningsih (2011) reinterpretan que Tukang Besi no colisionó con Buton.'},
         ]
       },
     ]
@@ -634,21 +665,21 @@ const CANONICAL_DEBATES={
 
   'canon_100':{
     adopta:{
-      desc:'Falla Lawanopo — falla sinestral ENE-WSW en el brazo SE de Sulawesi. Conecta con la Hamilton Fault al este (continuación offshore). Slip rate geodésico no constrained (Socquet et al. 2006 clasifican la falla como acoplada pero con escasa cobertura GPS); estudios geomorfológicos sugieren actividad sinestral activa a tasas probablemente subrayadas por la geodesia disponible.',
+      desc:'Falla Lawanopo — falla sinestral ENE-WSW en el brazo SE de Sulawesi. Conecta con la Falla Hamilton al este (continuación costa afuera). Tasa de deslizamiento geodésico no constrained (Socquet et al. 2006 clasifican la falla como acoplada pero con escasa cobertura GPS); estudios geomorfológicos sugieren actividad sinestral activa a tasas probablemente subrayadas por la geodesia disponible.',
       data:[
-        {lbl:'Cinemática',val:'Sinistral (left-lateral) ENE-WSW'},
+        {lbl:'Cinemática',val:'Sinistral ENE-WSW'},
         {lbl:'Slip rate',val:'No constrained (Socquet et al. 2006 — cobertura GPS escasa)'},
-        {lbl:'Continuación E',val:'Hamilton Fault (offshore)'},
+        {lbl:'Continuación E',val:'Falla Hamilton (costa afuera)'},
         {lbl:'Longitud',val:'~250 km'},
       ],
       refs:[
-        {ref:'Watkinson & Hall (2017)',title:'Fault systems of the eastern Indonesian triple junction',journal:'Geol. Soc. Lond. Spec. Publ., 441. doi:10.1144/SP441.8',find:'Lawanopo Fault: sinestral ENE-WSW en el SE Arm. Conecta con Hamilton Fault al este (offshore). Parte del sistema de fallas de la triple junction E Indonesia.'},
-        {ref:'Socquet et al. (2006)',title:'Microblock rotations and fault coupling in SE Asia triple junction (Sulawesi, Indonesia)',journal:'JGR: Solid Earth, 111, B08409. doi:10.1029/2005JB003963',find:'Lawanopo Fault: clasificada como acoplada interseísmicamente; slip rate pobremente constrained por escasez de estaciones GPS en el brazo SE. La falla se conecta al oeste con la Palu-Koro.'},
+        {ref:'Watkinson & Hall (2017)',title:'Fault systems of the eastern Indonesian triple junction',journal:'Geol. Soc. Lond. Spec. Publ., 441. doi:10.1144/SP441.8',find:'Lawanopo Fault: sinestral ENE-WSW en el SE Arm. Conecta con Falla Hamilton al este (costa afuera). Parte del sistema de fallas de la triple junction E Indonesia.'},
+        {ref:'Socquet et al. (2006)',title:'Microblock rotations and fault coupling in SE Asia triple junction (Sulawesi, Indonesia)',journal:'JGR: Solid Earth, 111, B08409. doi:10.1029/2005JB003963',find:'Lawanopo Fault: clasificada como acoplada interseísmicamente; tasa de deslizamiento pobremente constrained por escasez de estaciones GPS en el brazo SE. La falla se conecta al oeste con la Palu-Koro.'},
       ]
     },
     debate:[
       {
-        desc:'El slip rate de la Lawanopo está pobremente constrained (Socquet et al. 2006 documentan cobertura GPS insuficiente para el brazo SE). Tres hipótesis: (a) deslizamiento mayormente asísmico, (b) el período de observación GPS (pocos años) no captura ciclos largos, (c) la falla está realmente inactiva y la deformación se transfiere a otras estructuras. Baillie & Decker (2022) y Watkinson & Hall (2017) la mantienen como activa basándose en geomorfología, pero la geodesia no confirma slip rápido.',
+        desc:'El tasa de deslizamiento de la Lawanopo está pobremente constrained (Socquet et al. 2006 documentan cobertura GPS insuficiente para el brazo SE). Tres hipótesis: (a) deslizamiento mayormente asísmico, (b) el período de observación GPS (pocos años) no captura ciclos largos, (c) la falla está realmente inactiva y la deformación se transfiere a otras estructuras. Baillie & Decker (2022) y Watkinson & Hall (2017) la mantienen como activa basándose en geomorfología, pero la geodesia no confirma slip rápido.',
         refs:[
           {ref:'Socquet et al. (2006)',title:'Microblock rotations and fault coupling in SE Asia triple junction (Sulawesi, Indonesia)',journal:'JGR: Solid Earth, 111, B08409. doi:10.1029/2005JB003963',find:'Lawanopo Fault pobremente constrained geodésicamente; el modelo bloque-falla de Socquet et al. (2006) cubre el brazo SE pero con menor densidad de sitios GPS que el brazo O. La falla figura como acoplada pero con incertidumbre alta.'},
         ]
@@ -658,21 +689,21 @@ const CANONICAL_DEBATES={
 
   'canon_116':{
     adopta:{
-      desc:'Falla Kolaka — falla de rumbo dextral en el brazo SE de Sulawesi. La cinemática es dominantemente dextral, con componente normal en el segmento central y extremo sur que genera un step-over transtensional. El bloque downthrown está al sur. Sismo Mw 6.1 (2011) documentado en la unión con Hamilton Fault.',
+      desc:'Falla Kolaka — falla de rumbo dextral en el brazo SE de Sulawesi. La cinemática es dominantemente dextral, con componente normal en el segmento central y extremo sur que genera un salto lateral transtensional. El bloque downthrown está al sur. Sismo Mw 6.1 (2011) documentado en la unión con Falla Hamilton.',
       data:[
         {lbl:'Cinemática',val:'Dextral con componente normal (centro-S)'},
-        {lbl:'Contexto',val:'Pull-apart / step-over transtensional'},
-        {lbl:'Sismo mayor',val:'Mw 6.1 (2011) en unión con Hamilton Fault'},
+        {lbl:'Contexto',val:'Pull-apart / salto lateral transtensional'},
+        {lbl:'Sismo mayor',val:'Mw 6.1 (2011) en unión con Falla Hamilton'},
         {lbl:'Longitud',val:'~200 km'},
       ],
       refs:[
-        {ref:'Watkinson & Hall (2017)',title:'Fault systems of the eastern Indonesian triple junction',journal:'Geol. Soc. Lond. Spec. Publ., 441. doi:10.1144/SP441.8',find:'Kolaka: transcurrente dominante, componente normal en centro. Downthrown side al sur. Sismo Mw 6.1 (2011) en la unión con Hamilton Fault.'},
+        {ref:'Watkinson & Hall (2017)',title:'Fault systems of the eastern Indonesian triple junction',journal:'Geol. Soc. Lond. Spec. Publ., 441. doi:10.1144/SP441.8',find:'Kolaka: transcurrente dominante, componente normal en centro. Downthrown side al sur. Sismo Mw 6.1 (2011) en la unión con Falla Hamilton.'},
         {ref:'Serhalawan & Chen (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'Kolaka Fault: dextral con componente normal. Mecansimos focales confirman slip mixto en el segmento central.'},
       ]
     },
     debate:[
       {
-        desc:'La componente normal en el segmento central puede reflejar (a) un step-over genuino que genera una cuenca pull-apart, o (b) variación en la orientación de la falla respecto al campo de esfuerzos regional. Baillie & Decker (2022) la clasifican principalmente como dextral sin enfatizar la componente normal; Watkinson & Hall (2017) documentan la extensión central basándose en morfología y mecanismos focales.',
+        desc:'La componente normal en el segmento central puede reflejar (a) un salto lateral genuino que genera una cuenca pull-apart, o (b) variación en la orientación de la falla respecto al campo de esfuerzos regional. Baillie & Decker (2022) la clasifican principalmente como dextral sin enfatizar la componente normal; Watkinson & Hall (2017) documentan la extensión central basándose en morfología y mecanismos focales.',
         refs:[
           {ref:'Baillie, P. W., & Decker, J. (2022)',title:'Tectonic evolution of Sulawesi, Indonesia',journal:'Berita Sedimentologi, 48(1). doi:10.51835/bsed.2022.48.1.388',find:'Kolaka Fault: dextral principal. La extensión del segmento central interpretada como pull-apart por Watkinson & Hall, pero morfología consistente con dextral dominante.'},
         ]
@@ -687,7 +718,7 @@ const CANONICAL_DEBATES={
         {lbl:'Longitud (N-S)',val:'~150 km'},
         {lbl:'Golfo de Palu',val:'sector submarino, ~450 m de profundidad'},
         {lbl:'Relleno',val:'Cuaternario: aluvial, lacustre, prodelta'},
-        {lbl:'Mecanismo',val:'Releasing bend de la PKF (sinestral)'},
+        {lbl:'Mecanismo',val:'Curva liberadora de la PKF (sinestral)'},
       ],
       refs:[
         {ref:'Socquet et al. (2006)',title:'Microblock rotations and fault coupling in SE Asia triple junction',journal:'JGR: Solid Earth, 111(B8). doi:10.1029/2005JB003963',find:'PKF ~42 mm/año sinestral. Pull-apart transtensivo genera la cuenca de Palu. El releasing bend es responsable de la subsidencia del Valle de Palu.'},
@@ -701,6 +732,8 @@ const CANONICAL_DEBATES={
     adopta:{
       desc:'Ofiolita tectónicamente desmembrada con suite completa de litologías — peridotita residual de manto y cumulados máfico-ultramáficos en la base, gabro estratificado a isotrópico en el medio, doleritas en lámina y volcánicas basálticas de composición MORB en el tope. Intercalada con sedimentos pelágicos cretácicos/mesozoicos. Emplazada por obducción dirigida al noroeste durante la colisión del Sula Spur (promontorio del bloque Banggai-Sula, afinidad australiana) con el North Arm, en el Mioceno Temprano.',
       data:[
+        {lbl:'Perfil ofiolítico',val:'Sedimentos pelágicos → pillow lavas → diques → gabros → peridotita (manto)'},
+        {lbl:'Residuo mantélico',val:'Peridotita + cumulados ultramáficos — indica el grado de empobrecimiento del manto en la dorsal de origen'},
         {lbl:'Edad protolito',val:'~100 Ma'},
         {lbl:'Edad emplazamiento',val:'~28 Ma (Oligoceno medio-tardío)'},
         {lbl:'Extensión',val:'Una de las 3 ofiolitas más grandes del mundo — Sulawesi Central a Buton/Muna'},
@@ -708,7 +741,7 @@ const CANONICAL_DEBATES={
       ],
       refs:[
         {ref:'Baillie, P., & Decker, J. (2022)',title:'Enigmatic Sulawesi: The Tectonic Collage',journal:'Berita Sedimentologi, 48(1), 1–30. doi:10.51835/bsed.2022.48.1.388',find:'Suite ofiolítica completa, composición MORB. Edades metamórficas 28–32 Ma en rocas sobreyacidas sugieren emplazamiento Oligoceno medio-tardío. En el Mioceno Temprano, el ESO fue emplazado por obducción dirigida al noroeste durante la colisión del Sula Spur con el North Arm.'},
-        {ref:'Faturrakhman et al. (2024)',title:'ESO Asera — complejo ultramáfico Konawe Utara',journal:'(ver DB geophysical_point/structure asociados)',find:'Complejo ultramáfico cretácico del ESO en Asera, Konawe Utara — exposición sureste del cinturón.'},
+        {ref:'Faturrakhman et al. (2024)',title:'Tectonic Geomorphology of Ultramafic Complex in Asera, North Konawe Regency',journal:'Jurnal Geologi dan Sumberdaya Mineral, 25(3), 161-168. doi:10.33332/jgsm.geologi.v25i3.853',find:'Complejo ultramáfico cretácico del ESO en Asera, Konawe Utara — exposición sureste del cinturón.'},
       ]
     },
     debate:[
@@ -721,7 +754,7 @@ const CANONICAL_DEBATES={
 
   'canon_pmc':{
     adopta:{
-      desc:'Cinturón metamórfico de presión media (clorita a estaurolita) expuesto inmediatamente adyacente a la Falla Palu — footwall del mismo régimen transtensional que genera la Cuenca de Palu. Litologías dominantes: gneis y esquisto de biotita, con anfibolita, granulita, migmatita, peridotita, calcosilicatos y meta-granitoides subordinados, varias parcialmente fundidas a migmatitas. Edades de enfriamiento Early–Late Plioceno; granitos S-type intruidos de edad similar — ambos indican exhumación muy rápida. Por qué: la exhumación responde a extensión y adelgazamiento cortical localizado, con dos motores superpuestos — la transtensión de la propia PKF (igual mecanismo que abre la Cuenca de Palu en superficie) y el rollback del North Sulawesi Trench, que añade un componente extensional regional al sistema.',
+      desc:'Cinturón metamórfico de presión media (clorita a estaurolita) expuesto inmediatamente adyacente a la Falla Palu — footwall del mismo régimen transtensional que genera la Cuenca de Palu. Litologías dominantes: gneis y esquisto de biotita, con anfibolita, granulita, migmatita, peridotita, calcosilicatos y meta-granitoides subordinados, varias parcialmente fundidas a migmatitas. Edades de enfriamiento Early–Late Plioceno; granitos S-type intruidos de edad similar — ambos indican exhumación muy rápida. Por qué: la exhumación responde a extensión y adelgazamiento cortical localizado, con dos motores superpuestos — la transtensión de la propia PKF (igual mecanismo que abre la Cuenca de Palu en superficie) y el rollback del Fosa Norte de Sulawesi, que añade un componente extensional regional al sistema.',
       data:[
         {lbl:'Grado metamórfico',val:'Clorita–estaurolita (presión media)'},
         {lbl:'Edad enfriamiento',val:'Plioceno temprano–tardío'},
@@ -745,9 +778,9 @@ const CANONICAL_DEBATES={
 
   'canon_csmb':{
     adopta:{
-      desc:'Cinturón metamórfico de alta presión confinado a la parte central del brazo este, que incluye el Pompangeo Schist Complex y un complejo de mélange asociado. Resultado de la colisión entre fragmentos de origen Gondwana y el margen asiático activo en el Oligoceno tardío o Mioceno temprano — complejo de acreción formado durante el Cretácico y Paleógeno, sutura entre las partes occidental y oriental de Sulawesi. Los afloramientos forman masifs corrugados tipo core complex (Pompangeo Mountains y Tokorondo Mountains, ~2000 km², hasta 2.5 km de elevación) — footwalls desnudos de fallas de detachment extensional, visibles en SRTM. Por qué: el brazo norte se deforma por contrastes de energía potencial gravitatoria; el rollback hacia el norte de la losa del Mar de Célebes (subducción iniciada ~8 Ma) genera extensión de retroarco, con exhumación rápida de estos metamórficos sincrónica a la subsidencia rápida del Golfo de Gorontalo — proceso activo hoy, confirmado por GPS.',
+      desc:'Cinturón metamórfico de bajo grado (facies esquisto verde — mármol, filita, esquisto cuarzo-micáceo, meta-conglomerado) confinado a la parte central del brazo este, que incluye el Pompangeo Schist Complex y un complejo de mélange asociado. Resultado de la colisión entre fragmentos de origen Gondwana y el margen asiático activo en el Oligoceno tardío o Mioceno temprano — complejo de acreción formado durante el Cretácico y Paleógeno, sutura entre las partes occidental y oriental de Sulawesi. Los afloramientos forman masifs corrugados tipo core complex (Pompangeo Mountains y Tokorondo Mountains, ~2000 km², hasta 2.5 km de elevación) — footwalls desnudos de fallas de detachment extensional, visibles en SRTM. Por qué: el brazo norte se deforma por contrastes de energía potencial gravitatoria; el rollback hacia el norte de la losa del Mar de Célebes (subducción iniciada ~8 Ma) genera extensión de retroarco, con exhumación rápida de estos metamórficos sincrónica a la subsidencia rápida del Golfo de Gorontalo — proceso activo hoy, confirmado por GPS.',
       data:[
-        {lbl:'Grado metamórfico',val:'Alta presión (HP)'},
+        {lbl:'Grado metamórfico',val:'Esquisto verde (bajo grado)'},
         {lbl:'Edad emplazamiento',val:'~28 Ma'},
         {lbl:'Mecanismo',val:'Extensión Neógena (no colisión) — detachment extensional'},
         {lbl:'Litología',val:'Mármol, filita, esquisto cuarzo-micáceo, meta-conglomerado'},
@@ -766,7 +799,7 @@ const CANONICAL_DEBATES={
       data:[
         {lbl:'Grado metamórfico',val:'Anfibolita'},
         {lbl:'Edad metamorfismo',val:'23–11 Ma (Mioceno Temprano–Medio)'},
-        {lbl:'Mecanismo',val:'Core complex — extensión litosférica + 2ª fase de fallas frágiles'},
+        {lbl:'Mecanismo',val:'Metamorphic core complex — extensión litosférica + 2ª fase de fallas frágiles'},
         {lbl:'Afinidad',val:'Continental, probable derivación australiana'},
         {lbl:'Causa (por qué)',val:'Rollback losa Mar de Célebes (~8 Ma) → extensión de retroarco'},
       ],
@@ -776,24 +809,73 @@ const CANONICAL_DEBATES={
     }
   },
 
+  'canon_orogen_bsm':{
+    adopta:{
+      desc:'Orógeno colisional generado por la colisión del microcontinente Banggai-Sula (afinidad gondwánica/australiana) con el brazo este de Sulawesi en el Plioceno (~5–6 Ma). Es la colisión más reciente del ensamblaje de Sulawesi y la que cierra el brazo este. Otros autores lo definen como un microcontinente fragmentado del Sula Spur: en el Mioceno Medio, el rollback de la losa de Banda fragmentó el Sula Spur en varios microcontinentes y los forzó a colisionar con Sulawesi (rollback forzado; Chen & Serhalawan 2024). En la zona de colisión se desarrolla una faja plegada y corrida que deforma la plataforma carbonática en el borde de avance del terreno Banggai (formando trampas petroleras como el campo Tiaka); la Ofiolita de Sulawesi Este fue obducida sobre el microcontinente y sedimentos molásicos se depositaron tras la colisión. El frente activo de este orógeno es el Cabalgamiento Batui.',
+      data:[
+        {lbl:'Microcontinente',val:'Banggai-Sula (afinidad australiana/gondwánica), fragmentado del Sula Spur'},
+        {lbl:'Edad colisión',val:'Plioceno (~5–6 Ma)'},
+        {lbl:'Mecanismo',val:'Rollback forzado de la losa de Banda fragmenta el Sula Spur y fuerza la colisión'},
+        {lbl:'Frente activo',val:'Cabalgamiento Batui'},
+        {lbl:'Expresión',val:'Faja plegada y corrida + obducción ESO + molasa post-colisión'},
+      ],
+      imgs:[
+        {url:'data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig14_banggai_seismic.png',cap:'Satyana et al. (2011) Fig.14 — sección sísmica W-E en la Cuenca de Banggai: frente de colisión Banggai-Sula, fold-and-thrust belt deformando la plataforma carbonática (trampa tipo Tiaka), molasa post-colisión.'},
+        {url:'data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig16_banggai_sula.png',cap:'Satyana et al. (2011) Fig.16 — secciones esquemáticas de la colisión del microcontinente Banggai-Sula con Sulawesi Este (fases pre y post-colisión continental; Garrard et al. 1988).'},
+      ],
+      refs:[
+        {ref:'Satyana, A. H., & Purwaningsih, M. E. M. (2011)',title:'Sulawesi collision tectonics: evolution and overview',journal:'Proc. JCM Makassar 2011, 36th HAGI / 40th IAGI Annual Convention',find:'Colisión Banggai-Sula con Sulawesi Este. Faja plegada y corrida en la zona de colisión deforma la plataforma carbonática del borde de avance del terreno Banggai; molasa post-colisión sella las rocas madre maduras (Satyana, 2006). Secciones en Fig.14 y Fig.16.'},
+        {ref:'Husein et al. (2014)',title:'Geological structures and tectonic reconstruction of Luwuk, East Sulawesi',journal:'Proc. IPA, 38th Conv. IPA 14-G-137',find:'Frente de colisión Banggai-Sula en el área de Luwuk; Cabalgamiento Batui como frente activo. ESO obducido hacia el sur sobre Banggai-Sula en el Neógeno tardío.'},
+        {ref:'Chen & Serhalawan (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'En el Mioceno Medio el rollback de la losa de Banda fragmentó el Sula Spur en varios microcontinentes, llevando a la colisión de dos de ellos (Banggai-Sula y Buton-Tukang Besi) con el este de Sulawesi. El rollback inicia además la apertura de los mares de Banda Norte (~12.5–7 Ma) y Sur (~6.5–3.5 Ma).'},
+      ]
+    }
+  },
+
+  'canon_orogen_btb':{
+    adopta:{
+      desc:'Orógeno colisional generado por la interacción del microcontinente Buton-Tukang Besi (afinidad gondwánica/australiana) con el brazo sureste de Sulawesi. Como Banggai-Sula, otros autores lo definen como un microcontinente fragmentado del Sula Spur por el rollback de la losa de Banda en el Mioceno Medio, que lo forzó a colisionar con Sulawesi (rollback forzado; Chen & Serhalawan 2024). El frente compresivo es el Cabalgamiento Buton. La configuración exacta de esta colisión está en debate (ver abajo).',
+      data:[
+        {lbl:'Microcontinente',val:'Buton-Tukang Besi (afinidad australiana/gondwánica), fragmentado del Sula Spur'},
+        {lbl:'Mecanismo',val:'Rollback forzado de la losa de Banda fragmenta el Sula Spur y fuerza la colisión'},
+        {lbl:'Frente compresivo',val:'Cabalgamiento Buton'},
+        {lbl:'Edad',val:'Mioceno–Plioceno (mal constrenida)'},
+      ],
+      imgs:[
+        {url:'data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig15_buton_tukangbesi.png',cap:'Satyana et al. (2011) Fig.15 — secciones esquemáticas de la colisión Buton-Tukang Besi con SE Sulawesi (Eoceno-Oligoceno → Mioceno → Plioceno/Pleistoceno; Davidson 1991). Nota: Satyana & Purwaningsih (2011) reinterpretan que Tukang Besi NO colisionó con Buton.'},
+      ],
+      refs:[
+        {ref:'Satyana, A. H., & Purwaningsih, M. E. M. (2011)',title:'Sulawesi collision tectonics: evolution and overview',journal:'Proc. JCM Makassar 2011, 36th HAGI / 40th IAGI Annual Convention',find:'Colisión Buton-Tukang Besi con el brazo SE. Fig.15 muestra las secciones esquemáticas de Davidson (1991), reinterpretadas por los autores.'},
+        {ref:'Baillie, P., & Decker, J. (2022)',title:'Enigmatic Sulawesi: The Tectonic Collage',journal:'Berita Sedimentologi, 48(1), 1–30. doi:10.51835/bsed.2022.48.1.388',find:'Buton-Tukang Besi: microcontinente gondwánico en acreción al brazo SE; el Cabalgamiento Buton es el frente activo, con afinidad australiana documentada por fauna fósil y litologías carbonáticas de plataforma.'},
+        {ref:'Chen & Serhalawan (2024)',title:'Seismotectonics of Sulawesi, Indonesia',journal:'Tectonophysics, 883, 230366. doi:10.1016/j.tecto.2024.230366',find:'El rollback de la losa de Banda fragmentó el Sula Spur en microcontinentes (Mioceno Medio) y forzó la colisión de Buton-Tukang Besi con el SE de Sulawesi. El Cabalgamiento Buton presenta baja sismicidad; algunos eventos de cabalgamiento perpendiculares a la trinchera podrían deberse al propio rollback de la losa de Banda.'},
+      ]
+    },
+    debate:[
+      {
+        desc:'⚠ VERIFICAR. Configuración de la colisión en debate: Davidson (1991) propone que Tukang Besi colisionó con Buton (secuencia Eoceno-Oligoceno → Mioceno → Plioceno/Pleistoceno, con faja plegada y corrida activo en el frente). Satyana & Purwaningsih (2011) reinterpretan que Tukang Besi NO colisionó con Buton — cuestionando la premisa misma del modelo de Davidson, no solo su cronología.',
+        refs:[
+          {ref:'Satyana, A. H., & Purwaningsih, M. E. M. (2011)',title:'Sulawesi collision tectonics: evolution and overview',journal:'Proc. JCM Makassar 2011, 36th HAGI / 40th IAGI Annual Convention',find:'Fig.15: secciones esquemáticas de la colisión Buton-Tukang Besi con SE Sulawesi (Davidson, 1991). Satyana & Purwaningsih (2011) reinterpretan que Tukang Besi no colisionó con Buton.'},
+        ]
+      },
+    ]
+  },
 
   'canon_1919':{
     adopta:{
       desc:'La Placa del Mar de Filipinas subduce hacia el oeste bajo el Philippine Mobile Belt. La Fosa de Cotabato (sur de Mindanao, ~6.500 m) es la terminación meridional del sistema y el límite norte que condiciona la cinemática del extremo NE de Sulawesi. La oblicuidad de la convergencia genera la Philippine Fault Zone — falla transcurrente dextral de ~1.300 km que acomoda la componente paralela al arco (~25–35 mm/año). El bloque Manado (norte de Sulawesi) registra rotación horaria inducida por esta convergencia.',
       data:[
-        {lbl:'Polaridad',val:'W-dipping — Philippine Sea Plate subduce hacia el oeste'},
+        {lbl:'Polaridad',val:'Buzante al oeste — Placa del Mar de Filipinas subduce hacia el oeste'},
         {lbl:'Tasa convergencia',val:'~80 mm/año (Socquet et al. 2006)'},
-        {lbl:'Philippine Fault Zone',val:'Dextral, ~25–35 mm/año slip'},
+        {lbl:'Zona de Falla de Filipinas',val:'Dextral, ~25–35 mm/año de deslizamiento'},
         {lbl:'Profundidad máx. sismicidad',val:'~200 km (segmento Cotabato)'},
         {lbl:'Influencia en Sulawesi',val:'Rotación horaria bloque Manano; componente compresiva NE'},
       ],
       refs:[
-        {ref:'Socquet et al. (2006)',title:'Microblock rotations and fault coupling in SE Asia triple junction (Sulawesi, Indonesia)',journal:'JGR: Solid Earth, 111(B8). doi:10.1029/2005JB003963',find:'Placa Filipinas: convergencia ~80 mm/año oblicua hacia el W. Philippine Fault Zone acomoda componente trench-parallel. Bloque Manado (norte Sulawesi) rota en sentido horario por efecto de la convergencia oblicua.'},
+        {ref:'Socquet et al. (2006)',title:'Microblock rotations and fault coupling in SE Asia triple junction (Sulawesi, Indonesia)',journal:'JGR: Solid Earth, 111(B8). doi:10.1029/2005JB003963',find:'Placa Filipinas: convergencia ~80 mm/año oblicua hacia el W. Philippine Fault Zone acomoda componente paralelo a la trinchera. Bloque Manado (norte Sulawesi) rota en sentido horario por efecto de la convergencia oblicua.'},
         {ref:'GEM Foundation (2023)',title:'GEM Global Active Faults Database',journal:'github.com/GEMScienceTools/gem-global-active-faults',find:'Fosa de Cotabato y sistema de subducción de Filipinas — zonas de subducción activas cuaternarias. Traza canónica utilizada en este mapa.'},
       ]
     },
     debate:[
-      {desc:'Continuidad N-S del sistema: la Fosa de Cotabato (S Mindanao) y la Philippine Trench (E Filipinas) son frecuentemente tratadas como un sistema continuo, pero la geometría del slab y las tasas de convergencia difieren entre segmentos. El segmento Cotabato es menos estudiado que el Philippine Trench propiamente dicho.',refs:[
+      {desc:'Continuidad N-S del sistema: la Fosa de Cotabato (S Mindanao) y la Fosa de Filipinas (E Filipinas) son frecuentemente tratadas como un sistema continuo, pero la geometría de la losa y las tasas de convergencia difieren entre segmentos. El segmento Cotabato es menos estudiado que el Fosa de Filipinas propiamente dicho.',refs:[
         {ref:'Socquet et al. (2006)',title:'Microblock rotations and fault coupling in SE Asia triple junction',journal:'JGR: Solid Earth, 111(B8). doi:10.1029/2005JB003963',find:'Modelo GPS diferencia el bloque Mindanao del Philippine Mobile Belt; la cinemática del segmento Cotabato es difícil de separar del movimiento del bloque Mindanao.'},
       ]},
     ],
@@ -802,12 +884,12 @@ const CANONICAL_DEBATES={
     adopta:{
       desc:'La Placa Indo-Australiana subduce hacia el norte bajo el Arco de Banda (Arco interno) y el bloque Sunda. La losa Banda tiene una curvatura excepcional de ~180° (spoon-shape), está confinada al manto superior con una sección subhorizontal a profundidad intermedia, e incluye material oceánico y subcontinental delaminado. El rollback del arco desde el Mioceno Medio (~15 Ma) generó la extensión del Mar de Banda y la apertura de la cuenca trasarco.',
       data:[
-        {lbl:'Polaridad',val:'N-dipping — Indo-Australiana subduce hacia el norte'},
+        {lbl:'Polaridad',val:'Buzante al norte — Indo-Australiana subduce hacia el norte'},
         {lbl:'Tasa convergencia',val:'~6–7 cm/año (hacia el NNE)'},
         {lbl:'Curvatura del arco',val:'~180° (spoon-shape, única en el mundo)'},
-        {lbl:'Profundidad máx. slab',val:'~600+ km (Hall & Spakman 2015)'},
+        {lbl:'Profundidad máx. de la losa',val:'~600+ km (Hall & Spakman 2015)'},
         {lbl:'Inicio rollback',val:'~15 Ma (Mioceno Medio)'},
-        {lbl:'Inversión de polaridad',val:'Timor: N-dipping / Seram: S-dipping (Hua et al. 2023)'},
+        {lbl:'Inversión de polaridad',val:'Timor: buzante al norte / Seram: buzante al sur (Hua et al. 2023)'},
       ],
       refs:[
         {ref:'Hall & Spakman (2015)',title:'Mantle structure and tectonic history of SE Asia',journal:'Tectonophysics, 658, 14–45. doi:10.1016/j.tecto.2015.07.003',find:'Losa Banda confinada al manto superior; sección plana a profundidad intermedia incluye litósfera subcontinental delaminada. Tear prominente bajo Buru y Seram Oeste. Rollback en Banda embayment jurásico desde el Mioceno Medio.'},
@@ -815,17 +897,32 @@ const CANONICAL_DEBATES={
       ]
     },
     debate:[
-      {desc:'Naturaleza del material subductado: la losa Banda incluye tanto litósfera oceánica como material continental delaminado de la margen australiana. Hall & Spakman (2015) identifican litósfera subcontinental en la sección subhorizontal a ~200–400 km; Hua et al. (2023) interpreta la inversión de polaridad Timor/Seram como dos ramas del mismo slab o como una discontinuidad mayor.',refs:[
-        {ref:'Hall & Spakman (2015)',title:'Mantle structure and tectonic history of SE Asia',journal:'Tectonophysics, 658, 14–45. doi:10.1016/j.tecto.2015.07.003',find:'Sección plana a ~200–400 km: posible litósfera subcontinental australiana delaminada. El rollback en cuña embayment genera geometría de slab anómala respecto a otros arcos.'},
-        {ref:'Hua et al. (2023)',title:'P and S wave anisotropic tomography of the Banda subduction zone',journal:'Geophysical Research Letters, 50, e2023GL105611. doi:10.1029/2023GL105611',find:'Dos ramas de la losa en contacto en la MTZ: ambigüedad sobre si representan un slab continuo con inversión de buzamiento o dos estructuras separadas.'},
+      {desc:'Naturaleza del material subductado: la losa Banda incluye tanto litósfera oceánica como material continental delaminado de la margen australiana. Hall & Spakman (2015) identifican litósfera subcontinental en la sección subhorizontal a ~200–400 km; Hua et al. (2023) interpreta la inversión de polaridad Timor/Seram como dos ramas de la misma losa o como una discontinuidad mayor.',refs:[
+        {ref:'Hall & Spakman (2015)',title:'Mantle structure and tectonic history of SE Asia',journal:'Tectonophysics, 658, 14–45. doi:10.1016/j.tecto.2015.07.003',find:'Sección plana a ~200–400 km: posible litósfera subcontinental australiana delaminada. El rollback en cuña embayment genera geometría de losa anómala respecto a otros arcos.'},
+        {ref:'Hua et al. (2023)',title:'P and S wave anisotropic tomography of the Banda subduction zone',journal:'Geophysical Research Letters, 50, e2023GL105611. doi:10.1029/2023GL105611',find:'Dos ramas de la losa en contacto en la MTZ: ambigüedad sobre si representan una losa continua con inversión de buzamiento o dos estructuras separadas.'},
       ]},
-      {desc:'Estado actual de la subducción: hay debate sobre si la subducción activa de litósfera oceánica ha cesado (slab remnant) o continúa con material subcontinental australiano colisionando activamente. El frente de colisión Timor-Tanimbar documenta el avance de la margen australiana al arco.',refs:[
+      {desc:'Estado actual de la subducción: hay debate sobre si la subducción activa de litósfera oceánica ha cesado (remanente de losa) o continúa con material subcontinental australiano colisionando activamente. El frente de colisión Timor-Tanimbar documenta el avance de la margen australiana al arco.',refs:[
         {ref:'Hall & Spakman (2015)',title:'Mantle structure and tectonic history of SE Asia',journal:'Tectonophysics, 658, 14–45. doi:10.1016/j.tecto.2015.07.003',find:'Rollback Banda embayment: proceso activo o en transición a colisión. Análisis cinemático sugiere desaceleración del rollback por aproximación de litósfera continental australiana.'},
       ]},
     ],
   },
 
 };
+
+function openImgZoom(url, cap){
+  let ov=document.getElementById('img-zoom-ov');
+  if(!ov){
+    ov=document.createElement('div');
+    ov.id='img-zoom-ov';
+    ov.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:1200;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:zoom-out;padding:24px';
+    ov.onclick=()=>{ov.style.display='none';};
+    ov.innerHTML='<img id="img-zoom-img" style="max-width:96vw;max-height:88vh;object-fit:contain;border:1px solid var(--border);border-radius:4px"><div id="img-zoom-cap" style="color:var(--text);font-family:monospace;font-size:.6rem;margin-top:10px;max-width:80vw;text-align:center;line-height:1.5"></div>';
+    document.body.appendChild(ov);
+  }
+  document.getElementById('img-zoom-img').src=url;
+  document.getElementById('img-zoom-cap').textContent=cap||'';
+  ov.style.display='flex';
+}
 
 async function openCanonicalPanel(featId, fallbackFn){
   const canonId=FEAT_TO_CANONICAL[featId]||featId;
@@ -851,7 +948,7 @@ async function openCanonicalPanel(featId, fallbackFn){
     document.getElementById('pti').textContent=nameEs;
 
     const debate=CANONICAL_DEBATES[canonId];
-    let html=`${nameEs!==nameEn?`<div style="font-size:.55rem;color:var(--dim);margin:-4px 0 8px;font-style:italic">${nameEn}</div>`:''}
+    let html=`${''}
     <div class="ptags">
       <span class="ptag" style="color:#c89040;border-color:#c8904040;background:#c8904012">${sources.length} fuente${sources.length!==1?'s':''}</span>
       <span class="ptag" style="color:${hasGeom?'#22c55e':'#ef4444'};border-color:${hasGeom?'#22c55e40':'#ef444440'};background:${hasGeom?'#22c55e12':'#ef444412'}">${hasGeom?'✓ Geometría canónica':'✗ Sin geometría canónica'}</span>
@@ -869,6 +966,16 @@ async function openCanonicalPanel(featId, fallbackFn){
             <div style="font-size:.59rem;color:var(--text);font-weight:bold">${d.val}</div>`;
         });
         html+=`</div>`;
+      }
+
+      if(debate.adopta.imgs?.length){
+        html+=`<div class="psec">Secciones estructurales</div>`;
+        debate.adopta.imgs.forEach(im=>{
+          html+=`<figure style="margin:4px 0 10px">
+            <img src="${im.url}" alt="${(im.cap||'').replace(/"/g,'&quot;')}" style="width:100%;border:1px solid var(--border);border-radius:4px;cursor:zoom-in;display:block" onclick="openImgZoom('${im.url}','${(im.cap||'').replace(/'/g,'\\u0027').replace(/"/g,'&quot;')}')">
+            ${im.cap?`<figcaption style="font-size:.55rem;color:var(--dim);line-height:1.5;margin-top:3px">${im.cap}</figcaption>`:''}
+          </figure>`;
+        });
       }
 
       if(debate.adopta.refs?.length){
@@ -1043,6 +1150,8 @@ const layerObjs={
   palu_basin:{getVisible(){return _paluBasinVis;},setVisible(v){_paluBasinVis=v;mergedGeomLayer.changed();}},
   ofiolitas:{getVisible(){return _ofiolitasVis;},setVisible(v){_ofiolitasVis=v;mergedGeomLayer.changed();}},
   core_complexes:{getVisible(){return _coreComplexVis;},setVisible(v){_coreComplexVis=v;mergedGeomLayer.changed();}},
+  frentes_colision:{getVisible(){return _frentesColisionVis;},setVisible(v){_frentesColisionVis=v;mergedGeomLayer.changed();}},
+  orogenos_colisionales:{getVisible(){return _orogenosColisVis;},setVisible(v){_orogenosColisVis=v;mergedGeomLayer.changed();}},
   // Verificación S1
   ref_baillie:refBaillieLayer, ref_socquet:refSocquetLayer, ref_walpersdorf:refWalpersdorfLayer,
   ref_satyana_ipa:refSatyanaIpaLayer, ref_satyana_iagi:refSatyanaIagiLayer, ref_surono:refSuronoLayer,
@@ -1160,7 +1269,7 @@ const REF_LAYERS_DATA = {
   ref_socquet:      {url:'data/sections/socquet_2006_gps_kinematics/socquet_2006_fig1_tectonic.png',       ext:[...D.ref_socquet],      label:'Socquet 2006'},
   ref_walpersdorf:  {url:'data/sections/walpersdorf_1998_n_sulawesi_gps/walpersdorf_1998_n_sulawesi_gps_fig1_map.png', ext:[...D.ref_walpersdorf], label:'Walpersdorf 1998'},
   ref_satyana_ipa:  {url:'data/sections/satyana_2011_ipa_collision/satyana_2011_ipa_collision_fig1_map.png', ext:[...D.ref_satyana_ipa], label:'Satyana 2011 IPA'},
-  ref_satyana_iagi: {url:'data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig2_map.png', ext:[...D.ref_satyana_iagi], label:'Satyana 2011 IAGI'},
+  ref_satyana_iagi: {url:'data/sections/satyana_2011_iagi_evolution/satyana_2011_iagi_evolution_fig2_structural_map.png', ext:[...D.ref_satyana_iagi], label:'Satyana 2011 IAGI Fig.2 (mapa estructural)'},
   ref_surono:       {url:'data/sections/surono_2012_tectonoestratigrafia/surono_2012_tectonoestratigrafia_fig1_map.png', ext:[...D.ref_surono], label:'Surono 2012'},
   ref_serhalawan:   {url:'data/sections/serhalawan_chen_2024/serhalawan_2024_fig1b_sulawesi.png',           ext:[...D.ref_serhalawan],   label:'Serhalawan 2024'},
   ref_cipta:        {url:'data/sections/cipta_2016_sulawesi_psha/cipta_2016_sulawesi_psha_fig1_map.png',    ext:[...D.ref_cipta],        label:'Cipta 2016'},
