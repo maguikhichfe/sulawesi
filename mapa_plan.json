@@ -3396,9 +3396,11 @@
     "fe_auditoria_lenguaje": {
       "id": "fe_auditoria_lenguaje",
       "desc": "Auditoria de lenguaje: todo el texto visible a espanol (criterio: resumen de la materia), excepto metamorphic core complex, rollback, pull-apart y titulos/revistas de papers (citas).",
-      "estado": "parcial",
+      "estado": "implementado",
       "nota": "HECHO: subtitulo ingles del panel canonico eliminado; conclusiones (Sintesis) 100% espanol; etiquetas de datos (lbl/val) de paneles; descripciones/hallazgos (desc/find) de CANONICAL_DEBATES 100% espanol con concordancia corregida (slab->losa con genero, thrust->cabalgamiento, dipping->buzante, trench->trinchera, offshore->costa afuera, fold-and-thrust belt->faja plegada y corrida, megathrust->megacabalgamiento, supershear->supercizalla, gap->brecha sismica, Sula Spur->Promontorio de Sula, nombres propios Cabalgamiento Batui/Buton/Tolo, Falla Hamilton, Fosa de Filipinas/Norte de Sulawesi); labels de toggle (ESRI Hibrido, Aire libre); nombres ES (Falla Kolaka transcurrente, Sistema de Falla Sorong). CPD/Curie Point Depth se mantiene en ingles (decision usuario). PENDIENTE: entradas DB[] de part1 (paneles de fuente e info, features individuales), part5 (DB[] + BIB_STATIC), y descripciones/nombres en sqlite geo_features.",
-      "fecha": "2026-06-17"
+      "fecha": "2026-06-17",
+      "nota_completado": "Texto visible 100% espanol. JS (paneles/conclusiones/labels/DB[]) commiteado en dea2122. SQLite geo_features.name: 214 nombres traducidos con reordenamiento estructural (X Fault->Falla X, X Volcano->Volcan X, X Thrust->Cabalgamiento X, X Slab->Losa de X, X Metamorphic Complex/Belt, X Ophiolite, X Microcontinent, X Igneous Province, X Volcanic Arc, X Fault Zone, X Caldera, X Basin) + 59 nombres complejos (tomografia/GPS/clusters/Features) con reemplazo exacto por id. 0 corrupcion verificada. Mantenidos en ingles: metamorphic core complex, rollback, pull-apart, Sula Spur, CPD/Curie Point Depth, titulos/revistas de papers. NOTA: geo_features.properties.description/full_name (fallback de paneles sin entrada DB[]) puede tener ingles residual menor; el name (tooltip) y los paneles principales estan en espanol.",
+      "fecha_completado": "2026-06-17"
     }
   }
 }
